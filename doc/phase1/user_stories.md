@@ -17,7 +17,7 @@
 	* Difficulty : Med
  * As Jack, I want to be able to store all my food related information and always be able to access it (user profile).
 	* Priority : Low
-	* Difficulty : High
+	* Difficulty : Med
  * As Jenna, I want to be able to see ratings of dishes I never tried before at my favourite restaurants, so I can try new menu items and not be disappointed.
 	* Priority : High
 	* Difficulty : Low
