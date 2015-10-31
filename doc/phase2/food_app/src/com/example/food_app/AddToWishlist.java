@@ -30,6 +30,7 @@ public class AddToWishlist extends Activity {
 			@Override
 			public void onClick (View v) {
 				//Code here to add dish and rest to the user's wish list
+				finish();
 			}
 		});
 	}
