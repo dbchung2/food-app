@@ -16,11 +16,11 @@
         <activity
             android:name="com.example.food_app.AddReview"
             android:label="@string/title_activity_add_review" >
-            
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.example.food_app.LoginScreen"
@@ -42,7 +42,18 @@
             android:name="com.example.food_app.UserProfile"
             android:label="@string/title_activity_user_profile" >
         </activity>
+        <activity
+            android:name="com.example.food_app.CommentsAdapter"
+            android:label="@string/title_activity_comments_adapter" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.TestScreen"
+            android:label="@string/title_activity_test_screen" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.CommentAdapter"
+            android:label="@string/title_activity_comment_adapter" >
+        </activity>
     </application>
-
 
 </manifest>

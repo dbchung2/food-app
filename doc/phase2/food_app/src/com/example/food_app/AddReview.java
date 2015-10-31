@@ -13,6 +13,7 @@ public class AddReview extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding_review);
+		System.out.println("Hello world");
 	}
 
 	@Override
@@ -34,7 +35,7 @@ public class AddReview extends Activity {
 		EditText description = (EditText) findViewById(R.id.description);
 		
 		//check for valid data types (ie. price is in 0.00 format and rating is a number 1-5) 
-		//insert to SQL table here
+		//insert to SQL table here - will implement 
 		
 		//switch screens - create a field where if data is not valid returns to this screen <-when backbone is done
 		//for now automatically go to main menu screen

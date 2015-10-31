@@ -18,5 +18,6 @@ public class UserProfile extends Activity {
 		getMenuInflater().inflate(R.menu.user_profile, menu);
 		return true;
 	}
+	
 
 }
