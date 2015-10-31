@@ -54,6 +54,14 @@
             android:name="com.example.food_app.CommentAdapter"
             android:label="@string/title_activity_comment_adapter" >
         </activity>
+        <activity
+            android:name="com.example.food_app.AddToWishlist"
+            android:label="@string/title_activity_add_to_wishlist"
+            android:parentActivityName="com.example.food_app.Wishlist" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.food_app.Wishlist" />
+        </activity>
     </application>
 
 </manifest>

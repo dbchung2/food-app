@@ -23,5 +23,11 @@
     <string name="title_activity_comments_adapter">CommentsAdapter</string>
     <string name="title_activity_test_screen">TestScreen</string>
     <string name="title_activity_comment_adapter">CommentAdapter</string>
+    <string name="title_activity_add_to_wishlist">AddToWishlist</string>
+    <string name="enter_rest_name">Enter restaurant name</string>
+    <string name="enter_dish_name">Enter dish name</string>
+    <string name="addToWishlist">Add to wishlist</string>
+    <string name="Search">Search</string>
+    <string name="enterItemToSearch">Enter item to search</string>
 
 </resources>
