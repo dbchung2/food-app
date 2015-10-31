@@ -24,34 +24,35 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001b;
-        public static final int addToWishlist=0x7f080017;
-        public static final int add_food=0x7f08000c;
-        public static final int ateit=0x7f080011;
+        public static final int action_settings=0x7f08001c;
+        public static final int addToWishlist=0x7f080018;
+        public static final int add_food=0x7f08000d;
+        public static final int ateit=0x7f080012;
+        public static final int button1=0x7f08000c;
         public static final int category=0x7f080004;
-        public static final int comments=0x7f080012;
+        public static final int comments=0x7f080013;
         public static final int description=0x7f080005;
         public static final int dishname=0x7f080002;
-        public static final int editText1=0x7f08001a;
-        public static final int food_name_rev=0x7f08000e;
-        public static final int linearLayout1=0x7f080014;
-        public static final int linearLayout2=0x7f080015;
-        public static final int linearLayout3=0x7f080016;
-        public static final int listView1=0x7f080018;
-        public static final int login=0x7f08000d;
+        public static final int editText1=0x7f08001b;
+        public static final int food_name_rev=0x7f08000f;
+        public static final int linearLayout1=0x7f080015;
+        public static final int linearLayout2=0x7f080016;
+        public static final int linearLayout3=0x7f080017;
+        public static final int listView1=0x7f080019;
+        public static final int login=0x7f08000e;
         public static final int nameOfDish=0x7f080009;
         public static final int price=0x7f080003;
         public static final int rating=0x7f080006;
-        public static final int rating_rev=0x7f080010;
+        public static final int rating_rev=0x7f080011;
         public static final int restaurantName=0x7f080008;
-        public static final int restaurant_name_rev=0x7f08000f;
+        public static final int restaurant_name_rev=0x7f080010;
         public static final int restname=0x7f080001;
         public static final int reviewscreen=0x7f080000;
         public static final int submitButt=0x7f080007;
         public static final int submitToWishlist=0x7f08000a;
         public static final int test=0x7f08000b;
-        public static final int testing=0x7f080013;
-        public static final int wishlistSearch=0x7f080019;
+        public static final int testing=0x7f080014;
+        public static final int wishlistSearch=0x7f08001a;
     }
     public static final class layout {
         public static final int activity_add_review=0x7f030000;

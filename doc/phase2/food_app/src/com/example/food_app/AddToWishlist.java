@@ -51,10 +51,6 @@ public class AddToWishlist extends Activity {
 		getMenuInflater().inflate(R.menu.add_to_wishlist, menu);
 		return true;
 	}
-
-	public void addToWishlist (View view) {
-	
-	}
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

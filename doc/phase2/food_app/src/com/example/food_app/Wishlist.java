@@ -25,7 +25,7 @@ public class Wishlist extends Activity {
 		//Method to search the Wish list
 	}
 	
-	public void addWishList(View view) {
+	public void addWishlist(View view) {
 		Intent intent = new Intent(this, AddToWishlist.class);
 		startActivity(intent);
 	}
