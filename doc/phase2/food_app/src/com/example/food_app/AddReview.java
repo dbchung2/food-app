@@ -1,19 +1,29 @@
 package com.example.food_app;
 
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.net.Uri;
+import android.widget.Button;
+import android.view.View.OnClickListener;
 
 public class AddReview extends Activity {
+    final Context context = this;
+	MySQLiteHelper db = new MySQLiteHelper(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding_review);
 		System.out.println("Hello world");
+		addListenerOnButton();
+		
 	}
 
 	@Override
@@ -22,6 +32,7 @@ public class AddReview extends Activity {
 		getMenuInflater().inflate(R.menu.add_review, menu);
 		return true;
 	}
+	
 	
 	public void add_dish(View view){
 		Intent intent = getIntent();
@@ -43,5 +54,30 @@ public class AddReview extends Activity {
 		startActivity(move);
 		finish();
 	}
+	public void addListenerOnButton() {
+		db.addUser("matt", "mattpass", "Matthew", "Mcwaters");
+		Button test;
+		test = (Button) findViewById(R.id.test);
+
+		test.setOnClickListener(new OnClickListener() {
+			
+			
+			
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+					
+				
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+						context);
+				alertDialogBuilder.setTitle(db.getUser("matt"));	
+				AlertDialog alertDialog = alertDialogBuilder.create();
+				alertDialog.show();
+			}
+
+		});
+
+	}
+	
 
 }

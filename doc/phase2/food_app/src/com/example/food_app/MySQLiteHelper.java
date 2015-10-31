@@ -43,7 +43,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "PRIMARY KEY(username, did)";
 
 
-       // create tables
+       
        db.execSQL(CREATE_USER_TABLE);
        db.execSQL(CREATE_RESTO_TABLE);
        db.execSQL(CREATE_REVIEW_TABLE);
@@ -67,35 +67,36 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        values.put("password", pwd); 
        values.put("firstname", first); 
        values.put("lastname", last); 
-
+       
        database.insert("user", // table
                null, //nullColumnHack
                values);
        database.close();
+	   
    }
 
    public String getUser(String username){
-	   String[] pwordColumn = {"password"};
-	   
+	   String[] pwordColumn = {"username", "password", "firstname", "lastname"};
+	  
 	   // 1. get reference to readable DB
 	    SQLiteDatabase db = this.getReadableDatabase();
-	 
+	
 	    // 2. build query
 	    Cursor cursor = 
 	            db.query("user", // a. table
 	            pwordColumn, // b. column names
-	            " id = ?", // c. selections 
+	            " username = ?", // c. selections 
 	            new String[] { username }, // d. selections args
 	            null, // e. group by
 	            null, // f. having
 	            null, // g. order by
 	            null); // h. limit
-	 
+	    
 	    // 3. if we got results get the first one
 	    if (cursor != null)
 	        cursor.moveToFirst();
 
 	    // 5. return book
-	    return cursor.getString(0);
+	    return cursor.getString(1);
    }
 }
