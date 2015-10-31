@@ -2,6 +2,9 @@
 
 ## Initial Planning
 
+1. Our definition of "Scrum Master" was someone who evaluates how the team works when moving forward on the project. This involves actions like making sure everyone attends meetings, making sure meetings are known of in advance, and taking notes during meetings for reference later, among others. In what time we had in the sprint, we attempted to rotate the role so as to have everyone get used to how the role runs.
+2. We decided to estimate overall task size based on both the effort needed to complete a particular task as well as how broad the task would be in the scope of our project. For example, in our project doing something like creating a view in an android application would be a small task as it requires minimal effort and is only a small piece of the overall project. However, something like setting up a database is a relatively large task, requires quite a bit of effort to accomplish, and is a central element to the project. 
+
 ## Sprint Backlog
 
 ## Update Meetings
