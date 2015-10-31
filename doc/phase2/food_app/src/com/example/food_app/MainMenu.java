@@ -12,8 +12,6 @@ public class MainMenu extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
-		Intent intent = getIntent();
-		
 	}
 
 	@Override
@@ -22,5 +20,9 @@ public class MainMenu extends Activity {
 		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
-	
+
+	public void goToWishlist(View view) {
+		Intent intent = new Intent(this, Wishlist.class);
+		startActivity(intent);
+	}
 }
