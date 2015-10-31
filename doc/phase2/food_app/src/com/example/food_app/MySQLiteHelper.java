@@ -41,21 +41,33 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "desc TEXT," +
                "rating INTEGER CHECK(rating>0 AND rating<=5)," + 
                "PRIMARY KEY(username, did)";
+       String CREATE_WISHLIST_TABLE = "CREATE TABLE wishlist ( " +
+               "username INTEGER FOREIGN KEY REFERENCSE user(username), " + 
+    		   "did INTEGER FOREIGN KEY REFERENCSE dish(did)"+
+               "PRIMARY KEY(did, username)";
+       String CREATE_DISH_TABLE = "CREATE TABLE dish ( " +
+               "rid INTEGER FOREIGN KEY REFERENCSE restaurant(rid), " + 
+    		   "did INTEGER,"+
+               "dishName varchar(255)," +
+    		   "avgRating INTEGER CHECK(rating>0 AND rating<=5)"+
+               "image BLOB"+
+               "PRIMARY KEY(did, rid)";
+
 
 
        
        db.execSQL(CREATE_USER_TABLE);
        db.execSQL(CREATE_RESTO_TABLE);
        db.execSQL(CREATE_REVIEW_TABLE);
+       db.execSQL(CREATE_WISHLIST_TABLE);
+       db.execSQL(CREATE_DISH_TABLE);
+
 
    }
 
    @Override
    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-       // Drop older books table if existed
-       db.execSQL("DROP TABLE IF EXISTS books");
 
-       // create fresh books table
        this.onCreate(db);
    }
    public void addUser(String uname, String pwd,
@@ -99,4 +111,22 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	    // 5. return book
 	    return cursor.getString(1);
    }
+   
+   public void addRestaurant(String rid, String rname, String address, String postalCode){
+	   SQLiteDatabase database = this.getWritableDatabase();
+       
+       ContentValues values = new ContentValues();
+       values.put("rid", rid); 
+       values.put("rname", rname); 
+       values.put("address", address); 
+       values.put("postalCode", postalCode); 
+       
+       database.insert("restaurant", // table
+               null, //nullColumnHack
+               values);
+       database.close();
+   }
+
 }
+
+	
