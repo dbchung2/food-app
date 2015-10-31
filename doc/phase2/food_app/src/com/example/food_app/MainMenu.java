@@ -2,7 +2,9 @@ package com.example.food_app;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 
 public class MainMenu extends Activity {
 
@@ -19,5 +21,8 @@ public class MainMenu extends Activity {
 		return true;
 	}
 	
+	public void load(View view) {
+		Intent intent = getIntent();
+	}
 
 }

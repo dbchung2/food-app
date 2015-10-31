@@ -20,24 +20,10 @@
         android:layout_marginRight="21dp"
         android:text="@string/restuarant_name"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-    
-        <TextView
-        android:id="@+id/rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    <Button
-        android:id="@+id/submitButt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="81dp"
-        android:text="@string/submit" />
 
-    <TextView
+    <EditText
         android:id="@+id/description"
+        android:hint="@string/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/category"
@@ -46,18 +32,9 @@
         android:text="@string/description"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/description"
-        android:layout_below="@+id/price"
-        android:layout_marginTop="25dp"
-        android:text="@string/catergory"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
+    <EditText
         android:id="@+id/price"
+        android:hint="@string/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/dishname"
@@ -66,14 +43,48 @@
         android:text="@string/price"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
+    <EditText
         android:id="@+id/dishname"
+        android:hint="@string/dish_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/restname"
-        android:layout_below="@+id/rating"
-        android:layout_marginTop="38dp"
+        android:layout_below="@+id/restname"
+        android:layout_marginTop="15dp"
         android:text="@string/dish_name"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+   <EditText
+        android:id="@+id/category"
+        android:hint="@string/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/description"
+        android:layout_below="@+id/rating"
+        android:layout_marginTop="20dp"
+        android:text="@string/catergory"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/category"
+        android:layout_below="@+id/price"
+        android:ems="10"
+        android:hint="@string/rating"
+        android:textAppearance="?android:attr/textAppearanceLarge" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/submitButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/price"
+        android:layout_marginBottom="21dp"
+        android:text="@string/submit" />
     
 </RelativeLayout>
