@@ -16,6 +16,11 @@
         <activity
             android:name="com.example.food_app.AddReview"
             android:label="@string/title_activity_add_review" >
+            
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
             android:name="com.example.food_app.LoginScreen"
@@ -38,5 +43,6 @@
             android:label="@string/title_activity_user_profile" >
         </activity>
     </application>
+
 
 </manifest>
