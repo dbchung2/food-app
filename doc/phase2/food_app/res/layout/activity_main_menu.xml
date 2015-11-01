@@ -19,13 +19,14 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/Whishlists"
+            android:id="@+id/Wishlist"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/light_blue"
             android:layout_marginTop="128dp"
-            android:text="@string/Whishlists" />
+            android:text="@string/Wishlist" 
+            android:onClick="goToWishlist"/>
 
         <Button
             android:id="@+id/Restaurants"

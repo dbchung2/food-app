@@ -30,7 +30,7 @@ public class AddToWishlist extends Activity {
 			@Override
 			public void onClick (View v) {
 				//Add dish based on info given by user
-				db.addWishlist("matt",  dish.toString());
+				//db.addWishlist("matt",  dish.toString());
 				finish();
 				
 			}

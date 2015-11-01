@@ -11,14 +11,14 @@ import android.view.Menu;
 import android.view.View;
 
 public class Wishlist extends Activity {
-	MySQLiteHelper db = new MySQLiteHelper(this);
-    final Context context = this;
-    ArrayList<String> dishIdArray;
+	//MySQLiteHelper db = new MySQLiteHelper(this);
+    //final Context context = this;
+    //ArrayList<String> dishIdArray;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wishlist);
-		dishIdArray = db.getWishlist("matt");
+		//dishIdArray = db.getWishlist("matt");
 
 	}
 
@@ -33,7 +33,7 @@ public class Wishlist extends Activity {
 		//Method to search the Wish list
 	}
 	
-	public void addWishlist(View view) {
+	public void submitDish(View view) {
 		Intent intent = new Intent(this, AddToWishlist.class);
 		startActivity(intent);
 	}

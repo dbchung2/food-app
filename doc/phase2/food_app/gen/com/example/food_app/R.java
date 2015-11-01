@@ -31,7 +31,7 @@ public final class R {
     }
     public static final class id {
         public static final int Restaurants=0x7f090012;
-        public static final int Whishlists=0x7f090011;
+        public static final int Wishlist=0x7f090011;
         public static final int action_settings=0x7f090022;
         public static final int addToWishlist=0x7f09001e;
         public static final int add_food=0x7f090014;
@@ -94,7 +94,7 @@ public final class R {
         public static final int Food_app=0x7f05001f;
         public static final int Restaurants=0x7f050021;
         public static final int Search=0x7f05001d;
-        public static final int Whishlists=0x7f050020;
+        public static final int Wishlist=0x7f050020;
         public static final int action_settings=0x7f050002;
         public static final int add=0x7f050010;
         public static final int addToWishlist=0x7f05001c;

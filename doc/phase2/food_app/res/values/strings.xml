@@ -34,7 +34,7 @@
     <string name="enterItemToSearch">Enter item to search</string>
     <string name="Food_app">Food   app</string>
     <color name="light_gray">#808080</color>
-    <string name="Whishlists">Whishlists</string>
+    <string name="Wishlist">Wishlist</string>
     <string name="Restaurants">Restaurants</string>
     <string name="dishes">dishes</string>
     <color name="light_blue">#ADD8E6</color>
