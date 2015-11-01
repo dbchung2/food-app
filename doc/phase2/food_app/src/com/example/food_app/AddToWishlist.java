@@ -1,5 +1,6 @@
 package com.example.food_app;
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
 import android.os.Build;
+
+import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
 public class AddToWishlist extends Activity {
 	MySQLiteHelper db = new MySQLiteHelper(this);

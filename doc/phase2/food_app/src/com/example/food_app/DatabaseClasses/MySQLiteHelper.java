@@ -1,4 +1,4 @@
-package com.example.food_app;
+package com.example.food_app.DatabaseClasses;
 
 
  
@@ -99,7 +99,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	   
    }
 
-   public String getUser(String username){
+   public User getUser(String username){
 	   String[] columns = {"username", "password", "firstname", "lastname"};
 	  
 	   // 1. get reference to readable DB
@@ -121,7 +121,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	        cursor.moveToFirst();
 
 	    // 5. return book
-	    return cursor.getString(1);
+       User user = new User(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+	    return user;
    }
    
    public void addRestaurant(String rid, String rname, String address, String postalCode){
@@ -139,7 +140,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        database.close();
    }
    
-   public String getRestaurant(String rid){
+   public Restaurant getRestaurant(String rid){
 	   String[] columns = {"rid", "rname", "address", "postalCode"};
 	  
 	   // 1. get reference to readable DB
@@ -160,8 +161,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	    if (cursor != null)
 	        cursor.moveToFirst();
 
-	    // 5. return book
-	    return cursor.getString(1);
+       Restaurant restaurant = new Restaurant(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+       return restaurant;
    }
    
    public void addWishlist(String did, String username){
@@ -206,6 +207,78 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	    }
 	    return dishIDs;
    }
-}
 
-	
+    public void addDish(String rid, String did, String dishName, String avgRating){
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("rid", rid);
+        values.put("did", did);
+        values.put("dishName", dishName);
+        values.put("avgRating", avgRating);
+
+        database.insert("dish", // table
+            null, //nullColumnHack
+            values);
+        database.close();
+    }
+
+    public Dish getDish(String rid, String did) {
+        String[] columns = {"rid", "did", "dishName", "avgRating"};
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // 2. build query
+        Cursor cursor = db.query("dish", // a. table
+            columns, // b. column names
+            " rid = ? AND did = ?", // c. selections
+            new String[] {rid, did}, // d. selections args
+            null, // e. group by
+            null, // f. having
+            null, // g. order by
+            null); // h. limit
+
+        // 3. if we got results get the first one
+        if (cursor != null)
+            cursor.moveToFirst();
+        Dish dish = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+        return dish;
+    }
+
+    public void addReview(String username, String did, String desc, String rating){
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("username", username);
+        values.put("did", did);
+        values.put("desc", desc);
+        values.put("rating", rating);
+
+        database.insert("review", // table
+            null, //nullColumnHack
+            values);
+        database.close();
+    }
+    public Review getReview(String username, String did) {
+        String[] columns = {"username", "did", "desc", "rating"};
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // 2. build query
+        Cursor cursor = db.query("review", // a. table
+            columns, // b. column names
+            " username = ? AND did = ?", // c. selections
+            new String[] {username, did}, // d. selections args
+            null, // e. group by
+            null, // f. having
+            null, // g. order by
+            null); // h. limit
+
+        // 3. if we got results get the first one
+        if (cursor != null)
+            cursor.moveToFirst();
+        Review review = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+        return review;
+        }
+    }
+

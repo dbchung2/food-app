@@ -9,9 +9,10 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import android.net.Uri;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+
+import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
 public class AddReview extends Activity {
     final Context context = this;
@@ -70,7 +71,7 @@ public class AddReview extends Activity {
 				
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 						context);
-				alertDialogBuilder.setTitle(db.getUser("matt"));	
+				alertDialogBuilder.setTitle(db.getUser("matt").getPassword());
 				AlertDialog alertDialog = alertDialogBuilder.create();
 				alertDialog.show();
 			}
