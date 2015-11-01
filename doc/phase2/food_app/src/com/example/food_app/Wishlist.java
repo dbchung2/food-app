@@ -9,19 +9,32 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import com.example.food_app.DatabaseClasses.Dish;
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
 public class Wishlist extends Activity {
-	//MySQLiteHelper db = new MySQLiteHelper(this);
-    //final Context context = this;
-    //ArrayList<String> dishIdArray;
+		MySQLiteHelper db = new MySQLiteHelper(this);
+    final Context context = this;
+    ArrayList<String> dishIdArray;
+		ArrayList<Dish> dishArray = new ArrayList<Dish>();
+		ListView listView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wishlist);
-		//dishIdArray = db.getWishlist("matt");
+		if(db.getWishlist("matt") != null){
+				dishIdArray = db.getWishlist("matt");
+		}
 
+			listView = (ListView)findViewById(R.id.listView1);
+			//Insert Array here
+			if(dishIdArray!=null){
+					ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishIdArray);
+					listView.setAdapter(adapter);
+			}
 	}
 
 	@Override
