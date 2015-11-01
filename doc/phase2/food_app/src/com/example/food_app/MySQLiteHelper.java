@@ -56,7 +56,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     		   "did INTEGER,"+
                "dishName varchar(255)," +
     		   "avgRating INTEGER CHECK(rating>0 AND rating<=5),"+
-               "image BLOB,"+
+               //"image BLOB,"+
     		   "FOREIGN KEY(rid) REFERENCES restaurant(rid),"+
                "PRIMARY KEY(did, rid))";
 
@@ -82,6 +82,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
        this.onCreate(db);
    }
+   
    public void addUser(String uname, String pwd,
 		   String first, String last){
        SQLiteDatabase database = this.getWritableDatabase();
@@ -206,6 +207,48 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	    }
 	    return dishIDs;
    }
+   
+   public void addDish(String rid, String did, String dishName, String avgRating){
+	   SQLiteDatabase database = this.getWritableDatabase();
+       
+       ContentValues values = new ContentValues();
+       values.put("rid", rid); 
+       values.put("rname", did); 
+       values.put("dishName", dishName); 
+       values.put("avgRating", avgRating); 
+       
+       database.insert("dish", // table
+               null, //nullColumnHack
+               values);
+       database.close();
+   }
+   
+   public String getDish(String did){
+	   String[] columns = {"rid", "did", "dishName", "avgRating"};
+	  
+	   // 1. get reference to readable DB
+	    SQLiteDatabase db = this.getReadableDatabase();
+	
+	    // 2. build query
+	    Cursor cursor = 
+	            db.query("dish", // a. table
+	            columns, // b. column names
+	            " did = ?", // c. selections 
+	            new String[] { (did) }, // d. selections args
+	            null, // e. group by
+	            null, // f. having
+	            null, // g. order by
+	            null); // h. limit
+	    
+	    // 3. if we got results get the first one
+	    if (cursor != null)
+	        cursor.moveToFirst();
+
+	    // 5. return book
+	    return cursor.getString(1);
+   }
+   
+   
 }
 
 	
