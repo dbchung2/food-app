@@ -16,7 +16,12 @@ public class MainMenu extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
-		next_action();
+
+
+		String username = getIntent().getStringExtra("username");
+		//pass username to next views
+		
+		//next_action();
 	}
 
 	@Override
@@ -31,23 +36,23 @@ public class MainMenu extends Activity {
 		startActivity(intent);
 	}
 	
-	public void next_action() {
-		Button Whishlists;
-		Button Restaurants;
-		Button dishes;
+	public void goToReview(View view) {
+		Intent intent = new Intent(this, AddReview.class);
+		startActivity(intent);
+	
+	//public void next_action() {
+		//Button Restaurants;
+		//Button dishes;
 		
-		Whishlists = (Button) findViewById(R.id.Whishlists);
-		Restaurants = (Button) findViewById(R.id.Restaurants);
-		dishes = (Button) findViewById(R.id.dishes);
+		//Restaurants = (Button) findViewById(R.id.Restaurants);
+		//dishes = (Button) findViewById(R.id.dishes);
 
-		Whishlists.setOnClickListener(new OnClickListener() {
-			
 		
-			@SuppressLint("NewApi")
-			@Override
-			public void onClick(View arg0) {
-				setContentView(R.layout.activity_wishlist);
-			}					
-		});
+			//@SuppressLint("NewApi")
+			//@Override
+			//public void onClick(View arg0) {
+			//	setContentView(R.layout.activity_wishlist);
+			//}					
+		//});
 	}
 }

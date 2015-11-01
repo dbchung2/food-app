@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
@@ -12,14 +13,14 @@ import android.view.View;
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
 public class Wishlist extends Activity {
-	MySQLiteHelper db = new MySQLiteHelper(this);
-    final Context context = this;
-    ArrayList<String> dishIdArray;
+	//MySQLiteHelper db = new MySQLiteHelper(this);
+    //final Context context = this;
+    //ArrayList<String> dishIdArray;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wishlist);
-		dishIdArray = db.getWishlist("matt");
+		//dishIdArray = db.getWishlist("matt");
 
 	}
 
@@ -33,8 +34,8 @@ public class Wishlist extends Activity {
 	public void searchWishlist(View view) {
 		//Method to search the Wish list
 	}
-
-	public void add(View v) {
+	
+	public void submitDish(View view) {
 		Intent intent = new Intent(this, AddToWishlist.class);
 		startActivity(intent);
 	}
