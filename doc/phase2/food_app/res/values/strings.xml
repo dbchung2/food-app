@@ -20,6 +20,9 @@
     <string name="add">+</string>
     <string name="login">Login</string>
     <string name="ate">Ate It!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
     <string name="title_activity_comments_adapter">CommentsAdapter</string>
     <string name="title_activity_test_screen">TestScreen</string>
     <string name="title_activity_comment_adapter">CommentAdapter</string>
