@@ -55,7 +55,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "rid INTEGER, " + 
     		   "did INTEGER,"+
                "dishName varchar(255)," +
-    		   "avgRating INTEGER CHECK(rating>0 AND rating<=5),"+
+    		   "avgRating INTEGER CHECK(avgRating>0 AND avgRating<=5),"+
                "image BLOB,"+
     		   "FOREIGN KEY(rid) REFERENCES restaurant(rid),"+
                "PRIMARY KEY(did, rid))";
