@@ -16,7 +16,6 @@
         <activity
             android:name="com.example.food_app.AddReview"
             android:label="@string/title_activity_add_review" >
-            
         </activity>
         <activity
             android:name="com.example.food_app.LoginScreen"
@@ -30,7 +29,6 @@
         <activity
             android:name="com.example.food_app.MainMenu"
             android:label="@string/title_activity_main_menu" >
-
         </activity>
         <activity
             android:name="com.example.food_app.Reviews"
@@ -63,6 +61,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.food_app.Wishlist" />
+        </activity>
+        <activity
+            android:name="com.example.food_app.Restaurant"
+            android:label="@string/title_activity_restaurant" >
         </activity>
     </application>
 

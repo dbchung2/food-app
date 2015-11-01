@@ -33,13 +33,18 @@
     <string name="Search">Search</string>
     <string name="enterItemToSearch">Enter item to search</string>
     <string name="Food_app">Food   app</string>
+
     <color name="light_gray">#808080</color>
+
     <string name="Wishlist">Wishlist</string>
     <string name="Restaurants">Restaurants</string>
     <string name="dishes">dishes</string>
+
     <color name="light_blue">#ADD8E6</color>
     <color name="harvest_gold">#EDE275</color>
     <color name="Green_yellow">#B1FB17</color>
+
     <string name="Add_Review">Add Review</string>
+    <string name="title_activity_restaurant">Restaurant</string>
 
 </resources>
