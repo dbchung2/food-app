@@ -6,11 +6,66 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Restaurant" >
+    
+    tools:context=".Restuarant" >
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/linearLayout_restaurant1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_restaurant2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="227dp"
+        android:layout_marginLeft="154dp"
+        android:layout_toRightOf="@+id/linearLayout_restaurant1"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_restaurant3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout_restaurant2"
+        android:layout_alignRight="@+id/linearLayout_restaurant2"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_toRightOf="@+id/linearLayout_restaurant1"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/listView_restuarant1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/wishlistSearch" >
+
+    </ListView>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/linearLayout_restaurant1"
+        android:ems="10"
+        android:hint="@string/enterRestuarantname" />
+
+    <Button
+        android:id="@+id/wishlistSearch"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/listView_restuarant1"
+        android:layout_alignTop="@+id/editText1"
+        android:onClick="searchWishlist"
+        android:text="@string/Search" />
 
 </RelativeLayout>
+
+

@@ -46,5 +46,6 @@
 
     <string name="Add_Review">Add Review</string>
     <string name="title_activity_restaurant">Restaurant</string>
+    <string name="enterRestuarantname">Enter Restuarant Name</string>
 
 </resources>
