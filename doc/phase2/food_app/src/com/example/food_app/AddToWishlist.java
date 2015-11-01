@@ -7,8 +7,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.os.Build;
 
 public class AddToWishlist extends Activity {
@@ -31,6 +33,9 @@ public class AddToWishlist extends Activity {
 			public void onClick (View v) {
 				//Add dish based on info given by user
 				//db.addWishlist("matt",  dish.toString());
+				Toast.makeText(getApplicationContext(),
+											"Item added to wishlist!",
+											Toast.LENGTH_SHORT).show();
 				finish();
 				
 			}

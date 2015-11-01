@@ -1,51 +1,28 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="11dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:background="@color/light_gray"
-        android:gravity="center"
-        android:text="@string/Food_app"
-        android:textAppearance="?android:attr/textAppearanceMedium"  />
-
-    <LinearLayout
-        android:id="@+id/buttons_container"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/Wishlist"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:background="@color/light_blue"
+        android:onClick="goToWishlist"
+        android:text="@string/Wishlist" />
 
-        <Button
-            android:id="@+id/Wishlist"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/light_blue"
-            android:layout_marginTop="128dp"
-            android:text="@string/Wishlist" 
-            android:onClick="goToWishlist"/>
-
-        <Button
-            android:id="@+id/Restaurants"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
-            android:layout_weight="1"
-            android:background="@color/harvest_gold"
-            android:text="@string/Restaurants" />
-
-        <Button
-            android:id="@+id/dishes"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
-            android:layout_weight="1"
-            android:background="@color/Green_yellow"
-            android:text="@string/dishes" />
-
-    </LinearLayout>
-
-</LinearLayout>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Wishlist"
+        android:layout_alignRight="@+id/Wishlist"
+        android:layout_below="@+id/Wishlist"
+        android:layout_marginTop="29dp"
+        android:text="@string/Add_Review" 
+        android:onClick="goToReview"/>
+     
+</RelativeLayout>

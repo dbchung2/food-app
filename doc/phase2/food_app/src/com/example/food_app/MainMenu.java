@@ -31,12 +31,16 @@ public class MainMenu extends Activity {
 		startActivity(intent);
 	}
 	
-	public void next_action() {
-		Button Restaurants;
-		Button dishes;
+	public void goToReview(View view) {
+		Intent intent = new Intent(this, AddReview.class);
+		startActivity(intent);
+	
+	//public void next_action() {
+		//Button Restaurants;
+		//Button dishes;
 		
-		Restaurants = (Button) findViewById(R.id.Restaurants);
-		dishes = (Button) findViewById(R.id.dishes);
+		//Restaurants = (Button) findViewById(R.id.Restaurants);
+		//dishes = (Button) findViewById(R.id.dishes);
 
 		
 			//@SuppressLint("NewApi")

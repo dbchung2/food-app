@@ -33,7 +33,6 @@ public class LoginScreen extends Activity {
 				 Intent move = new Intent(LoginScreen.this, MainMenu.class);
 				 move.putExtra("username", username);
 				 startActivity(move); 
-                 startActivity(move);
                  finish();
 			}					
 		});
