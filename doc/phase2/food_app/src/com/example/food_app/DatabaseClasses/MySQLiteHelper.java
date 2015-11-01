@@ -116,13 +116,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	            null, // g. order by
 	            null); // h. limit
 	    
-	    // 3. if we got results get the first one
-	    if (cursor != null)
-	        cursor.moveToFirst();
-
-	    // 5. return book
-       User user = new User(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
-	    return user;
+	    if ((cursor != null) && (cursor.getCount() > 0)) {
+	    	cursor.moveToFirst();
+	    	return new User(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+	    }
+	    return null;
    }
    
    public void addRestaurant(String rid, String rname, String address, String postalCode){

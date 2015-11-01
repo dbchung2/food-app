@@ -31,9 +31,16 @@ public class LoginScreen extends Activity {
 				 String username = e1.getText().toString();
 	        	 Intent login = new Intent(LoginScreen.this, LoginScreen.class);
 	        	 Intent main = new Intent(LoginScreen.this, MainMenu.class);
-	        	 String password = db.getUser(username).getPassword();
+	        	 String password="";
+	        	 if(db.getUser(username)!=null){
+		        	  password = db.getUser(username).getPassword();
+	        	 }
+	        	 else{
+	        		 startActivity(login);
+					 finish();
+	        	 }
 				 
-				 if (password != null && password.equals(e2.getText().toString())) {
+				 if (password.equals(e2.getText().toString())) {
 					 main.putExtra("username", username);
 					 startActivity(main);
 					 finish();
