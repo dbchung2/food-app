@@ -14,9 +14,12 @@ In doing this, our goal was to be able to split up the work for the sprint based
 
 ## Update Meetings
 
-### Meeting 1: October 28th 2015. BA3200. 5pm. All members present. 
+### Meeting 1 
+Date: October 28th 2015. Location: BA3200. Time: 5pm-6pm. Minutes Taken: 60. All members present: Daniel, Felicia, Jake, Josh, Matt, Simon.
 
-Discussed Minimum Features to add for MVP
+This meeting focused on getting the initial plan started by discussing the data types and structure needed to build the skeleton of the application. Features and structure types that were agreed upon included:
+
+Minimum Features to add for MVP
 - Dish reviewing
 - Viewing reviewed dishes
 - Keeping track of user stats
@@ -37,19 +40,38 @@ SQL
 - List of Tables
     - User (username, password)
     - Restaurant (name, location, RID)
-    - Review (Description, rating, UserID, DishID, Approval Rating
+    - Review (Description, rating, UserID, DishID, Approval Rating)
     - Wishlist (UserID, DishID)
     - Dish (RID, Dish name, DishID, avg rating)
 
-### Meeting 2: October 30, 2015. BA3185. 4pm. Most members present, minus two who unfortunately weren't properly notified due to communication errors. 
-- Met with TA to gather feedback on phase progress so far
-- Clarified certain expectations of the phase in order to gather how best to move forward
-- Provided insight on how to best organize aspects of the phase such as use of issues, backlog, etc. 
+Inital priorities were set so that the SQL database was given a higher priority than the frontend screens. 
 
-### Meeting 3: October 30, 2015. BA3175. 1PM. All members present. 
-- Met up together to collaborate on the project as a whole
-- Members assigned themselves tasks they wanted to take on for phase 2. 
+### Meeting 2
+Date: October 30, 2015. Location: BA3185. Time: 4pm-4:45pm. Minutes Taken: 45. Most members present, minus two who unfortunately weren't properly notified due to communication errors: Felicia, Jake, Josh, Simon.
+
+This meeting revolved around getting feedback for the phase by meeting with the TA. Allocated a slightly higher priority to the frontend of the application from TA feedback. Emphasis on a scrum method to build the app while organizing the project using issuses, backlogs, etc.
+
+### Meeting 3 
+Date: October 31, 2015. Location: BA3175. Time: 1PM-9PM. Minutes Taken: 480. All members present: Daniel, Felicia, Jake, Josh, Matt, Simon.
+
+Began the application development by assigning screens and structures to two different teams: the frontend and the backend (SQL database). The two teams worked simutaneously together, opting to combine the backend and the frontend closer to when both ends are complete. A higher priority was set to the front end than the backend. The team was split in half with three members each composing the two teams.
+
+Halfway through the meeting, there was a disparity between the amount of progress done with the frontend and the backend. The frontend was slightly ahead from the backend, therefore priority for the two ends were adjusted accordingly: frontend has a lower priority and backend now has a higher priority. Team members were also adjusted to reflect the priority change: frontend now has two members and backend has four members.
+
+###Meeting 4
+Date: November 1st, 2015. Location: BA3175. Time: 1PM-(currently - will update). All members present: Daniel, Felicia, Jake, Josh, Matt, Simon.
+
+Focus for this meeting centered around fixing bugs in both ends of the project and combining the ends together. Members are now split into two different teams: the frontend/backend combining team and the bug fixing team. A higher priority was set for the combining team, in order to create a complete application. 
 
 ## Burndown Chart
 
 ## Review and Retrospective
+1. Tasks that dealt with the frontend UI were omitted due to time constraints. Functionality of the app was more important than designing an appealing GUI for the user. The task of fully implementing the restaurant table was also forgoed (ie. filling in all of the attributes - all restaurant locations are set to null), since restaurant location was a side detail that implemented location services. The payoff for implementing location services at this stage was not worth it.
+
+Parts of the frontend that closely worked with the backend was split for functionality purposes. Screens, such as Add Review, had to be split into a purely UI interface and a SQL part. This was to ensure that data could be passed from the frontend to the backend without any issues and for testing purposes for the backend. The backend of the app had to be split so that more members were working on it, in order for funtionality and time requirements to be met. 
+
+2. The decisions to assign team members based on their strengths, allocate a specific time and place to work together, and create an skeleton of the application proved to be a well-thought out one. Members who were comfortable in their assigned tasks were able to create and implement the tasks with relative ease. The decision to meet in a specific time and place allowed for easy communication between team members and allowed for problems that arose while working to be quickly identified and solved. Designing the skeleton and choosing which features to implement allowed for a focused workflow. It was clear what needed to be implemented.
+
+Decisions that did not work out well included: not keeping in mind how the two ends of the app melded together, and choosing a relatively new data structure for the backbone of the app. A lot of time was wasted due to not knowing exactly how each part of the app was supposed to interact with each other. For example, the restaurant table had fields that didn't take direct input from the screen and had to be further explained. Choosing a relatively new data structure for the backbone of the app had a few small hiccups. Some members were comfortable with the syntax and SQL language, while other were not. A significant amount of time was spent determining how to implement the database by other teammates clarifyinig how the structure worked to looking at tutorials on the Web.
+
+Some ways to improve the project process would be to choose a data structure that more members are familiar with, and planning with a bit more detail. Choosing a familiar data structure would decrease the amount of time spent on figuring out how to implement the structure, and planning with more detail would eliminate confusion with how the project parts interact with each other. 
