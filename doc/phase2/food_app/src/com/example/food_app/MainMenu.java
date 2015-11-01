@@ -11,14 +11,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainMenu extends Activity {
-
+	String username;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
 
 
-		String username = getIntent().getStringExtra("username");
+		username = getIntent().getStringExtra("username");
 		//pass username to next views
 		
 		//next_action();
@@ -38,6 +39,7 @@ public class MainMenu extends Activity {
 	
 	public void goToReview(View view) {
 		Intent intent = new Intent(this, AddReview.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	
 	//public void next_action() {
