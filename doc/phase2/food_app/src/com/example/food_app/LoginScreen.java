@@ -1,7 +1,6 @@
 package com.example.food_app;
 
 import android.os.Bundle;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -11,13 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginScreen extends Activity {
+	MySQLiteHelper db = new MySQLiteHelper(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_screen);
-		super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_screen);
         
         Button login = (Button) findViewById(R.id.login);
         Button register = (Button) findViewById(R.id.register);
@@ -25,15 +23,51 @@ public class LoginScreen extends Activity {
         final EditText e2 = (EditText) findViewById(R.id.password);
         
         login.setOnClickListener(new OnClickListener() {
-			
-        	String username = e1.getText().toString();
-			@SuppressLint("NewApi")
+
 			@Override
 			public void onClick(View arg0) {
-				 Intent move = new Intent(LoginScreen.this, MainMenu.class);
-				 move.putExtra("username", username);
-				 startActivity(move); 
-                 finish();
+				 String username = e1.getText().toString();
+	        	 Intent login = new Intent(LoginScreen.this, LoginScreen.class);
+	        	 Intent main = new Intent(LoginScreen.this, MainMenu.class);
+	        	 String password = db.getUser(username);
+				 
+				 if (password != null && password.equals(e2.getText().toString())) {
+					 startActivity(main);
+					 main.putExtra("username", username);
+					 finish();
+					 
+				 } else {
+					 startActivity(login);
+					 finish();
+				 }
+			}					
+		});
+        
+        register.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				 
+		         String username = e1.getText().toString();
+		         Intent login = new Intent(LoginScreen.this, LoginScreen.class);
+		         Intent main = new Intent(LoginScreen.this, MainMenu.class);
+		         String password = e2.getText().toString();
+		         
+				 
+				 if (username == null || password == null) {
+					 startActivity(login);
+					 finish();
+					 
+				 } else if (db.getUser(username) != null) {
+					 startActivity(login);
+					 finish();
+				 } else {
+					 db.addUser(username, password, "FirstName", "LastName");
+					 startActivity(main);
+					 main.putExtra("username", username);
+					 finish();
+				 }
+                 
 			}					
 		});
 	}

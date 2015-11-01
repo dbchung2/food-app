@@ -67,7 +67,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        db.execSQL(CREATE_RESTO_TABLE);
        db.execSQL(CREATE_REVIEW_TABLE);
        db.execSQL(CREATE_WISHLIST_TABLE);
-       db.execSQL(CREATE_DISH_TABLE);
+       //db.execSQL(CREATE_DISH_TABLE);
 
 
    }
@@ -118,11 +118,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	            null); // h. limit
 	    
 	    // 3. if we got results get the first one
-	    if (cursor != null)
-	        cursor.moveToFirst();
-
-	    // 5. return book
-	    return cursor.getString(1);
+	    if ((cursor != null) && (cursor.getCount() > 0)) {
+	    	cursor.moveToFirst();
+	    	return cursor.getString(1);
+	    }
+	    return null;
+	    
    }
    
    public void addRestaurant(String rid, String rname, String address, String postalCode){
