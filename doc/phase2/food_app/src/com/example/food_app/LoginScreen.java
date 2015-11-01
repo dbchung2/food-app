@@ -9,6 +9,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.food_app.DatabaseClasses.MySQLiteHelper;
+
 public class LoginScreen extends Activity {
 	MySQLiteHelper db = new MySQLiteHelper(this);
 
@@ -29,7 +31,7 @@ public class LoginScreen extends Activity {
 				 String username = e1.getText().toString();
 	        	 Intent login = new Intent(LoginScreen.this, LoginScreen.class);
 	        	 Intent main = new Intent(LoginScreen.this, MainMenu.class);
-	        	 String password = db.getUser(username);
+	        	 String password = db.getUser(username).getPassword();
 				 
 				 if (password != null && password.equals(e2.getText().toString())) {
 					 main.putExtra("username", username);
@@ -44,32 +46,31 @@ public class LoginScreen extends Activity {
 		});
         
         register.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				 
-		         String username = e1.getText().toString();
-		         Intent login = new Intent(LoginScreen.this, LoginScreen.class);
-		         Intent main = new Intent(LoginScreen.this, MainMenu.class);
-		         String password = e2.getText().toString();
-		         
-				 
-				 if (username == null || password == null) {
-					 startActivity(login);
-					 finish();
-					 
-				 } else if (db.getUser(username) != null) {
-					 startActivity(login);
-					 finish();
-				 } else {
-					 db.addUser(username, password, "FirstName", "LastName");
-					 startActivity(main);
-					 main.putExtra("username", username);
-					 finish();
-				 }
-                 
-			}					
-		});
+
+						@Override public void onClick(View arg0) {
+
+								String username = e1.getText().toString();
+								Intent login = new Intent(LoginScreen.this, LoginScreen.class);
+								Intent main = new Intent(LoginScreen.this, MainMenu.class);
+								String password = e2.getText().toString();
+
+
+								if (username == null || password == null) {
+										startActivity(login);
+										finish();
+
+								} else if (db.getUser(username) != null) {
+										startActivity(login);
+										finish();
+								} else {
+										db.addUser(username, password, "FirstName", "LastName");
+										startActivity(main);
+										main.putExtra("username", username);
+										finish();
+								}
+
+						}
+				});
 	}
 
 	@Override
