@@ -31,7 +31,7 @@ public class Restaurant extends Activity {
 		return true;
 	}
 
-	public void searchRestaurant(View view) {
+	public void searchRestuarant(View view) {
 		//Method to search the restaurant list
 	}
 }

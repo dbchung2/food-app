@@ -31,7 +31,7 @@ public final class R {
     }
     public static final class id {
         public static final int Wishlist=0x7f090010;
-        public static final int action_settings=0x7f090024;
+        public static final int action_settings=0x7f090025;
         public static final int addToWishlist=0x7f090022;
         public static final int add_food=0x7f090019;
         public static final int ateit=0x7f09001d;
@@ -60,13 +60,14 @@ public final class R {
         public static final int restaurantName=0x7f090008;
         public static final int restaurant_name_rev=0x7f09001b;
         public static final int restname=0x7f090001;
+        public static final int restuarantlistSearch=0x7f090017;
         public static final int reviewscreen=0x7f090000;
         public static final int submitButt=0x7f090007;
         public static final int submitToWishlist=0x7f09000a;
         public static final int test=0x7f09000b;
         public static final int testing=0x7f09001f;
         public static final int username=0x7f09000c;
-        public static final int wishlistSearch=0x7f090017;
+        public static final int wishlistSearch=0x7f090024;
     }
     public static final class layout {
         public static final int activity_add_review=0x7f030000;
