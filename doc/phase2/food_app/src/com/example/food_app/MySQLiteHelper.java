@@ -88,7 +88,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
    }
 
    public String getUser(String username){
-	   String[] pwordColumn = {"username", "password", "firstname", "lastname"};
+	   String[] columns = {"username", "password", "firstname", "lastname"};
 	  
 	   // 1. get reference to readable DB
 	    SQLiteDatabase db = this.getReadableDatabase();
@@ -96,7 +96,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	    // 2. build query
 	    Cursor cursor = 
 	            db.query("user", // a. table
-	            pwordColumn, // b. column names
+	            columns, // b. column names
 	            " username = ?", // c. selections 
 	            new String[] { username }, // d. selections args
 	            null, // e. group by
@@ -126,7 +126,68 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                values);
        database.close();
    }
+   
+   public String getRestaurant(String rid){
+	   String[] columns = {"rid", "rname", "address", "postalCode"};
+	  
+	   // 1. get reference to readable DB
+	    SQLiteDatabase db = this.getReadableDatabase();
+	
+	    // 2. build query
+	    Cursor cursor = 
+	            db.query("restaurant", // a. table
+	            columns, // b. column names
+	            " rid = ?", // c. selections 
+	            new String[] { (rid) }, // d. selections args
+	            null, // e. group by
+	            null, // f. having
+	            null, // g. order by
+	            null); // h. limit
+	    
+	    // 3. if we got results get the first one
+	    if (cursor != null)
+	        cursor.moveToFirst();
 
+	    // 5. return book
+	    return cursor.getString(1);
+   }
+   
+   public void addWishlist(String did, String username){
+ SQLiteDatabase database = this.getWritableDatabase();
+       
+       ContentValues values = new ContentValues();
+       values.put("username", username); 
+       values.put("did", did); 
+
+       database.insert("wishlist", // table
+               null, //nullColumnHack
+               values);
+       database.close();   
+   }
+   public String getWishlist(String username){
+	   String[] columns = {"username", "did"};
+		  
+	   // 1. get reference to readable DB
+	    SQLiteDatabase db = this.getReadableDatabase();
+	
+	    // 2. build query
+	    Cursor cursor = 
+	            db.query("wishlist", // a. table
+	            columns, // b. column names
+	            " username = ?", // c. selections 
+	            new String[] { (username) }, // d. selections args
+	            null, // e. group by
+	            null, // f. having
+	            null, // g. order by
+	            null); // h. limit
+	    
+	    // 3. if we got results get the first one
+	    if (cursor != null)
+	        cursor.moveToFirst();
+
+	    // 5. return book
+	    return cursor.getString(1);
+   }
 }
 
 	
