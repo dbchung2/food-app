@@ -32,8 +32,8 @@ public class LoginScreen extends Activity {
 	        	 String password = db.getUser(username);
 				 
 				 if (password != null && password.equals(e2.getText().toString())) {
-					 startActivity(main);
 					 main.putExtra("username", username);
+					 startActivity(main);
 					 finish();
 					 
 				 } else {
