@@ -30,38 +30,41 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int Restaurants=0x7f09000e;
-        public static final int Whishlists=0x7f09000d;
-        public static final int action_settings=0x7f09001f;
-        public static final int addToWishlist=0x7f09001b;
-        public static final int add_food=0x7f090010;
-        public static final int ateit=0x7f090015;
-        public static final int buttons_container=0x7f09000c;
+        public static final int Restaurants=0x7f090012;
+        public static final int Whishlists=0x7f090011;
+        public static final int action_settings=0x7f090022;
+        public static final int addToWishlist=0x7f09001e;
+        public static final int add_food=0x7f090014;
+        public static final int ateit=0x7f090018;
+        public static final int buttons_container=0x7f090010;
         public static final int category=0x7f090004;
-        public static final int comments=0x7f090016;
+        public static final int comments=0x7f090019;
         public static final int description=0x7f090005;
-        public static final int dishes=0x7f09000f;
+        public static final int dishes=0x7f090013;
         public static final int dishname=0x7f090002;
-        public static final int editText1=0x7f09001e;
-        public static final int food_name_rev=0x7f090012;
-        public static final int linearLayout1=0x7f090018;
-        public static final int linearLayout2=0x7f090019;
-        public static final int linearLayout3=0x7f09001a;
-        public static final int listView1=0x7f09001c;
-        public static final int login=0x7f090011;
+        public static final int editText1=0x7f090021;
+        public static final int food_name_rev=0x7f090015;
+        public static final int linearLayout1=0x7f09001b;
+        public static final int linearLayout2=0x7f09001c;
+        public static final int linearLayout3=0x7f09001d;
+        public static final int listView1=0x7f09001f;
+        public static final int login=0x7f09000d;
         public static final int nameOfDish=0x7f090009;
+        public static final int password=0x7f09000f;
         public static final int price=0x7f090003;
         public static final int rating=0x7f090006;
-        public static final int rating_rev=0x7f090014;
+        public static final int rating_rev=0x7f090017;
+        public static final int register=0x7f09000e;
         public static final int restaurantName=0x7f090008;
-        public static final int restaurant_name_rev=0x7f090013;
+        public static final int restaurant_name_rev=0x7f090016;
         public static final int restname=0x7f090001;
         public static final int reviewscreen=0x7f090000;
         public static final int submitButt=0x7f090007;
         public static final int submitToWishlist=0x7f09000a;
         public static final int test=0x7f09000b;
-        public static final int testing=0x7f090017;
-        public static final int wishlistSearch=0x7f09001d;
+        public static final int testing=0x7f09001a;
+        public static final int username=0x7f09000c;
+        public static final int wishlistSearch=0x7f090020;
     }
     public static final class layout {
         public static final int activity_add_review=0x7f030000;
@@ -88,38 +91,41 @@ public final class R {
         public static final int wishlist=0x7f080009;
     }
     public static final class string {
-        public static final int Food_app=0x7f05001c;
-        public static final int Restaurants=0x7f05001e;
-        public static final int Search=0x7f05001a;
-        public static final int Whishlists=0x7f05001d;
+        public static final int Food_app=0x7f05001f;
+        public static final int Restaurants=0x7f050021;
+        public static final int Search=0x7f05001d;
+        public static final int Whishlists=0x7f050020;
         public static final int action_settings=0x7f050002;
         public static final int add=0x7f050010;
-        public static final int addToWishlist=0x7f050019;
+        public static final int addToWishlist=0x7f05001c;
         public static final int app_name=0x7f050000;
         public static final int ate=0x7f050012;
         public static final int catergory=0x7f050008;
         public static final int description=0x7f050009;
         public static final int dish_name=0x7f050004;
-        public static final int dishes=0x7f05001f;
-        public static final int enterItemToSearch=0x7f05001b;
-        public static final int enter_dish_name=0x7f050018;
-        public static final int enter_rest_name=0x7f050017;
+        public static final int dishes=0x7f050022;
+        public static final int enterItemToSearch=0x7f05001e;
+        public static final int enter_dish_name=0x7f05001b;
+        public static final int enter_rest_name=0x7f05001a;
         public static final int hello_world=0x7f050003;
         public static final int login=0x7f050011;
+        public static final int password=0x7f050014;
         public static final int price=0x7f050006;
         public static final int rating=0x7f050007;
+        public static final int register=0x7f050015;
         public static final int restuarant_name=0x7f050005;
         public static final int submit=0x7f05000a;
         public static final int title_activity_add_review=0x7f050001;
-        public static final int title_activity_add_to_wishlist=0x7f050016;
-        public static final int title_activity_comment_adapter=0x7f050015;
-        public static final int title_activity_comments_adapter=0x7f050013;
+        public static final int title_activity_add_to_wishlist=0x7f050019;
+        public static final int title_activity_comment_adapter=0x7f050018;
+        public static final int title_activity_comments_adapter=0x7f050016;
         public static final int title_activity_login_screen=0x7f05000b;
         public static final int title_activity_main_menu=0x7f05000c;
         public static final int title_activity_reviews=0x7f05000d;
-        public static final int title_activity_test_screen=0x7f050014;
+        public static final int title_activity_test_screen=0x7f050017;
         public static final int title_activity_user_profile=0x7f05000f;
         public static final int title_activity_wishlist=0x7f05000e;
+        public static final int username=0x7f050013;
     }
     public static final class style {
         /** 
