@@ -2,6 +2,8 @@ package com.example.food_app;
 
 
  
+import java.util.ArrayList;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -36,22 +38,27 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "postalCode varchar(255))";
        
        String CREATE_REVIEW_TABLE = "CREATE TABLE review ( " +
-               "username INTEGER FOREIGN KEY REFERENCSE user(username), " + 
-    		   "did INTEGER FOREIGN KEY REFERENCSE dish(did)," +
+               "username INTEGER, " + 
+    		   "did INTEGER," +
                "desc TEXT," +
-               "rating INTEGER CHECK(rating>0 AND rating<=5)," + 
-               "PRIMARY KEY(username, did)";
+               "rating INTEGER CHECK(rating>0 AND rating<=5)," +
+               "FOREIGN KEY(username) REFERENCES user(username),"+
+               "FOREIGN KEY(did) REFERENCES user(did),"+
+               "PRIMARY KEY(username, did))";
        String CREATE_WISHLIST_TABLE = "CREATE TABLE wishlist ( " +
-               "username INTEGER FOREIGN KEY REFERENCSE user(username), " + 
-    		   "did INTEGER FOREIGN KEY REFERENCSE dish(did)"+
-               "PRIMARY KEY(did, username)";
+               "username INTEGER, " + 
+    		   "did INTEGER,"+
+               "FOREIGN KEY(username) REFERENCES user(username),"+
+               "FOREIGN KEY(did) REFERENCES user(did),"+
+               "PRIMARY KEY(did, username))";
        String CREATE_DISH_TABLE = "CREATE TABLE dish ( " +
-               "rid INTEGER FOREIGN KEY REFERENCSE restaurant(rid), " + 
+               "rid INTEGER, " + 
     		   "did INTEGER,"+
                "dishName varchar(255)," +
-    		   "avgRating INTEGER CHECK(rating>0 AND rating<=5)"+
-               "image BLOB"+
-               "PRIMARY KEY(did, rid)";
+    		   "avgRating INTEGER CHECK(rating>0 AND rating<=5),"+
+               "image BLOB,"+
+    		   "FOREIGN KEY(rid) REFERENCES restaurant(rid),"+
+               "PRIMARY KEY(did, rid))";
 
 
 
@@ -67,6 +74,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
    @Override
    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+       db.execSQL("DROP TABLE IF EXISTS user");
+       db.execSQL("DROP TABLE IF EXISTS restaurant");
+       db.execSQL("DROP TABLE IF EXISTS review");
+       db.execSQL("DROP TABLE IF EXISTS wishlist");
+       db.execSQL("DROP TABLE IF EXISTS dish");
 
        this.onCreate(db);
    }
@@ -164,9 +176,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                values);
        database.close();   
    }
-   public String getWishlist(String username){
+   
+   public ArrayList<String> getWishlist(String username){
 	   String[] columns = {"username", "did"};
-		  
+	   ArrayList<String> dishIDs = new ArrayList<String>();
 	   // 1. get reference to readable DB
 	    SQLiteDatabase db = this.getReadableDatabase();
 	
@@ -185,8 +198,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	    if (cursor != null)
 	        cursor.moveToFirst();
 
-	    // 5. return book
-	    return cursor.getString(1);
+	    while(cursor != null){
+	    	dishIDs.add(cursor.getString(1)); 
+	    	if(cursor.isLast()){
+	    		break;
+	    	}
+	    }
+	    return dishIDs;
    }
 }
 

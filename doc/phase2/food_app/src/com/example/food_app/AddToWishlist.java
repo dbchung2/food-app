@@ -12,7 +12,7 @@ import android.annotation.TargetApi;
 import android.os.Build;
 
 public class AddToWishlist extends Activity {
-	
+	MySQLiteHelper db = new MySQLiteHelper(this);
 	Button submit;
 	EditText dish, rest;
 
@@ -29,8 +29,10 @@ public class AddToWishlist extends Activity {
 		submit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick (View v) {
-				//Code here to add dish and rest to the user's wish list
+				//Add dish based on info given by user
+				db.addWishlist("matt",  dish.toString());
 				finish();
+				
 			}
 		});
 	}

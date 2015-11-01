@@ -1,17 +1,25 @@
 package com.example.food_app;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 
 public class Wishlist extends Activity {
-
+	MySQLiteHelper db = new MySQLiteHelper(this);
+    final Context context = this;
+    ArrayList<String> dishIdArray;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wishlist);
+		dishIdArray = db.getWishlist("matt");
+
 	}
 
 	@Override
