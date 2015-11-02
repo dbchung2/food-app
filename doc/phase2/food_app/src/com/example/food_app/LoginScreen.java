@@ -71,8 +71,9 @@ public class LoginScreen extends Activity {
 										finish();
 								} else {
 										db.addUser(username, password, "FirstName", "LastName");
-										startActivity(main);
 										main.putExtra("username", username);
+
+										startActivity(main);
 										finish();
 								}
 

@@ -20,10 +20,12 @@ public class AddToWishlist extends Activity {
 	MySQLiteHelper db = new MySQLiteHelper(this);
 	Button submit;
 	EditText dish, rest;
-
+	String username;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+			username = getIntent().getStringExtra("username");
+
+			super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_to_wishlist);
 		// Show the Up button in the action bar.
 		setupActionBar();
@@ -35,7 +37,7 @@ public class AddToWishlist extends Activity {
 			@Override
 			public void onClick (View v) {
 				//Add dish based on info given by user
-				//db.addWishlist("matt",  dish.toString());
+				db.addWishlist(dish.getText().toString(), username);
 				Toast.makeText(getApplicationContext(),
 											"Item added to wishlist!",
 											Toast.LENGTH_SHORT).show();

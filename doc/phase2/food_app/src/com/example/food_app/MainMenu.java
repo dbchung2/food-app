@@ -33,7 +33,9 @@ public class MainMenu extends Activity {
 	}
 
 	public void goToWishlist(View view) {
+
 		Intent intent = new Intent(this, Wishlist.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 	
