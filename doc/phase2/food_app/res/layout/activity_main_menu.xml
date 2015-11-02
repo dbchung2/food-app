@@ -4,17 +4,6 @@
     android:orientation="vertical" >
 
     <Button
-        android:id="@+id/Wishlist"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="92dp"
-        android:background="@color/light_blue"
-        android:onClick="goToWishlist"
-        android:text="@string/Wishlist" />
-
-    <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +13,6 @@
         android:layout_marginTop="29dp"
         android:text="@string/Add_Review" 
         android:onClick="goToReview"/>
-    
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -35,14 +23,37 @@
         android:layout_marginTop="29dp"
         android:text="@string/add_restaurant" 
         android:onClick="goToRestaurant"/>
+    
     <Button
-            android:id="@+id/button3"
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Wishlist"
+        android:layout_alignRight="@+id/Wishlist"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="29dp"
+        android:text="@string/Dishlist" 
+        android:onClick="goToRestaurant"/>
+    <Button
+            android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/Wishlist"
             android:layout_alignRight="@+id/Wishlist"
-            android:layout_below="@+id/button2"
+            android:layout_below="@+id/button3"
             android:layout_marginTop="29dp"
             android:text="All restaurants"
             android:onClick="goToAllRestaurant"/>
+
+    <Button
+        android:id="@+id/Wishlist"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:background="@color/light_blue"
+        android:onClick="goToWishlist"
+        android:text="@string/Wishlist" />
+
 </RelativeLayout>

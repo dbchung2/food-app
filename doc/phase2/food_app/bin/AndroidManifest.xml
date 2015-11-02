@@ -29,6 +29,7 @@
         <activity
             android:name="com.example.food_app.MainMenu"
             android:label="@string/title_activity_main_menu" >
+
         </activity>
         <activity
             android:name="com.example.food_app.Reviews"
@@ -65,11 +66,14 @@
         <activity
             android:name="com.example.food_app.Restaurant"
             android:label="@string/title_activity_restaurant" >
+
         </activity>
         <activity
             android:name="com.example.food_app.AddRestaurant"
             android:label="@string/title_activity_add_restaurant" >
         </activity>
+        <activity android:name=".DishActivity"/>
+        <activity android:name=".add_dish"/>
     </application>
 
 </manifest>
