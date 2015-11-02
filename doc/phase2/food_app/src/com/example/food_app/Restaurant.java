@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 public class Restaurant extends Activity {
@@ -18,9 +20,9 @@ public class Restaurant extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_restaurant);
 		listView = (ListView)findViewById(R.id.listView_restuarant1);
-        //Insert Array here
-		String[] a = {"pizza","coke"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, a);
+		//Insert Array here
+		String[] restuarant = {"pizza","coke"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, restuarant);
         listView.setAdapter(adapter);
 	}
 
@@ -31,9 +33,18 @@ public class Restaurant extends Activity {
 		return true;
 	}
 
-	public void searchRestuarant(View view) {
+	//public void searchRestuarant(View view) {
 		//Method to search the restaurant list
-	}
+	//	String[] restuarant = {"pizza","coke"}; // get the restuarant list form the database
+		//EditText name = (EditText)findViewById(R.id.restuarant_name);
+		//String string_name = name.toString();
+		//for (int i=0; i< restuarant.length; i++) {
+		//    if (restuarant[i].startsWith(string_name)){
+		//    	
+		//    	}
+		//    }
+		    	
+	//	}
 }
 
 

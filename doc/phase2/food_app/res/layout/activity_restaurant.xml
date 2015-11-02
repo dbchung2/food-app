@@ -49,7 +49,7 @@
     </ListView>
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/restuarant_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/linearLayout_restaurant1"
