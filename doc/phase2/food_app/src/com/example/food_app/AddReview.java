@@ -17,14 +17,15 @@ import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 public class AddReview extends Activity {
     final Context context = this;
 	MySQLiteHelper db = new MySQLiteHelper(this);
-
+	String username;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding_review);
 		System.out.println("Hello world");
-		addListenerOnButton();
-		
+			username = getIntent().getStringExtra("username");
+
+
 	}
 
 	@Override
@@ -48,37 +49,12 @@ public class AddReview extends Activity {
 		
 		//check for valid data types (ie. price is in 0.00 format and rating is a number 1-5) 
 		//insert to SQL table here - will implement 
-		
+		db.addReview(username, dishname.getText().toString(), description.getText().toString(), rating.getText().toString());
 		//switch screens - create a field where if data is not valid returns to this screen <-when backbone is done
 		//for now automatically go to main menu screen
 		Intent move = new Intent(AddReview.this, MainMenu.class); 
 		startActivity(move);
 		finish();
 	}
-	public void addListenerOnButton() {
-		db.addUser("matt", "mattpass", "Matthew", "Mcwaters");
-		Button test;
-		test = (Button) findViewById(R.id.test);
-
-		test.setOnClickListener(new OnClickListener() {
-			
-			
-			
-			@SuppressLint("NewApi")
-			@Override
-			public void onClick(View arg0) {
-					
-				
-				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-						context);
-				alertDialogBuilder.setTitle(db.getUser("matt").getPassword());
-				AlertDialog alertDialog = alertDialogBuilder.create();
-				alertDialog.show();
-			}
-
-		});
-
-	}
-	
 
 }
