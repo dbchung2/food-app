@@ -39,6 +39,14 @@ public class MainMenu extends Activity {
 		startActivity(intent);
 	}
 	
+	public void goToDish(View view) {
+
+		Intent intent = new Intent(this, add_dish.class);
+		//intent.putExtra("username", username);
+		startActivity(intent);
+	}
+	
+	
 	public void goToReview(View view) {
 		Intent intent = new Intent(this, AddReview.class);
 		intent.putExtra("username", username);
@@ -73,4 +81,6 @@ public class MainMenu extends Activity {
 				Intent intent = new Intent(this, Restaurant.class);
 				startActivity(intent);
 		}
+		
+		
 }

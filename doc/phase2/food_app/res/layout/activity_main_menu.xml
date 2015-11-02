@@ -35,16 +35,20 @@
         android:layout_marginTop="29dp"
         android:text="@string/add_restaurant" 
         android:onClick="goToRestaurant"/>
-
+    
+    
     <Button
-        android:id="@+id/Button3"
-        android:layout_width="190dp"
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
+        android:layout_alignLeft="@+id/Wishlist"
+        android:layout_alignRight="@+id/Wishlist"
         android:layout_below="@+id/button2"
-        android:layout_marginTop="23dp"
-        android:background="@color/light_blue"
-        android:onClick="goToAllReviews"
-        android:text="@string/review" />
-
+        android:layout_marginTop="29dp"
+        android:text="Add Dish" 
+        android:onClick="goToDish"/>
+    
+    
+    
+    
 </RelativeLayout>

@@ -40,7 +40,6 @@ public class add_dish extends Activity {
 				
 				db.addDish(rest_id, menuName, avg_rating);
 				
-				System.out.println("damn.....");
 				Toast.makeText(getApplicationContext(),
 											"Item added to wishlist!",
 											Toast.LENGTH_SHORT).show();

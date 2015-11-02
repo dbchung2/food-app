@@ -30,7 +30,6 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int Button3=0x7f09001c;
         public static final int Wishlist=0x7f090019;
         public static final int action_settings=0x7f090033;
         public static final int addToWishlist=0x7f090029;
@@ -39,6 +38,7 @@ public final class R {
         public static final int avgRating=0x7f090004;
         public static final int button1=0x7f09001a;
         public static final int button2=0x7f09001b;
+        public static final int button3=0x7f09001c;
         public static final int category=0x7f09000e;
         public static final int comments=0x7f090023;
         public static final int description=0x7f09000f;
