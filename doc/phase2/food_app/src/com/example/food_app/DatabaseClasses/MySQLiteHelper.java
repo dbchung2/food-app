@@ -197,25 +197,23 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        if ((cursor != null) && (cursor.getCount() > 0)) {
            cursor.moveToFirst();
        }
-       else{
+       else if(cursor==null){
           return null;
       }
-
-	    while(cursor != null){
-	    	dishIDs.add(cursor.getString(1)); 
-	    	if(cursor.isLast()){
-	    		break;
-	    	}
+        int i=0;
+	    while(i < cursor.getCount()){
+	    	dishIDs.add(cursor.getString(1));
+          cursor.moveToNext();
+	    	i++;
 	    }
 	    return dishIDs;
    }
 
-    public void addDish(String rid, String did, String dishName, String avgRating){
+    public void addDish(String rid, String dishName, String avgRating){
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put("rid", rid);
-        values.put("did", did);
         values.put("dishName", dishName);
         values.put("avgRating", avgRating);
 
@@ -282,5 +280,92 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Review review = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
         return review;
         }
+
+    public ArrayList<Restaurant> getAllRestaurants(){
+        String[] columns = {"rid", "rname", "address", "postalCode"};
+        ArrayList<Restaurant> allRestaurants = new ArrayList<Restaurant>();
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // 2. build query
+        Cursor  cursor = db.rawQuery("select * from restaurant", null);
+
+        // 3. if we got results get the first one
+
+        if ((cursor != null) && (cursor.getCount() > 0)) {
+            cursor.moveToFirst();
+        }
+        else if(cursor==null){
+            return null;
+        }
+        int i=0;
+        while(i < cursor.getCount()){
+            Restaurant temp = new Restaurant(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            allRestaurants.add(temp);
+            cursor.moveToNext();
+            i++;
+        }
+        return allRestaurants;
     }
+
+    public ArrayList<Dish>  getRestaurantDishes(String rname, String rlocation) {
+        ArrayList<Dish> restaurantDishes = new ArrayList<Dish>();
+
+        String[] columns = {"rid", "did", "dishName", "avgRating"};
+        String rid;
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor ridCursor = db.rawQuery("SELECT * FROM restaurant WHERE rname = "+rname+" AND location = "+rlocation, null);
+        if ((ridCursor != null) && (ridCursor.getCount() > 0)) {
+            ridCursor.moveToFirst();
+            rid = ridCursor.getString(0);
+        }
+        // 2. build query
+        Cursor cursor = db.query("dish", // a. table
+            columns, // b. column names
+            " rid = ?", // c. selections
+            new String[] {rname, rlocation}, // d. selections args
+            null, // e. group by
+            null, // f. having
+            null, // g. order by
+            null); // h. limit
+
+        // 3. if we got results get the first one
+        if (cursor != null)
+            cursor.moveToFirst();
+        Dish dish = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+
+        int i=0;
+        while(i < cursor.getCount()){
+            Dish temp = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            restaurantDishes.add(temp);
+            cursor.moveToNext();
+            i++;
+        }
+        return restaurantDishes;
+    }
+
+    public ArrayList<Review> getAllReviews() {
+        ArrayList<Review> allReviews = new ArrayList<Review>();
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // 2. build query
+        Cursor cursor = db.rawQuery("select * from review", null);
+
+        // 3. if we got results get the first one
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        int i=0;
+        while(i < cursor.getCount()){
+            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            allReviews.add(temp);
+            cursor.moveToNext();
+            i++;
+        }
+        return allReviews;
+    }
+
+}
 
