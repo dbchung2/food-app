@@ -63,15 +63,24 @@ Began the application development by assigning screens and structures to two dif
 
 Halfway through the meeting, there was a disparity between the amount of progress done with the frontend and the backend. The frontend was slightly ahead from the backend, therefore priority for the two ends were adjusted accordingly: frontend has a lower priority and backend now has a higher priority. Team members were also adjusted to reflect the priority change: frontend now has two members and backend has four members.
 
-###Meeting 4
+### Meeting 4
 Date: November 1st, 2015. Location: BA3175. Time: 1PM-10PM. Minutes Taken: 600. All members present: Daniel, Felicia, Jake, Josh, Matt, Simon.
 
 Focus for this meeting centered around fixing bugs in both ends of the project, completing unfinished parts, and combining the two ends together. After the completing of the frontend/backend. Members are now split into two different teams: the frontend/backend combining team and the bug fixing team. A higher priority was set for the combining team, in order to create a complete application. App was completed this meeting.
 
 ## Burndown Chart
 
+Our burndown chart is accessible by clicking the link [Here](https://docs.google.com/spreadsheets/d/14-2i2dyXsWxWn_dsbVRaWYxYuStTxfykUb0gB_00piM/pubchart?oid=1671198759&format=interactive).
+
+We formed our burndown chart by converting the opened issues for the sprint into points based on the size assigned. A task with an L-Size would be issued a size of 4, an M-Size a size of 2, and an S-size a size of 1.
+
+We kept track of our tasks completed by evaluating our progress toward the closure of each issue per day. If significant progress had been made, points were taken off the task and "given" to the team members who worked on them that day, until that task's points reached zero - this would mean that the task was done, upon which the issue would be closed. For example, if two people worked on the database over two days, each person would get a point on each of the days, and 2 points are subtracted from the "Database" task each day. 
+
+For our chart, the y-axis represents the total "points" that we assign all of the issues for this sprint for, which then decrease based on the work we were able to complete. 
+
 ## Review and Retrospective
-1. 
+
+1.
 Tasks that dealt with the frontend UI were omitted due to time constraints. Functionality of the app was more important than designing an appealing GUI for the user. The task of fully implementing the restaurant table was also forgoed (ie. filling in all of the attributes - all restaurant locations are set to null), since restaurant location was a side detail that implemented location services. The payoff for implementing location services at this stage was not worth it.
 
 Parts of the frontend that closely worked with the backend was split for functionality purposes. Screens, such as Add Review, had to be split into a purely UI interface and a SQL part. This was to ensure that data could be passed from the frontend to the backend without any issues and for testing purposes for the backend. The backend of the app had to be split so that more members were working on it, in order for funtionality and time requirements to be met. 
