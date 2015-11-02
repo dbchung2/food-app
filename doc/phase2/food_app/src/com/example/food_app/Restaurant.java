@@ -12,17 +12,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.food_app.DatabaseClasses.MySQLiteHelper;
+
 public class Restaurant extends Activity {
 	ListView listView;
+		MySQLiteHelper db = new MySQLiteHelper(this);
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_restaurant);
-		listView = (ListView)findViewById(R.id.listView_restuarant1);
-		//Insert Array here
-		String[] restuarant = {"pizza","coke"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, restuarant);
+				super.onCreate(savedInstanceState);
+				setContentView(R.layout.activity_restaurant);
+				listView = (ListView)findViewById(R.id.listView_restuarant1);
+				//Insert Array here
+				ArrayList<String> restaurantInfo = new ArrayList<String>();
+				ArrayList<com.example.food_app.DatabaseClasses.Restaurant> allRestaurants = db.getAllRestaurants();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, restaurantInfo);
         listView.setAdapter(adapter);
 	}
 
