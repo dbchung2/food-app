@@ -15,15 +15,15 @@
         android:layout_height="wrap_content"
         android:text="Add Dishes" />
     
-    
     <EditText
         android:id="@+id/menuname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/dishscreen"
         android:layout_below="@+id/dishscreen"
-        android:layout_marginTop="25dp"
-        android:text="Menu Name"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:text="MenuName1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
     
@@ -31,11 +31,13 @@
         android:id="@+id/restid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/dishName"
-        android:layout_below="@+id/dishName"
-        android:layout_marginTop="25dp"
-        android:text="Restaurant ID"
+        android:layout_alignLeft="@+id/menuname"
+        android:layout_below="@+id/menuname"
+        android:layout_marginTop="35dp"
+        android:text="1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+
 
     <EditText
         android:id="@+id/avgRating"
@@ -43,8 +45,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/restid"
         android:layout_below="@+id/restid"
-        android:layout_marginTop="25dp"
-        android:text="@string/description"
+        android:layout_marginTop="35dp"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:text="4"
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
     <Button
@@ -57,5 +61,5 @@
         android:text="submit" />
     
     
-
+   
 </RelativeLayout>

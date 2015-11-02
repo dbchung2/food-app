@@ -51,17 +51,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "FOREIGN KEY(username) REFERENCES user(username),"+
                "FOREIGN KEY(did) REFERENCES user(did),"+
                "PRIMARY KEY(did, username))";
-       String CREATE_DISH_TABLE = "CREATE TABLE dish ( " +
-               "rid INTEGER, " + 
-    		   "did INTEGER,"+
-               "dishName varchar(255)," +
-    		   "avgRating INTEGER CHECK(avgRating>0 AND avgRating<=5),"+
-               "image BLOB,"+
-    		   "FOREIGN KEY(rid) REFERENCES restaurant(rid),"+
-               "PRIMARY KEY(did, rid))";
-
-
-
+       
+       String CREATE_DISH_TABLE = "CREATE TABLE dish ( "+
+    		   "did INTEGER PRIMARY KEY AUTOINCREMENT,"+
+    		   "rid INTEGER " +
+    		   "dishName varchar(255), " +
+    		   "dishImage BLOB," +
+    		   "FOREIGN KEY(rid) REFERENCES restaurant(rid))"
+    		   ;
        
        db.execSQL(CREATE_USER_TABLE);
        db.execSQL(CREATE_RESTO_TABLE);

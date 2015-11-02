@@ -44,6 +44,8 @@ public class MainMenu extends Activity {
 		Intent intent = new Intent(this, add_dish.class);
 		//intent.putExtra("username", username);
 		startActivity(intent);
+		
+		System.out.println("GO TO DISH!!");
 	}
 	
 	

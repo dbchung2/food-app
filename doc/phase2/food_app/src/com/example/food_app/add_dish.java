@@ -30,15 +30,17 @@ public class add_dish extends Activity {
         rest_id = ((EditText)findViewById(R.id.restid)).getText().toString();
         avg_rating = ((EditText)findViewById(R.id.avgRating)).getText().toString();
         
-        
         Button submit_add = (Button)findViewById(R.id.submitToAddDish);
+        
 		
         submit_add.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick (View v) {
-				//Add dish based on info given by user
 				
+				//Add dish based on info given by user
 				db.addDish(rest_id, menuName, avg_rating);
+				
+				System.out.println("AAAAAAAAAAAAAAAAA+");
 				
 				Toast.makeText(getApplicationContext(),
 											"Item added to wishlist!",
@@ -47,6 +49,7 @@ public class add_dish extends Activity {
 				
 			}
 		});
+        
         
         
     }
