@@ -56,5 +56,6 @@
     <string name="title_activity_add_restaurant">AddRestaurant</string>
     <string name="enterDishname">enter the dish</string>
     <string name="Dishlist">Dish List</string>
+    <string name="review">Reviews</string>
 
 </resources>

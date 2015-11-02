@@ -60,6 +60,11 @@ public class MainMenu extends Activity {
 		//});
 	}
 	
+	public void goToAllReviews(View view) {
+		Intent intent = new Intent(this, Reviews.class);
+		startActivity(intent);
+	}
+	
 	public void goToRestaurant(View view) {
 		Intent intent = new Intent(this, AddRestaurant.class);
 		startActivity(intent);
