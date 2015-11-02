@@ -31,7 +31,7 @@ public class AddRestaurant extends Activity {
 		        String saddress = address.getText().toString();
 		        String spostal_code = postal_code.getText().toString();
 		        
-		        if (sname != null && saddress != null && spostal_code != null) {
+		        if (sname != null || saddress != null || spostal_code != null) {
 		        	db.addRestaurant(sname, saddress, spostal_code);
 		        	Intent mainMenu = new Intent(AddRestaurant.this, MainMenu.class);
 		        	startActivity(mainMenu);
