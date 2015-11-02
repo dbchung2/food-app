@@ -27,6 +27,12 @@ public class Restaurant extends Activity {
 				//Insert Array here
 				ArrayList<String> restaurantInfo = new ArrayList<String>();
 				ArrayList<com.example.food_app.DatabaseClasses.Restaurant> allRestaurants = db.getAllRestaurants();
+
+				for(com.example.food_app.DatabaseClasses.Restaurant r: allRestaurants){
+						String temp ="";
+								temp+=r.getRname()+" ("+r.getAddress()+") ";
+						restaurantInfo.add(temp);
+				}
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, restaurantInfo);
         listView.setAdapter(adapter);
 	}

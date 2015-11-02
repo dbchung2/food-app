@@ -64,4 +64,8 @@ public class MainMenu extends Activity {
 		Intent intent = new Intent(this, AddRestaurant.class);
 		startActivity(intent);
 	}
+		public void goToAllRestaurant(View view) {
+				Intent intent = new Intent(this, Restaurant.class);
+				startActivity(intent);
+		}
 }

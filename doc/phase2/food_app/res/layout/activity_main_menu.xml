@@ -35,4 +35,14 @@
         android:layout_marginTop="29dp"
         android:text="@string/add_restaurant" 
         android:onClick="goToRestaurant"/>
+    <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Wishlist"
+            android:layout_alignRight="@+id/Wishlist"
+            android:layout_below="@+id/button2"
+            android:layout_marginTop="29dp"
+            android:text="All restaurants"
+            android:onClick="goToAllRestaurant"/>
 </RelativeLayout>
