@@ -24,5 +24,15 @@
         android:layout_marginTop="29dp"
         android:text="@string/Add_Review" 
         android:onClick="goToReview"/>
-     
+    
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Wishlist"
+        android:layout_alignRight="@+id/Wishlist"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="29dp"
+        android:text="@string/add_restaurant" 
+        android:onClick="goToRestaurant"/>
 </RelativeLayout>

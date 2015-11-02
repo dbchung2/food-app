@@ -123,11 +123,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	    return null;
    }
    
-   public void addRestaurant(String rid, String rname, String address, String postalCode){
+   public void addRestaurant(String rname, String address, String postalCode){
 	   SQLiteDatabase database = this.getWritableDatabase();
        
        ContentValues values = new ContentValues();
-       values.put("rid", rid); 
        values.put("rname", rname); 
        values.put("address", address); 
        values.put("postalCode", postalCode); 

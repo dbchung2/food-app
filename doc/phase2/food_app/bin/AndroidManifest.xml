@@ -66,6 +66,10 @@
             android:name="com.example.food_app.Restaurant"
             android:label="@string/title_activity_restaurant" >
         </activity>
+        <activity
+            android:name="com.example.food_app.AddRestaurant"
+            android:label="@string/title_activity_add_restaurant" >
+        </activity>
     </application>
 
 </manifest>
