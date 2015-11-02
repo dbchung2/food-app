@@ -51,6 +51,11 @@ Date: October 30, 2015. Location: BA3185. Time: 4pm-4:45pm. Minutes Taken: 45. M
 
 This meeting revolved around getting feedback for the phase by meeting with the TA. Allocated a slightly higher priority to the frontend of the application from TA feedback. Emphasis on a scrum method to build the app while organizing the project using issuses, backlogs, etc.
 
+Feedback Given
+- Demo a frontend application that the TA can see.
+- Less emphasis placed on showing the SQL database.
+- Follow the scrum method accordingly.
+
 ### Meeting 3 
 Date: October 31, 2015. Location: BA3175. Time: 1PM-9PM. Minutes Taken: 480. All members present: Daniel, Felicia, Jake, Josh, Matt, Simon.
 
@@ -59,9 +64,9 @@ Began the application development by assigning screens and structures to two dif
 Halfway through the meeting, there was a disparity between the amount of progress done with the frontend and the backend. The frontend was slightly ahead from the backend, therefore priority for the two ends were adjusted accordingly: frontend has a lower priority and backend now has a higher priority. Team members were also adjusted to reflect the priority change: frontend now has two members and backend has four members.
 
 ###Meeting 4
-Date: November 1st, 2015. Location: BA3175. Time: 1PM-(currently - will update). All members present: Daniel, Felicia, Jake, Josh, Matt, Simon.
+Date: November 1st, 2015. Location: BA3175. Time: 1PM-10PM. Minutes Taken: 600. All members present: Daniel, Felicia, Jake, Josh, Matt, Simon.
 
-Focus for this meeting centered around fixing bugs in both ends of the project and combining the ends together. Members are now split into two different teams: the frontend/backend combining team and the bug fixing team. A higher priority was set for the combining team, in order to create a complete application. 
+Focus for this meeting centered around fixing bugs in both ends of the project, completing unfinished parts, and combining the two ends together. After the completing of the frontend/backend. Members are now split into two different teams: the frontend/backend combining team and the bug fixing team. A higher priority was set for the combining team, in order to create a complete application. App was completed this meeting.
 
 ## Burndown Chart
 
