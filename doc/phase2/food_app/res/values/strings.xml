@@ -54,5 +54,6 @@
     <string name="title_activity_restaurant">Restaurant</string>
     <string name="enterRestuarantname">Enter Restuarant Name</string>
     <string name="title_activity_add_restaurant">AddRestaurant</string>
+    <string name="enterDishname">enter the dish</string>
 
 </resources>
