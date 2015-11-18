@@ -6,9 +6,19 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:hint="@string/description"
-        android:textSize="25sp"
         android:padding="5dp"
-         />
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/description"
+        android:layout_marginLeft="18dp"
+        android:hint="@string/dish_name" />
 
 </RelativeLayout>

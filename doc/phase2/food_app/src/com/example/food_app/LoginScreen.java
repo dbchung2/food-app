@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.view.LayoutInflater;
+import android.widget.PopupWindow;
+import android.widget.Toast;
+import android.view.ViewGroup.LayoutParams;
 
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
@@ -19,62 +23,61 @@ public class LoginScreen extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login_screen);
         
-        Button login = (Button) findViewById(R.id.login);
-        Button register = (Button) findViewById(R.id.register);
+        final Button login_butt = (Button) findViewById(R.id.login);
+        final Button register_butt = (Button) findViewById(R.id.register);
         final EditText e1 = (EditText) findViewById(R.id.username);
         final EditText e2 = (EditText) findViewById(R.id.password);
         
-        login.setOnClickListener(new OnClickListener() {
-
+       
+        login_butt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				 String username = e1.getText().toString();
-	        	 Intent login = new Intent(LoginScreen.this, LoginScreen.class);
 	        	 Intent main = new Intent(LoginScreen.this, MainMenu.class);
-	        	 String password="";
-	        	 if(db.getUser(username)!=null){
-		        	  password = db.getUser(username).getPassword();
-	        	 }
-	        	 else{
-	        		 startActivity(login);
-					 finish();
-	        	 }
-				 
-				 if (password.equals(e2.getText().toString())) {
-					 main.putExtra("username", username);
-					 startActivity(main);
-					 finish();
-					 
-				 } else {
-					 startActivity(login);
-					 finish();
-				 }
-			}					
-		});
+	        	 String password = "";
+	        	 
+	        	 if (username.matches("") || db.getUser(username)==null){
+	        		 Toast.makeText(getApplicationContext(),
+								"User not found!",
+								Toast.LENGTH_SHORT).show();
+				} else {
+					password = db.getUser(username).getPassword();
+					if (password.equals(e2.getText().toString()) && !(password.matches(""))) {
+						 main.putExtra("username", username);
+						 startActivity(main);
+						 finish();
+					} else {
+		        		 Toast.makeText(getApplicationContext(),
+									"Invalid password!",
+									Toast.LENGTH_SHORT).show();
+					}
+				}
+
+			}});
         
-        register.setOnClickListener(new OnClickListener() {
-
+        register_butt.setOnClickListener(new OnClickListener() {
 						@Override public void onClick(View arg0) {
-
 								String username = e1.getText().toString();
-								Intent login = new Intent(LoginScreen.this, LoginScreen.class);
-								Intent main = new Intent(LoginScreen.this, MainMenu.class);
 								String password = e2.getText().toString();
+								final Intent login = new Intent(LoginScreen.this, LoginScreen.class);
 
 
-								if (username == null || password == null) {
-										startActivity(login);
-										finish();
-
+								if (username.matches("") || password.matches("")) {
+					        		 Toast.makeText(getApplicationContext(),
+												"Please enter a username and password!",
+												Toast.LENGTH_SHORT).show();
 								} else if (db.getUser(username) != null) {
-										startActivity(login);
-										finish();
+					        		 Toast.makeText(getApplicationContext(),
+												"Username taken!",
+												Toast.LENGTH_SHORT).show();
+						                     
 								} else {
 										db.addUser(username, password, "FirstName", "LastName");
-										main.putExtra("username", username);
-
-										startActivity(main);
-										finish();
+										//main.putExtra("username", username);
+										
+						        		 Toast.makeText(getApplicationContext(),
+													"Registration successful! Please login.",
+													Toast.LENGTH_SHORT).show();
 								}
 
 						}

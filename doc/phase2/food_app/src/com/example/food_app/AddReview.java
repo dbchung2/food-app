@@ -9,8 +9,11 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+
+import java.util.regex.Pattern;
 
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
@@ -18,14 +21,36 @@ public class AddReview extends Activity {
     final Context context = this;
 	MySQLiteHelper db = new MySQLiteHelper(this);
 	String username;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding_review);
-		System.out.println("Hello world");
-			username = getIntent().getStringExtra("username");
+		username = getIntent().getStringExtra("username");
+		
+		//get all text fields
+		final EditText restname = (EditText) findViewById(R.id.restname);
+		final EditText dishname = (EditText) findViewById(R.id.dishname);
+		final EditText price = (EditText) findViewById(R.id.price);
+		final EditText rating = (EditText) findViewById(R.id.rating);
+		final EditText category = (EditText) findViewById(R.id.category);
+		final EditText description = (EditText) findViewById(R.id.description);
+		Button sub = (Button)findViewById(R.id.submitReview);
+		
+		sub.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick (View v) {
+				db.addReview(username, dishname.getText().toString(), description.getText().toString(), 
+						rating.getText().toString());
 
-
+				Toast.makeText(getApplicationContext(),
+											"Review added!",
+											Toast.LENGTH_SHORT).show();
+				Intent mainMenu = new Intent(AddReview.this, MainMenu.class);
+	        	startActivity(mainMenu);
+				
+			}
+		});
 	}
 
 	@Override
@@ -35,26 +60,5 @@ public class AddReview extends Activity {
 		return true;
 	}
 	
-	
-	public void add_dish(View view){
-		Intent intent = getIntent();
-		
-		//get all text fields
-		EditText restname = (EditText) findViewById(R.id.restname);
-		EditText dishname = (EditText) findViewById(R.id.dishname);
-		EditText price = (EditText) findViewById(R.id.price);
-		EditText rating = (EditText) findViewById(R.id.rating);
-		EditText category = (EditText) findViewById(R.id.category);
-		EditText description = (EditText) findViewById(R.id.description);
-		
-		//check for valid data types (ie. price is in 0.00 format and rating is a number 1-5) 
-		//insert to SQL table here - will implement 
-		db.addReview(username, dishname.getText().toString(), description.getText().toString(), rating.getText().toString());
-		//switch screens - create a field where if data is not valid returns to this screen <-when backbone is done
-		//for now automatically go to main menu screen
-		Intent move = new Intent(AddReview.this, MainMenu.class); 
-		startActivity(move);
-		finish();
-	}
 
 }

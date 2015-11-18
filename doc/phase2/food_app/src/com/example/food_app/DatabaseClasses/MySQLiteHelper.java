@@ -53,11 +53,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "PRIMARY KEY(did, username))";
        
        String CREATE_DISH_TABLE = "CREATE TABLE dish ( "+
-    		   "did INTEGER PRIMARY KEY AUTOINCREMENT,"+
-    		   "rid INTEGER " +
-    		   "dishName varchar(255), " +
-    		   "dishImage BLOB," +
-    		   "FOREIGN KEY(rid) REFERENCES restaurant(rid))"
+    		   //"did INTEGER PRIMARY KEY AUTOINCREMENT,"+
+    		   //"rid INTEGER " +
+    		   "dname varchar(255), " +
+    		   //"rating INTEGER, " +
+    		   //"dishImage BLOB," +
+    		   //"FOREIGN KEY(rid) REFERENCES restaurant(rid))"
+    		   //Temporary Change
+    		   "FOREIGN KEY(dname))"
     		   ;
        
        db.execSQL(CREATE_USER_TABLE);
@@ -210,9 +213,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("rid", rid);
-        values.put("dishName", dishName);
-        values.put("avgRating", avgRating);
+        //values.put("rid", rid);
+        values.put("dname", dishName);
+        //values.put("rating", avgRating);
 
         database.insert("dish", // table
             null, //nullColumnHack
@@ -304,6 +307,58 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         }
         return allRestaurants;
     }
+    
+    public ArrayList<String> getAllRestNames(){
+    	String[] columns = {"rid", "rname", "address", "postalCode"};
+ 	   ArrayList<String> restName = new ArrayList<String>();
+ 	   // 1. get reference to readable DB
+ 	    SQLiteDatabase db = this.getReadableDatabase();
+ 	
+ 	    // 2. build query
+ 	   Cursor  cursor = db.rawQuery("select * from restaurant", null);
+ 	    
+ 	    // 3. if we got results get the first one
+
+        if ((cursor != null) && (cursor.getCount() > 0)) {
+            cursor.moveToFirst();
+        }
+        else if(cursor==null){
+           return null;
+       }
+         int i=0;
+ 	    while(i < cursor.getCount()){
+ 	    	restName.add(cursor.getString(1));
+           cursor.moveToNext();
+ 	    	i++;
+ 	    }
+ 	    return restName;
+    }
+    
+    public ArrayList<String> getAllDishNames(){
+    	String[] columns = {"rid", "did", "dishName", "avgRating"};
+ 	   ArrayList<String> dishName = new ArrayList<String>();
+ 	   // 1. get reference to readable DB
+ 	    SQLiteDatabase db = this.getReadableDatabase();
+ 	
+ 	    // 2. build query
+ 	   Cursor  cursor = db.rawQuery("select * from dish", null);
+ 	    
+ 	    // 3. if we got results get the first one
+
+        if ((cursor != null) && (cursor.getCount() > 0)) {
+            cursor.moveToFirst();
+        }
+        else if(cursor==null){
+           return null;
+       }
+         int i=0;
+ 	    while(i < cursor.getCount()){
+ 	    	dishName.add(cursor.getString(1));
+           cursor.moveToNext();
+ 	    	i++;
+ 	    }
+ 	    return dishName;
+    }
 
     public ArrayList<Dish>  getRestaurantDishes(String rname, String rlocation) {
         ArrayList<Dish> restaurantDishes = new ArrayList<Dish>();
@@ -358,6 +413,27 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         while(i < cursor.getCount()){
             Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
             allReviews.add(temp);
+            cursor.moveToNext();
+            i++;
+        }
+        return allReviews;
+    }
+    
+    public ArrayList<String> getAllTextReviews() {
+        ArrayList<String> allReviews = new ArrayList<String>();
+        // 1. get reference to readable DB
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // 2. build query
+        Cursor cursor = db.rawQuery("select * from review", null);
+
+        // 3. if we got results get the first one
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        int i=0;
+        while(i < cursor.getCount()){
+            allReviews.add(cursor.getString(2));
             cursor.moveToNext();
             i++;
         }

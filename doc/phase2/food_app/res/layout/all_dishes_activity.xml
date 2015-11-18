@@ -38,18 +38,18 @@
         android:orientation="vertical" >
     </LinearLayout>
 
-
     <ListView
         android:id="@+id/listView_dish1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/addDish"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/dishlistSearch" >
+        android:layout_below="@+id/dish_name1" >
 
     </ListView>
 
     <EditText
-        android:id="@+id/dish_name"
+        android:id="@+id/dish_name1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/linearLayout_dish1"
@@ -57,14 +57,14 @@
         android:hint="@string/enterDishname" />
 
     <Button
-        android:id="@+id/dishlistSearch"
-        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/addDish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/listView_dish1"
-        android:layout_alignTop="@+id/dish_name"
-        android:onClick="searchRestuarant"
-        android:text="@string/Search" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:onClick="addDish"
+        android:text="@string/addDish" />
 
 </RelativeLayout>
 

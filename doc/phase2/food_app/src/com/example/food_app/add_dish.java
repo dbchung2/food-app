@@ -40,10 +40,9 @@ public class add_dish extends Activity {
 				//Add dish based on info given by user
 				db.addDish(rest_id, menuName, avg_rating);
 				
-				System.out.println("AAAAAAAAAAAAAAAAA+");
 				
 				Toast.makeText(getApplicationContext(),
-											"Item added to wishlist!",
+											"Dish Added!",
 											Toast.LENGTH_SHORT).show();
 				finish();
 				

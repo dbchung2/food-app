@@ -2,14 +2,20 @@ package com.example.food_app;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 import com.example.food_app.DatabaseClasses.Review;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,50 +28,58 @@ public class Reviews extends Activity {
     //list of comments/descriptions(array of strings)
     
     ListView comment;
+    String username;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reviews);
+        username = getIntent().getStringExtra("username");
         
         //Testing rating value
-        ArrayList<Integer> ratings = new ArrayList<Integer>();
+        /*ArrayList<Integer> ratings = new ArrayList<Integer>();
         ratings.add(2);
-        ratings.add(4);
+        ratings.add(4);*/
 
+        populateList();
+    }
+    
+    public void populateList(){
+    	setContentView(R.layout.activity_reviews);
         //To get all reviews
-        ArrayList<Review> allrevs = db.getAllReviews();
+        ArrayList<String> allrevs = db.getAllTextReviews();
         
         //parse to list of strings - test later
-        ArrayList<String> allreviews = new ArrayList<String>();
+       /* ArrayList<String> allreviews = new ArrayList<String>();
+        ArrayList<String> dishnames = new ArrayList<String>();
         
         for (int i = 0; i < allrevs.size(); i++){
             allreviews.add(allrevs.get(i).getDesc());
-        	//allreviews.add("test");
-        }
+            dishnames.add(allrevs.get(i).getDid());
+        }*/
         
-        //Intent intent = getIntent();
-        
-        //find text that needs to be changed and set it to given required data
-        //For phase 3 use
-        /*TextView dish_name = (TextView) findViewById(R.id.food_name_rev);
-        dish_name.setText("Dish Place Holder"); //Place Holder replaced with dish name
-        TextView rest = (TextView) findViewById(R.id.restaurant_name_rev);
-        rest.setText("Rest Place Holder"); //Place Holder replaced with restaurant name
-        TextView rating = (TextView) findViewById(R.id.rating_rev);
-        rating.setText("rating: 10"); //Place Holder replaced with avg rating name*/
-        
-        //For working with the listview
         //Find list location
         comment = (ListView) findViewById(R.id.comments);
         
-        //set adapter here
-        CommentAdapter adapter = new CommentAdapter(this, allreviews);
+		if(allrevs!=null){
+			final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allrevs);
+			
         
-        comment.setAdapter(adapter);
-        
-        
-    }
+			comment.setAdapter(adapter); 
+		}
+	
+}
+    
+    protected void onRestart() {
+		super.onRestart();  // Always call the superclass method first
+		populateList();
+		// Activity being restarted from stopped state
+}
+    
+	public void submit(View view) {
+	Intent intent = new Intent(this, AddReview.class);
+		intent.putExtra("username", username);
+		startActivity(intent);
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -15,12 +15,14 @@ import android.widget.TextView;
 public class CommentAdapter extends ArrayAdapter<String> {
     private final Context context;
     private final ArrayList<String> values;
+    private final ArrayList<String> foods;
     
-    public CommentAdapter(Context context, ArrayList<String> allreviews) {
+    public CommentAdapter(Context context, ArrayList<String> allreviews,  ArrayList<String> dishnames) {
         super(context, R.layout.comment_row, allreviews);
         
         this.context = context;
         this.values = allreviews;
+        this.foods = dishnames;
     }
     
     //will create inflater and populate rows
@@ -34,9 +36,11 @@ public class CommentAdapter extends ArrayAdapter<String> {
         
         //Get the textview from rowView
         TextView comment = (TextView) rowView.findViewById(R.id.description);
+        TextView food = (TextView) rowView.findViewById(R.id.food_name);
         
         //Set the text
         comment.setText(values.get(position));
+        food.setText(foods.get(position));
         
         return rowView;
     }

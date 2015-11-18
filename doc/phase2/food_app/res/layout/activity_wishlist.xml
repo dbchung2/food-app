@@ -53,10 +53,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/addToWishlist"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/wishlistSearch" >
+        android:layout_below="@+id/editText1" >
 
     </ListView>
-
+<!--  
     <Button
         android:id="@+id/wishlistSearch"
         style="?android:attr/buttonStyleSmall"
@@ -66,7 +66,7 @@
         android:layout_alignTop="@+id/editText1"
         android:text="@string/Search" 
         android:onClick="searchWishlist" />
-
+-->
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"

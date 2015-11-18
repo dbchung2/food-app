@@ -50,7 +50,7 @@ public class MainMenu extends Activity {
 	
 	
 	public void goToReview(View view) {
-		Intent intent = new Intent(this, AddReview.class);
+		Intent intent = new Intent(this, Reviews.class);
 		intent.putExtra("username", username);
 		startActivity(intent);
 	
@@ -70,17 +70,12 @@ public class MainMenu extends Activity {
 		//});
 	}
 	
-	public void goToAllReviews(View view) {
-		Intent intent = new Intent(this, Reviews.class);
-		startActivity(intent);
-	}
-	
 	public void goToRestaurant(View view) {
-		Intent intent = new Intent(this, AddRestaurant.class);
+		Intent intent = new Intent(this, Restaurant.class);
 		startActivity(intent);
 	}
-		public void goToAllRestaurant(View view) {
-				Intent intent = new Intent(this, Restaurant.class);
+		public void goToDishes(View view) {
+				Intent intent = new Intent(this, DishActivity.class);
 				startActivity(intent);
 		}
 		
