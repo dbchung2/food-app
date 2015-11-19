@@ -19,7 +19,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class Reviews extends Activity {
+public class ReviewsAll extends Activity {
     MySQLiteHelper db = new MySQLiteHelper(this);
     /* assume when entered, data is already parsed and passed to this class from sql - will
      * implement a parser if needed.
@@ -46,7 +46,7 @@ public class Reviews extends Activity {
     public void populateList(){
     	setContentView(R.layout.activity_reviews);
         //To get all reviews
-        ArrayList<String> allrevs = db.getAllTextReviews();
+        ArrayList<String> allrevs = db.getAttributeArray("review", "desc");
         
         //parse to list of strings - test later
        /* ArrayList<String> allreviews = new ArrayList<String>();

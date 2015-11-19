@@ -3,6 +3,7 @@ package com.example.food_app.DatabaseClasses;
 
  
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -38,7 +39,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "postalCode varchar(255))";
        
        String CREATE_REVIEW_TABLE = "CREATE TABLE review ( " +
-               "username INTEGER, " + 
+               "username varchar(255), " +
     		   "did INTEGER," +
                "desc TEXT," +
                "rating INTEGER CHECK(rating>0 AND rating<=5)," +
@@ -51,17 +52,18 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "FOREIGN KEY(username) REFERENCES user(username),"+
                "FOREIGN KEY(did) REFERENCES user(did),"+
                "PRIMARY KEY(did, username))";
-       
-       String CREATE_DISH_TABLE = "CREATE TABLE dish ( "+
-    		   //"did INTEGER PRIMARY KEY AUTOINCREMENT,"+
-    		   //"rid INTEGER " +
-    		   "dname varchar(255), " +
-    		   //"rating INTEGER, " +
-    		   //"dishImage BLOB," +
-    		   //"FOREIGN KEY(rid) REFERENCES restaurant(rid))"
-    		   //Temporary Change
-    		   "FOREIGN KEY(dname))"
-    		   ;
+       String CREATE_DISH_TABLE = "CREATE TABLE dish ( " +
+           //"rid INTEGER, " +
+    		   "did INTEGER,"+
+           "dishName varchar(255)," +
+    		   "avgRating INTEGER CHECK(avgRating <= 5),"+
+           //"image BLOB,"+
+    		   //"FOREIGN KEY(rid) REFERENCES restaurant(rid),"+
+           //"PRIMARY KEY(did, rid))";
+           "PRIMARY KEY(did))";
+
+
+
        
        db.execSQL(CREATE_USER_TABLE);
        db.execSQL(CREATE_RESTO_TABLE);
@@ -213,9 +215,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        //values.put("rid", rid);
-        values.put("dname", dishName);
-        //values.put("rating", avgRating);
+        values.put("rid", rid);
+        values.put("dishName", dishName);
+        values.put("avgRating", avgRating);
 
         database.insert("dish", // table
             null, //nullColumnHack
@@ -307,58 +309,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         }
         return allRestaurants;
     }
-    
-    public ArrayList<String> getAllRestNames(){
-    	String[] columns = {"rid", "rname", "address", "postalCode"};
- 	   ArrayList<String> restName = new ArrayList<String>();
- 	   // 1. get reference to readable DB
- 	    SQLiteDatabase db = this.getReadableDatabase();
- 	
- 	    // 2. build query
- 	   Cursor  cursor = db.rawQuery("select * from restaurant", null);
- 	    
- 	    // 3. if we got results get the first one
-
-        if ((cursor != null) && (cursor.getCount() > 0)) {
-            cursor.moveToFirst();
-        }
-        else if(cursor==null){
-           return null;
-       }
-         int i=0;
- 	    while(i < cursor.getCount()){
- 	    	restName.add(cursor.getString(1));
-           cursor.moveToNext();
- 	    	i++;
- 	    }
- 	    return restName;
-    }
-    
-    public ArrayList<String> getAllDishNames(){
-    	String[] columns = {"rid", "did", "dishName", "avgRating"};
- 	   ArrayList<String> dishName = new ArrayList<String>();
- 	   // 1. get reference to readable DB
- 	    SQLiteDatabase db = this.getReadableDatabase();
- 	
- 	    // 2. build query
- 	   Cursor  cursor = db.rawQuery("select * from dish", null);
- 	    
- 	    // 3. if we got results get the first one
-
-        if ((cursor != null) && (cursor.getCount() > 0)) {
-            cursor.moveToFirst();
-        }
-        else if(cursor==null){
-           return null;
-       }
-         int i=0;
- 	    while(i < cursor.getCount()){
- 	    	dishName.add(cursor.getString(1));
-           cursor.moveToNext();
- 	    	i++;
- 	    }
- 	    return dishName;
-    }
 
     public ArrayList<Dish>  getRestaurantDishes(String rname, String rlocation) {
         ArrayList<Dish> restaurantDishes = new ArrayList<Dish>();
@@ -418,26 +368,58 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         }
         return allReviews;
     }
-    
-    public ArrayList<String> getAllTextReviews() {
-        ArrayList<String> allReviews = new ArrayList<String>();
-        // 1. get reference to readable DB
+    public ArrayList<String> getAttributeArray(String table, String attribute){
+        HashMap<String, String[]> columns = new HashMap<String, String[]>();
+        columns.put("dish", new String[]{"rid", "did", "dishName", "avgRating"});
+        columns.put("review", new String[]{"username", "did", "desc", "rating"});
+        columns.put("restaurant", new String[]{"rid", "rname", "address", "postalCode"});
+        columns.put("user", new String[]{"username", "password", "firstname", "lastname"});
+        columns.put("wishlist", new String[]{"username", "did"});
+
+        ArrayList<String> result = new ArrayList<String>();
+        String[] tableColumns = columns.get(table);
         SQLiteDatabase db = this.getReadableDatabase();
 
         // 2. build query
-        Cursor cursor = db.rawQuery("select * from review", null);
+        Cursor  cursor = db.rawQuery("select " +attribute+ " from "+table, null);
 
         // 3. if we got results get the first one
-        if (cursor != null)
+        int columnCount = cursor.getCount();
+        if ((cursor != null) && (columnCount> 0)) {
             cursor.moveToFirst();
-
+        }
+        else if(cursor==null){
+            return null;
+        }
         int i=0;
         while(i < cursor.getCount()){
-            allReviews.add(cursor.getString(2));
+            result.add(cursor.getString(0));
             cursor.moveToNext();
             i++;
         }
-        return allReviews;
+        return result;
+    }
+    public ArrayList<String> rawQuery(String query){
+        ArrayList<String> result = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor  cursor = db.rawQuery(query, null);
+
+        // 3. if we got results get the first one
+        int columnCount = cursor.getCount();
+        if ((cursor != null) && (columnCount> 0)) {
+            cursor.moveToFirst();
+        }
+        else if(cursor==null){
+            return null;
+        }
+        int i=0;
+        while(i < cursor.getCount()){
+            result.add(cursor.getString(0));
+            cursor.moveToNext();
+            i++;
+        }
+        return result;
     }
 
 }

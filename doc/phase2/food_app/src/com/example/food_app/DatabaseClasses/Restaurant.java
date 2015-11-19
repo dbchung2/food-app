@@ -1,9 +1,11 @@
 package com.example.food_app.DatabaseClasses;
 
+import java.io.Serializable;
+
 /**
  * Created by Matt on 2015-11-01.
  */
-public class Restaurant {
+public class Restaurant implements Serializable {
     String rname;
     String rid;
     String address;

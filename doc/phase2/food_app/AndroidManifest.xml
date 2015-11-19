@@ -32,11 +32,11 @@
 
         </activity>
         <activity
-            android:name="com.example.food_app.Reviews"
+            android:name=".ReviewsAll"
             android:label="@string/title_activity_reviews" >
         </activity>
         <activity
-            android:name="com.example.food_app.Wishlist"
+            android:name=".WishlistAll"
             android:label="@string/title_activity_wishlist" >
         </activity>
         <activity
@@ -58,13 +58,13 @@
         <activity
             android:name="com.example.food_app.AddToWishlist"
             android:label="@string/title_activity_add_to_wishlist"
-            android:parentActivityName="com.example.food_app.Wishlist" >
+            android:parentActivityName=".WishlistAll" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.food_app.Wishlist" />
+                android:value=".WishlistAll" />
         </activity>
         <activity
-            android:name="com.example.food_app.Restaurant"
+            android:name=".RestaurantsAll"
             android:label="@string/title_activity_restaurant" >
 
         </activity>
@@ -72,8 +72,10 @@
             android:name="com.example.food_app.AddRestaurant"
             android:label="@string/title_activity_add_restaurant" >
         </activity>
-        <activity android:name=".DishActivity"/>
-        <activity android:name=".add_dish"/>
+        <activity android:name=".DishesAll"/>
+        <activity android:name=".AddDish"/>
+        <activity android:name=".RestaurantView"/>
+        <activity android:name=".RestaurantView"/>
     </application>
 
 </manifest>

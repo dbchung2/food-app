@@ -1,14 +1,10 @@
 package com.example.food_app;
 
 import android.os.Bundle;
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
 public class MainMenu extends Activity {
 	String username;
@@ -34,14 +30,14 @@ public class MainMenu extends Activity {
 
 	public void goToWishlist(View view) {
 
-		Intent intent = new Intent(this, Wishlist.class);
+		Intent intent = new Intent(this, WishlistAll.class);
 		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 	
 	public void goToDish(View view) {
 
-		Intent intent = new Intent(this, add_dish.class);
+		Intent intent = new Intent(this, AddDish.class);
 		//intent.putExtra("username", username);
 		startActivity(intent);
 		
@@ -50,7 +46,7 @@ public class MainMenu extends Activity {
 	
 	
 	public void goToReview(View view) {
-		Intent intent = new Intent(this, Reviews.class);
+		Intent intent = new Intent(this, ReviewsAll.class);
 		intent.putExtra("username", username);
 		startActivity(intent);
 	
@@ -70,14 +66,17 @@ public class MainMenu extends Activity {
 		//});
 	}
 	
+	public void goToAllReviews(View view) {
+		Intent intent = new Intent(this, ReviewsAll.class);
+		startActivity(intent);
+	}
+	
 	public void goToRestaurant(View view) {
-		Intent intent = new Intent(this, Restaurant.class);
+		Intent intent = new Intent(this, RestaurantsAll.class);
 		startActivity(intent);
 	}
 		public void goToDishes(View view) {
-				Intent intent = new Intent(this, DishActivity.class);
+				Intent intent = new Intent(this, DishesAll.class);
 				startActivity(intent);
 		}
-		
-		
 }

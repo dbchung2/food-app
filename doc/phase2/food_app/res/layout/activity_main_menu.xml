@@ -10,6 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="92dp"
+        android:background="@color/light_blue"
         android:onClick="goToWishlist"
         android:text="@string/Wishlist" />
 

@@ -1,24 +1,19 @@
 package com.example.food_app;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
-public class DishActivity extends Activity {
+public class DishesAll extends Activity {
 	ListView listView;
 	String username;
 	MySQLiteHelper db = new MySQLiteHelper(this);
@@ -37,13 +32,17 @@ public class DishActivity extends Activity {
 		// Activity being restarted from stopped state
 }
 
-public void populateList(){
-		setContentView(R.layout.all_dishes_activity);
+		public void addDish(View view) {
+				Intent intent = new Intent(this, AddDish.class);
+				startActivity(intent);
+		}
+	public void populateList(){
+		setContentView(R.layout.activity_dishes_all);
 		
 		ArrayList<String> dishArray = new ArrayList<String>();
-		dishArray = db.getAllDishNames();
+		dishArray = db.getAttributeArray("dish", "dishName");
 		
-		listView = (ListView)findViewById(R.id.listView_dish1);	
+  	listView = (ListView)findViewById(R.id.listView_dish1);
 
 		//Insert Array here
 		if(dishArray!=null){
@@ -85,13 +84,19 @@ public void populateList(){
 		getMenuInflater().inflate(R.menu.restaurant, menu);
 		return true;
 	}
-	
-	public void addDish(View view) {
-		Intent intent = new Intent(this, add_dish.class);
-			intent.putExtra("username", username);
-		startActivity(intent);
-	}
 
+	//public void searchRestuarant(View view) {
+		//Method to search the restaurant list
+	//	String[] restuarant = {"pizza","coke"}; // get the restuarant list form the database
+		//EditText name = (EditText)findViewById(R.id.restuarant_name);
+		//String string_name = name.toString();
+		//for (int i=0; i< restuarant.length; i++) {
+		//    if (restuarant[i].startsWith(string_name)){
+		//    	
+		//    	}
+		//    }
+		    	
+	//	}
 }
 
 

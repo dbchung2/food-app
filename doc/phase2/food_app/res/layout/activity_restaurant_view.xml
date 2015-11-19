@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nameLabel"
+            android:id="@+id/nameLabel"
+            android:layout_marginLeft="37dp" android:layout_marginStart="37dp"
+            android:layout_alignBottom="@+id/pCodeLabel"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="53dp"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Address: " android:id="@+id/addressLabel"
+              android:layout_below="@+id/nameLabel"
+              android:layout_alignLeft="@+id/nameLabel"
+              android:layout_alignStart="@+id/nameLabel"
+              android:layout_marginTop="37dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Postal Code :"
+            android:id="@+id/pCodeLabel"
+            android:layout_marginTop="143dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/addressLabel"
+            android:layout_alignStart="@+id/addressLabel"/>
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_toEndOf="@+id/pCodeLabel"
+            android:layout_toRightOf="@+id/pCodeLabel">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rNameText"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="89dp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/rCodeText"
+                android:layout_toEndOf="@+id/rCodeText"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rCodeText"
+                android:layout_marginTop="33dp"
+                android:layout_below="@+id/rNameText"
+                android:layout_toRightOf="@+id/rAddressText"
+                android:layout_toEndOf="@+id/rAddressText"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rAddressText"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/rCodeText"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+    </RelativeLayout>
+</RelativeLayout>

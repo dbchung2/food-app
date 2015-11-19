@@ -12,22 +12,35 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
+import com.example.food_app.DatabaseClasses.Restaurant;
 
-public class Restaurant extends Activity {
-	MySQLiteHelper db = new MySQLiteHelper(this);
-    final Context context = this;
-    
-	ListView listView;
-	String username;
-	
-	@Override
+public class RestaurantsAll extends Activity {
+
+		ListView listView;
+		String username;
+		ArrayList<String> restArray = new ArrayList<String>();
+		MySQLiteHelper db = new MySQLiteHelper(this);
+		ArrayList<Restaurant> allRests = new ArrayList<Restaurant>();
+
+		@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
+			final Context context = this;
+		  allRests = db.getAllRestaurants();
+			restArray = db.getAttributeArray("restaurant", "rname");
+			//int i=0;
+			//int size = allRests.size();
+			//while(i<size){
+			//		restArray.add(allRests.get(i).getRname());
+			//}
 			username = getIntent().getStringExtra("username");
 			super.onCreate(savedInstanceState);
 		  populateList();
@@ -43,10 +56,20 @@ public class Restaurant extends Activity {
 		public void populateList(){
 				setContentView(R.layout.activity_restaurant);
 				
-				ArrayList<String> restArray = new ArrayList<String>();
-				restArray = db.getAllRestNames();
-				
-				listView = (ListView)findViewById(R.id.listView_restuarant1);	
+
+
+				listView = (ListView)findViewById(R.id.listView_restuarant1);
+				listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+				{
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+						{
+								Intent intent = new Intent(arg1.getContext(), RestaurantView.class);
+								intent.putExtra("username", username);
+								intent.putExtra("resto", allRests.get(position));
+								startActivity(intent);
+						}
+				});
 
 				//Insert Array here
 				if(restArray!=null){
@@ -81,6 +104,8 @@ public class Restaurant extends Activity {
 						});
 				}
 		}
+
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

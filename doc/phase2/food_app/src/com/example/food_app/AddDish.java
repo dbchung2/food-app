@@ -18,7 +18,7 @@ import android.view.View.OnClickListener;
 /**
  * Created by Matt on 2015-11-01.
  */
-public class add_dish extends Activity {
+public class AddDish extends Activity {
 	String menuName, rest_id, avg_rating;
 	MySQLiteHelper db = new MySQLiteHelper(this);
 	
@@ -26,9 +26,7 @@ public class add_dish extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_dish);
         
-        menuName = ((EditText)findViewById(R.id.menuname)).getText().toString();
-        rest_id = ((EditText)findViewById(R.id.restid)).getText().toString();
-        avg_rating = ((EditText)findViewById(R.id.avgRating)).getText().toString();
+
         
         Button submit_add = (Button)findViewById(R.id.submitToAddDish);
         
@@ -36,7 +34,9 @@ public class add_dish extends Activity {
         submit_add.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick (View v) {
-				
+					menuName = ((EditText)findViewById(R.id.menuname)).getText().toString();
+					rest_id = ((EditText)findViewById(R.id.restid)).getText().toString();
+					avg_rating = ((EditText)findViewById(R.id.avgRating)).getText().toString();
 				//Add dish based on info given by user
 				db.addDish(rest_id, menuName, avg_rating);
 				

@@ -58,5 +58,6 @@
     <string name="Dishlist">Dish List</string>
     <string name="review">Reviews</string>
     <string name="addDish">Add Dish</string>
+    <string name="nameLabel">Restaurant Name:</string>
 
 </resources>

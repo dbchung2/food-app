@@ -93,7 +93,7 @@ public final class R {
         public static final int activity_test_screen=0x7f030008;
         public static final int activity_user_profile=0x7f030009;
         public static final int activity_wishlist=0x7f03000a;
-        public static final int all_dishes_activity=0x7f03000b;
+        public static final int activity_dishes_all =0x7f03000b;
         public static final int comment_row=0x7f03000c;
     }
     public static final class menu {

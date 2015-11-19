@@ -20,7 +20,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import java.util.Locale;
 
-public class Wishlist extends Activity {
+public class WishlistAll extends Activity {
 		MySQLiteHelper db = new MySQLiteHelper(this);
     final Context context = this;
     ArrayList<String> dishIdArray;
@@ -59,25 +59,25 @@ public class Wishlist extends Activity {
 						
 						//get search text
 						inputSearch.addTextChangedListener(new TextWatcher() {
-				 
-							@Override
-							public void afterTextChanged(Editable arg0) {
-								// TODO Auto-generated method stub
-								String text = inputSearch.getText().toString().toLowerCase(Locale.getDefault());
-								adapter.getFilter().filter(text.toString());
-							}
-				 
-							@Override
-							public void beforeTextChanged(CharSequence arg0, int arg1,
-									int arg2, int arg3) {
-								// TODO Auto-generated method stub
-							}
-				 
-							@Override
-							public void onTextChanged(CharSequence arg0, int arg1, int arg2,
-									int arg3) {
-								// TODO Auto-generated method stub
-							}
+
+								@Override public void afterTextChanged(Editable arg0) {
+										// TODO Auto-generated method stub
+										String text = inputSearch.getText().toString()
+												.toLowerCase(Locale.getDefault());
+										adapter.getFilter().filter(text.toString());
+								}
+
+								@Override
+								public void beforeTextChanged(CharSequence arg0, int arg1,
+										int arg2, int arg3) {
+										// TODO Auto-generated method stub
+								}
+
+								@Override
+								public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+										int arg3) {
+										// TODO Auto-generated method stub
+								}
 						});
 				}
 		}
