@@ -24,7 +24,6 @@ public class LoginScreen extends Activity {
 		setContentView(R.layout.activity_login_screen);
         
         final Button login_butt = (Button) findViewById(R.id.login);
-        final Button register_butt = (Button) findViewById(R.id.register);
         final EditText e1 = (EditText) findViewById(R.id.username);
         final EditText e2 = (EditText) findViewById(R.id.password);
         
@@ -55,6 +54,7 @@ public class LoginScreen extends Activity {
 
 			}});
         
+        /*
         register_butt.setOnClickListener(new OnClickListener() {
 						@Override public void onClick(View arg0) {
 								String username = e1.getText().toString();
@@ -81,14 +81,19 @@ public class LoginScreen extends Activity {
 								}
 
 						}
-				});
-	}
+				}); */
+	} 
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.login_screen, menu);
 		return true;
+	}
+	
+	public void goToSignUp(View view) {
+		Intent intent = new Intent(this, SignUp.class);
+		startActivity(intent);
 	}
 
 }

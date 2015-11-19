@@ -33,13 +33,10 @@
     <string name="Search">Search</string>
     <string name="enterItemToSearch">Enter item to search</string>
     <string name="Food_app">Food   app</string>
-
-    
-    
     <string name="postal_code">Postal Code</string>
     <string name="add_restaurant">Add Restaurant</string>
     <string name="address">Address</string>
-    
+
     <color name="light_gray">#808080</color>
 
     <string name="Wishlist">Wishlist</string>
@@ -59,5 +56,6 @@
     <string name="review">Reviews</string>
     <string name="addDish">Add Dish</string>
     <string name="nameLabel">Restaurant Name:</string>
+    <string name="title_activity_sign_up">SignUp</string>
 
 </resources>

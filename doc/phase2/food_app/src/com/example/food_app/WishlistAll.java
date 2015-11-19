@@ -93,7 +93,7 @@ public class WishlistAll extends Activity {
 		//Method to search the Wish list
 	}
 
-		public void submitDish(View view) {
+	public void submitDish(View view) {
 		Intent intent = new Intent(this, AddToWishlist.class);
 			intent.putExtra("username", username);
 		startActivity(intent);

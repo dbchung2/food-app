@@ -29,20 +29,21 @@
         android:hint="@string/password" />
 
     <Button
-        android:id="@+id/login"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/register"
-        android:layout_below="@+id/password"
-        android:layout_marginTop="77dp"
-        android:text="@string/login" />
-
-    <Button
         android:id="@+id/register"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/register" />
+        android:layout_marginBottom="92dp"
+        android:text="@string/register"
+        android:onClick="goToSignUp" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/register"
+        android:layout_alignLeft="@+id/register"
+        android:text="@string/login" />
 
 </RelativeLayout>

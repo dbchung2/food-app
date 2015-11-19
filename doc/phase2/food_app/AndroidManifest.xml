@@ -29,14 +29,13 @@
         <activity
             android:name="com.example.food_app.MainMenu"
             android:label="@string/title_activity_main_menu" >
-
         </activity>
         <activity
-            android:name=".ReviewsAll"
+            android:name="com.example.food_app.ReviewsAll"
             android:label="@string/title_activity_reviews" >
         </activity>
         <activity
-            android:name=".WishlistAll"
+            android:name="com.example.food_app.WishlistAll"
             android:label="@string/title_activity_wishlist" >
         </activity>
         <activity
@@ -64,18 +63,25 @@
                 android:value=".WishlistAll" />
         </activity>
         <activity
-            android:name=".RestaurantsAll"
+            android:name="com.example.food_app.RestaurantsAll"
             android:label="@string/title_activity_restaurant" >
-
         </activity>
         <activity
             android:name="com.example.food_app.AddRestaurant"
             android:label="@string/title_activity_add_restaurant" >
         </activity>
-        <activity android:name=".DishesAll"/>
-        <activity android:name=".AddDish"/>
-        <activity android:name=".RestaurantView"/>
-        <activity android:name=".RestaurantView"/>
+        <activity android:name="com.example.food_app.DishesAll" />
+        <activity android:name="com.example.food_app.AddDish" />
+        <activity android:name="com.example.food_app.RestaurantView" />
+        <activity android:name="com.example.food_app.RestaurantView" />
+        <activity
+            android:name="com.example.food_app.SignUp"
+            android:label="@string/title_activity_sign_up"
+            android:parentActivityName="com.example.food_app.LoginScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.food_app.LoginScreen" />
+        </activity>
     </application>
 
 </manifest>
