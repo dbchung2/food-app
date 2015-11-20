@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -82,7 +83,20 @@ public class WishlistAll extends Activity {
 										// TODO Auto-generated method stub
 								}
 						});
+				
 				}
+				
+			listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+					switch(position) {
+					case 0: Intent newActivity = new Intent(WishlistAll.this, WishListItemView.class);
+					String dishname = listView.getItemAtPosition(position).toString();
+					newActivity.putExtra("Dish name", dishname);
+					startActivity(newActivity);
+					}
+				}
+			});
+				
 		}
 
 	@Override

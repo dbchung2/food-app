@@ -33,7 +33,8 @@ public final class R {
         public static final int Home=0x7f090020;
         public static final int Search=0x7f090022;
         public static final int Spent=0x7f090023;
-        public static final int action_settings=0x7f090040;
+        public static final int aboveRating=0x7f090040;
+        public static final int action_settings=0x7f090046;
         public static final int addDish=0x7f090019;
         public static final int addRest=0x7f09002b;
         public static final int addToWishlist=0x7f090014;
@@ -49,10 +50,11 @@ public final class R {
         public static final int description=0x7f09000e;
         public static final int dishListButton=0x7f090034;
         public static final int dishNameText=0x7f090010;
+        public static final int dishRating=0x7f09003f;
         public static final int dish_name1=0x7f09001a;
         public static final int editText1=0x7f090038;
         public static final int firstName=0x7f09003c;
-        public static final int food_name=0x7f09003f;
+        public static final int food_name=0x7f090045;
         public static final int gridView1=0x7f090026;
         public static final int header=0x7f090024;
         public static final int horizontalScrollView1=0x7f09001f;
@@ -80,6 +82,7 @@ public final class R {
         public static final int rNameText=0x7f090031;
         public static final int rating=0x7f09000d;
         public static final int register=0x7f09001d;
+        public static final int removeFromWishlist=0x7f090041;
         public static final int restaurantName=0x7f090007;
         public static final int restaurant_name=0x7f09002d;
         public static final int restaurant_name1=0x7f09002c;
@@ -94,6 +97,9 @@ public final class R {
         public static final int textView2=0x7f090011;
         public static final int username=0x7f09001b;
         public static final int usernameField=0x7f09003b;
+        public static final int wishListFoodName=0x7f090044;
+        public static final int wishListPrice=0x7f090042;
+        public static final int wishListRestName=0x7f090043;
         public static final int wishlist=0x7f090021;
     }
     public static final class layout {
@@ -113,8 +119,9 @@ public final class R {
         public static final int activity_spent=0x7f03000d;
         public static final int activity_test_screen=0x7f03000e;
         public static final int activity_user_profile=0x7f03000f;
-        public static final int activity_wishlist=0x7f030010;
-        public static final int comment_row=0x7f030011;
+        public static final int activity_wish_list_item_view=0x7f030010;
+        public static final int activity_wishlist=0x7f030011;
+        public static final int comment_row=0x7f030012;
     }
     public static final class menu {
         public static final int add_restaurant=0x7f080000;
@@ -131,7 +138,8 @@ public final class R {
         public static final int spent=0x7f08000b;
         public static final int test_screen=0x7f08000c;
         public static final int user_profile=0x7f08000d;
-        public static final int wishlist=0x7f08000e;
+        public static final int wish_list_item_view=0x7f08000e;
+        public static final int wishlist=0x7f08000f;
     }
     public static final class string {
         public static final int Dishlist=0x7f05002b;
@@ -185,6 +193,7 @@ public final class R {
         public static final int title_activity_spent=0x7f050034;
         public static final int title_activity_test_screen=0x7f050017;
         public static final int title_activity_user_profile=0x7f05000f;
+        public static final int title_activity_wish_list_item_view=0x7f050035;
         public static final int title_activity_wishlist=0x7f05000e;
         public static final int username=0x7f050013;
     }

@@ -91,6 +91,14 @@
             android:name="com.example.food_app.Spent"
             android:label="@string/title_activity_spent" >
         </activity>
+        <activity
+            android:name="com.example.food_app.WishListItemView"
+            android:label="@string/title_activity_wish_list_item_view"
+            android:parentActivityName="com.example.food_app.WishlistAll" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.food_app.WishlistAll" />
+        </activity>
     </application>
 
 </manifest>
