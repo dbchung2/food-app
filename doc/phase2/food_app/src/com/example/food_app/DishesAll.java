@@ -8,22 +8,28 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.food_app.DatabaseClasses.Dish;
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
 public class DishesAll extends Activity {
 	ListView listView;
 	String username;
 	MySQLiteHelper db = new MySQLiteHelper(this);
-
-
+	String rid;
+	ArrayList<Dish> dishArray = new ArrayList<Dish>();
+	ArrayList<String> dishNameArray = new ArrayList<String>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-				super.onCreate(savedInstanceState);
-				username = getIntent().getStringExtra("username");
-				populateList();
+
+		super.onCreate(savedInstanceState);
+		username = getIntent().getStringExtra("username");
+		rid = getIntent().getStringExtra("rid");
+
+			populateList();
 	}
 	
 	protected void onRestart() {
@@ -34,19 +40,32 @@ public class DishesAll extends Activity {
 
 		public void addDish(View view) {
 				Intent intent = new Intent(this, AddDish.class);
+				intent.putExtra("rid", rid);
+
 				startActivity(intent);
 		}
 	public void populateList(){
 		setContentView(R.layout.activity_dishes_all);
-		
-		ArrayList<String> dishArray = new ArrayList<String>();
-		dishArray = db.getAttributeArray("dish", "dishName");
-		
-  	listView = (ListView)findViewById(R.id.listView_dish1);
 
+		String rid = this.getIntent().getExtras().getString("rid");
+		dishNameArray = db.rawQuery("select dishName from dish where rid = "+rid);
+		dishArray = db.getRestaurantDishes(rid);/**/
+
+  	listView = (ListView)findViewById(R.id.listView_dish1);
+			listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+			{
+					@Override
+					public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+					{
+							Intent intent = new Intent(arg1.getContext(), DishView.class);
+							intent.putExtra("username", username);
+							intent.putExtra("dish", dishArray.get(position));
+							startActivity(intent);
+					}
+			});
 		//Insert Array here
-		if(dishArray!=null){
-				final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishArray);
+		if(dishNameArray!=null){
+				final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishNameArray);
 				listView.setAdapter(adapter);
 				
 				/*

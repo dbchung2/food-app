@@ -82,6 +82,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.food_app.LoginScreen" />
         </activity>
+        <activity android:name=".DishView"/>
     </application>
 
 </manifest>

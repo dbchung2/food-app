@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 public class ReviewsAll extends Activity {
     MySQLiteHelper db = new MySQLiteHelper(this);
+    String did;
     /* assume when entered, data is already parsed and passed to this class from sql - will
      * implement a parser if needed.
      */
@@ -34,7 +35,7 @@ public class ReviewsAll extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         username = getIntent().getStringExtra("username");
-        
+        did = this.getIntent().getStringExtra("did");
         //Testing rating value
         /*ArrayList<Integer> ratings = new ArrayList<Integer>();
         ratings.add(2);
@@ -46,8 +47,9 @@ public class ReviewsAll extends Activity {
     public void populateList(){
     	setContentView(R.layout.activity_reviews);
         //To get all reviews
-        ArrayList<String> allrevs = db.getAttributeArray("review", "desc");
-        
+        ArrayList<String> allrevs = db.rawQuery("select desc from review where did = "+did);
+        ArrayList<Review> allReviews = db.getAllReviews();
+
         //parse to list of strings - test later
        /* ArrayList<String> allreviews = new ArrayList<String>();
         ArrayList<String> dishnames = new ArrayList<String>();
@@ -78,6 +80,7 @@ public class ReviewsAll extends Activity {
 	public void submit(View view) {
 	Intent intent = new Intent(this, AddReview.class);
 		intent.putExtra("username", username);
+      intent.putExtra("did", did);
 		startActivity(intent);
 }
 

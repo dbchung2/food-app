@@ -8,13 +8,17 @@ public class Review {
     String did;
     String desc;
     String rating;
-    public Review(String username, String did, String desc, String rating){
+    String category;
+    public Review(String username, String did, String desc, String rating, String category){
         this.username = username;
         this.did = did;
         this.desc = desc;
         this.rating = rating;
+        this.category = category;
     }
-
+    public String getCategory(){
+        return category;
+    }
     public String getUsername() {
         return username;
     }

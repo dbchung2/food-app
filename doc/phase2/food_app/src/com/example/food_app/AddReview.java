@@ -21,16 +21,14 @@ public class AddReview extends Activity {
     final Context context = this;
 	MySQLiteHelper db = new MySQLiteHelper(this);
 	String username;
-	
+	String did;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding_review);
 		username = getIntent().getStringExtra("username");
-		
+		did = this.getIntent().getStringExtra("did");
 		//get all text fields
-		final EditText restname = (EditText) findViewById(R.id.restname);
-		final EditText dishname = (EditText) findViewById(R.id.dishname);
 		final EditText price = (EditText) findViewById(R.id.price);
 		final EditText rating = (EditText) findViewById(R.id.rating);
 		final EditText category = (EditText) findViewById(R.id.category);
@@ -40,8 +38,8 @@ public class AddReview extends Activity {
 		sub.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick (View v) {
-				db.addReview(username, dishname.getText().toString(), description.getText().toString(), 
-						rating.getText().toString());
+				db.addReview(username, did, description.getText().toString(),
+						rating.getText().toString(), category.getText().toString());
 
 				Toast.makeText(getApplicationContext(),
 											"Review added!",

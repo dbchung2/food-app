@@ -15,9 +15,12 @@ import com.example.food_app.DatabaseClasses.Restaurant;
  * Created by Matt on 2015-11-18.
  */
 public class RestaurantView extends Activity {
+    String rid;
+    String username;
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_view);
+        username = this.getIntent().getStringExtra("username");
         TextView rname =  (TextView) findViewById (R.id.rNameText);
         TextView rAddress =  (TextView) findViewById (R.id.rAddressText);
         TextView rCode =  (TextView) findViewById (R.id.rCodeText);
@@ -26,10 +29,9 @@ public class RestaurantView extends Activity {
         rname.setText(thisRest.getRname());
         rAddress.setText(thisRest.getAddress());
         rCode.setText(thisRest.getPostalCode());
-        final String rid = thisRest.getRid();
-        
-        
-        
+        rid = thisRest.getRid();
+
+        /*
         Button add_dish = (Button)findViewById(R.id.add_dish_to_rest);
         add_dish.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -38,8 +40,13 @@ public class RestaurantView extends Activity {
 				dish.putExtra("rid", rid);
 				startActivity(dish);
 			}
-		});
-        
+		});*/
+    }
 
+    public void goToDishView(View view) {
+        Intent intent = new Intent(this, DishesAll.class);
+        intent.putExtra("rid", rid);
+        intent.putExtra("username", username);
+        startActivity(intent);
     }
 }

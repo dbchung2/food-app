@@ -63,14 +63,15 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"/>
 
-        <Button
-            android:id="@+id/add_dish_to_rest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="58dp"
-            android:text="@string/addDish" />
+        <Button android:id="@+id/dishListButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dish List"
+                android:onClick="goToDishView"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="97dp"/>/>
 
     </RelativeLayout>
 </RelativeLayout>
