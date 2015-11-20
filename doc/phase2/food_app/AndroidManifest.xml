@@ -82,7 +82,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.food_app.LoginScreen" />
         </activity>
-        <activity android:name=".DishView"/>
+        <activity android:name="com.example.food_app.DishView" />
+        <activity
+            android:name="com.example.food_app.Search"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.Spent"
+            android:label="@string/title_activity_spent" >
+        </activity>
     </application>
 
 </manifest>

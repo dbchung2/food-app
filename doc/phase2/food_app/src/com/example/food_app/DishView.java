@@ -17,13 +17,16 @@ public class DishView extends Activity {
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         username = this.getIntent().getStringExtra("username");
-        Dish thisDish = (Dish)this.getIntent().getSerializableExtra("dish");
-        did = thisDish.getDid();
         setContentView(R.layout.activity_dish_view);
-        TextView dName =  (TextView) findViewById (R.id.dishNameText);
-        TextView dAverageRating =  (TextView) findViewById (R.id.averageRatingText);
-        dName.setText(thisDish.getDishName());
-        dAverageRating.setText(thisDish.getAvgRating());
+        
+     // Commented out to test the flow of app
+        
+        //Dish thisDish = (Dish)this.getIntent().getSerializableExtra("dish");
+        //did = thisDish.getDid();
+        //TextView dName =  (TextView) findViewById (R.id.dishNameText);
+        //TextView dAverageRating =  (TextView) findViewById (R.id.averageRatingText);
+        //dName.setText(thisDish.getDishName());
+        //dAverageRating.setText(thisDish.getAvgRating());
     }
 
 

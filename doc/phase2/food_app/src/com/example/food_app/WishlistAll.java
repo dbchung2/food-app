@@ -22,8 +22,8 @@ import java.util.Locale;
 
 public class WishlistAll extends Activity {
 		MySQLiteHelper db = new MySQLiteHelper(this);
-    final Context context = this;
-    ArrayList<String> dishIdArray;
+		final Context context = this;
+		ArrayList<String> dishIdArray;
 		ArrayList<Dish> dishArray = new ArrayList<Dish>();
 		ListView listView;
 		String username;
@@ -40,6 +40,9 @@ public class WishlistAll extends Activity {
 				// Activity being restarted from stopped state
 		}
 
+		
+		// Instead of dishes this now populates a list of restaurants the user wants to visit and clicking the restaurant name will
+		// show their wish dish. Currently shows dishes though.
 		public void populateList(){
 				setContentView(R.layout.activity_wishlist);
 				if(db.getWishlist(username) != null){
@@ -96,6 +99,12 @@ public class WishlistAll extends Activity {
 	public void submitDish(View view) {
 		Intent intent = new Intent(this, AddToWishlist.class);
 			intent.putExtra("username", username);
+		startActivity(intent);
+	}
+	
+	public void goToAddDishes(View view) {
+		Intent intent = new Intent(this, AddDish.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 

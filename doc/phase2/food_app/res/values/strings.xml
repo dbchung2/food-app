@@ -57,5 +57,10 @@
     <string name="addDish">Add Dish</string>
     <string name="nameLabel">Restaurant Name:</string>
     <string name="title_activity_sign_up">SignUp</string>
+    <string name="plus">+</string>
+    <string name="home">Home</string>
+    <string name="spent">Spent</string>
+    <string name="title_activity_search">Search</string>
+    <string name="title_activity_spent">Spent</string>
 
 </resources>

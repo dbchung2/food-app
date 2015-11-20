@@ -27,6 +27,12 @@ public class MainMenu extends Activity {
 		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
+	
+	public void goToMain(View view) {
+		Intent intent = new Intent(this, MainMenu.class);
+		intent.putExtra("username", username);
+		startActivity(intent);
+	}
 
 	public void goToWishlist(View view) {
 
@@ -35,12 +41,29 @@ public class MainMenu extends Activity {
 		startActivity(intent);
 	}
 
-	
-	
-	public void goToReview(View view) {
-		Intent intent = new Intent(this, ReviewsAll.class);
+	public void goToSearch(View view) {
+		Intent intent = new Intent(this, Search.class);
 		intent.putExtra("username", username);
 		startActivity(intent);
+	}
+	
+	public void goToSpent(View view) {
+		Intent intent = new Intent(this, Spent.class);
+		intent.putExtra("username", username);
+		startActivity(intent);
+	}
+	
+	public void goToAddDishes(View view) {
+		Intent intent = new Intent(this, AddDish.class);
+		intent.putExtra("username", username);
+		startActivity(intent);
+	}
+	
+	public void goToDishView(View view) {
+		Intent intent = new Intent(this, DishView.class);
+		intent.putExtra("username", username);
+		startActivity(intent);
+	}
 	
 	//public void next_action() {
 		//Button Restaurants;
@@ -56,17 +79,17 @@ public class MainMenu extends Activity {
 			//	setContentView(R.layout.activity_wishlist);
 			//}					
 		//});
-	}
-	
+	/*
 	public void goToAllReviews(View view) {
 		Intent intent = new Intent(this, ReviewsAll.class);
 		startActivity(intent);
 	}
+	
 	
 	public void goToRestaurant(View view) {
 		Intent intent = new Intent(this, RestaurantsAll.class);
 		intent.putExtra("username", username);
 		startActivity(intent);
 	}
-
+*/
 }
