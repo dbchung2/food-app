@@ -26,7 +26,7 @@ public class AddDish extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_dish);
         
-
+        final String rid = getIntent().getStringExtra("rid");
         
         Button submit_add = (Button)findViewById(R.id.submitToAddDish);
         
@@ -35,10 +35,10 @@ public class AddDish extends Activity {
 			@Override
 			public void onClick (View v) {
 					menuName = ((EditText)findViewById(R.id.menuname)).getText().toString();
-					rest_id = ((EditText)findViewById(R.id.restid)).getText().toString();
+					
 					avg_rating = ((EditText)findViewById(R.id.avgRating)).getText().toString();
 				//Add dish based on info given by user
-				db.addDish(rest_id, menuName, avg_rating);
+				db.addDish(rid, menuName, avg_rating);
 				
 				
 				Toast.makeText(getApplicationContext(),

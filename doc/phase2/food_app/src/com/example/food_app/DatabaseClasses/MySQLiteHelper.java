@@ -53,14 +53,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                "FOREIGN KEY(did) REFERENCES user(did),"+
                "PRIMARY KEY(did, username))";
        String CREATE_DISH_TABLE = "CREATE TABLE dish ( " +
-           //"rid INTEGER, " +
-    		   "did INTEGER,"+
-           "dishName varchar(255)," +
-    		   "avgRating INTEGER CHECK(avgRating <= 5),"+
-           //"image BLOB,"+
-    		   //"FOREIGN KEY(rid) REFERENCES restaurant(rid),"+
-           //"PRIMARY KEY(did, rid))";
-           "PRIMARY KEY(did))";
+    		   "did INTEGER PRIMARY KEY AUTOINCREMENT, " + 
+    		   "rid INTEGER, " +
+    		   "dishName varchar(255)," +
+    		   "avgRating INTEGER CHECK(avgRating <= 5)," + 
+    		   //"image BLOB,"+
+    		   "FOREIGN KEY(rid) REFERENCES restaurant(rid))";
+           	   //"PRIMARY KEY(did, rid))";
 
 
 
@@ -214,14 +213,15 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void addDish(String rid, String dishName, String avgRating){
         SQLiteDatabase database = this.getWritableDatabase();
 
+        
         ContentValues values = new ContentValues();
-        values.put("rid", rid);
-        values.put("dishName", dishName);
-        values.put("avgRating", avgRating);
-
+        values.put("rid", rid); 
+        values.put("dishName", dishName); 
+        values.put("avgRating", avgRating); 
+        
         database.insert("dish", // table
-            null, //nullColumnHack
-            values);
+                null, //nullColumnHack
+                values);
         database.close();
     }
 
@@ -370,7 +370,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
     public ArrayList<String> getAttributeArray(String table, String attribute){
         HashMap<String, String[]> columns = new HashMap<String, String[]>();
-        columns.put("dish", new String[]{"rid", "did", "dishName", "avgRating"});
+        columns.put("dish", new String[]{"did", "rid", "dishName", "avgRating"});
         columns.put("review", new String[]{"username", "did", "desc", "rating"});
         columns.put("restaurant", new String[]{"rid", "rname", "address", "postalCode"});
         columns.put("user", new String[]{"username", "password", "firstname", "lastname"});

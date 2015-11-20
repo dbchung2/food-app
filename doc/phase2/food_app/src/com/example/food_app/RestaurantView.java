@@ -1,8 +1,13 @@
 package com.example.food_app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.food_app.DatabaseClasses.Restaurant;
 
@@ -21,6 +26,20 @@ public class RestaurantView extends Activity {
         rname.setText(thisRest.getRname());
         rAddress.setText(thisRest.getAddress());
         rCode.setText(thisRest.getPostalCode());
+        final String rid = thisRest.getRid();
+        
+        
+        
+        Button add_dish = (Button)findViewById(R.id.add_dish_to_rest);
+        add_dish.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick (View v) {
+				Intent dish = new Intent(RestaurantView.this, AddDish.class);
+				dish.putExtra("rid", rid);
+				startActivity(dish);
+			}
+		});
+        
 
     }
 }

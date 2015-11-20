@@ -18,27 +18,14 @@
         android:hint="@string/dish_name"
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
-    
-    <EditText
-        android:id="@+id/restid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/menuname"
-        android:layout_below="@+id/menuname"
-        android:layout_marginTop="35dp"
-        android:hint="@string/restuarant_name"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-    
-
-
     <EditText
         android:id="@+id/avgRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/restid"
-        android:layout_below="@+id/restid"
-        android:layout_marginTop="35dp"
+        android:layout_alignLeft="@+id/menuname"
+        android:layout_below="@+id/menuname"
         android:layout_centerVertical="true"
+        android:layout_marginTop="35dp"
         android:ems="10"
         android:hint="@string/rating"
         android:textAppearance="?android:attr/textAppearanceMedium" />
