@@ -43,7 +43,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     		   "did INTEGER," +
                "desc TEXT," +
                "rating INTEGER CHECK(rating<=5)," +
-                "cetegory varchar(255)," +
+                "category varchar(255)," +
                "FOREIGN KEY(username) REFERENCES user(username),"+
                "FOREIGN KEY(did) REFERENCES user(did),"+
                "PRIMARY KEY(username, did))";
