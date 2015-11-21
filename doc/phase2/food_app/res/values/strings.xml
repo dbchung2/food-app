@@ -63,5 +63,7 @@
     <string name="title_activity_search">Search</string>
     <string name="title_activity_spent">Spent</string>
     <string name="title_activity_wish_list_item_view">WishListItemView</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
 
 </resources>

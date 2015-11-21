@@ -53,35 +53,6 @@ public class LoginScreen extends Activity {
 				}
 
 			}});
-        
-        /*
-        register_butt.setOnClickListener(new OnClickListener() {
-						@Override public void onClick(View arg0) {
-								String username = e1.getText().toString();
-								String password = e2.getText().toString();
-								final Intent login = new Intent(LoginScreen.this, LoginScreen.class);
-
-
-								if (username.matches("") || password.matches("")) {
-					        		 Toast.makeText(getApplicationContext(),
-												"Please enter a username and password!",
-												Toast.LENGTH_SHORT).show();
-								} else if (db.getUser(username) != null) {
-					        		 Toast.makeText(getApplicationContext(),
-												"Username taken!",
-												Toast.LENGTH_SHORT).show();
-						                     
-								} else {
-										db.addUser(username, password, "FirstName", "LastName");
-										//main.putExtra("username", username);
-										
-						        		 Toast.makeText(getApplicationContext(),
-													"Registration successful! Please login.",
-													Toast.LENGTH_SHORT).show();
-								}
-
-						}
-				}); */
 	} 
 
 	@Override
