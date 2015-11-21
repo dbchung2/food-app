@@ -2,93 +2,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6082b6"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#6082b6"
     tools:context=".AddToWishlist" >
 
-    <Button
-        android:id="@+id/submitReview"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="21dp"
-        android:text="@string/submit" />
-    
-    
     <LinearLayout
         android:id="@+id/sublist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:background="#FFFFFF"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/dish_rev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:maxHeight="50dp"
+            android:layout_margin="10dp"
+            android:hint="@string/dish_name" />
+        
+        <EditText
+	        android:id="@+id/rest"
+	        android:layout_width= "wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="#FFFFFF"
+	        android:ems="10"
+	        android:maxHeight="50dp"
+	        android:layout_margin="10dp"
+	        android:hint="@string/restuarant_name" />
+
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:maxHeight="50dp"
+            android:layout_margin="10dp"
+            android:hint="@string/price" />
+    </LinearLayout>
+
+    <RatingBar
+        android:id="@+id/rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-    
-    <EditText
-        android:id="@+id/dish_rev"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:background="#FFFFFF"
-        android:hint="@string/dish_name" 
-        />
-        
-    <EditText
-        android:id="@+id/rest"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:background="#FFFFFF"
-        android:hint="@string/restuarant_name" 
-        />
-    
-    <EditText
-        android:id="@+id/price"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:hint="@string/price" 
-        android:layout_alignLeft="@+id/category"/>
-    </LinearLayout>
+        android:layout_below="@+id/sublist"
+        android:layout_centerHorizontal="true" />
 
     <LinearLayout
-        android:background="#FFFFFF"
-        android:layout_width="wrap_content"
+        android:id="@+id/sublist2"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/sublist"
-        android:layout_margin="10dp">
-    <EditText
-        android:id="@+id/rating"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:hint="@string/rating" />
-
-    <EditText
-        android:id="@+id/description"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_alignLeft="@+id/submitToWishlist"
-        android:layout_below="@+id/category"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Review text" />
-
-    <EditText
-        android:id="@+id/category"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/description"
         android:layout_below="@+id/rating"
-        android:layout_marginTop="18dp"
-        android:ems="10"
-        android:hint="@string/category" />
+        android:layout_margin="10dp"
+        android:background="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+        
+		<EditText
+            android:id="@+id/category"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:maxHeight="50dp"
+            android:layout_margin="10dp"
+            android:hint="@string/category" />	
+            
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:ems="10"
+            android:hint="@string/description" />
+            
     </LinearLayout>
-   
+        
+        <Button
+	        android:id="@+id/submitReview"
+	        android:layout_width="fill_parent"
+	        android:layout_height="50dp"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"
+	        android:background="#1a1a1a"
+	        android:textColor="#FFFFFF"
+	        android:text="@string/submit" />
+
 </RelativeLayout>

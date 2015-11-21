@@ -21,12 +21,12 @@ public class DishView extends Activity {
         
      // Commented out to test the flow of app
         
-        //Dish thisDish = (Dish)this.getIntent().getSerializableExtra("dish");
-        //did = thisDish.getDid();
-        //TextView dName =  (TextView) findViewById (R.id.dishNameText);
-        //TextView dAverageRating =  (TextView) findViewById (R.id.averageRatingText);
-        //dName.setText(thisDish.getDishName());
-        //dAverageRating.setText(thisDish.getAvgRating());
+        Dish thisDish = (Dish)this.getIntent().getSerializableExtra("dish");
+        did = thisDish.getDid();
+        TextView dName =  (TextView) findViewById (R.id.dishNameText);
+        TextView dAverageRating =  (TextView) findViewById (R.id.averageRatingText);
+        dName.setText(thisDish.getDishName());
+        dAverageRating.setText(thisDish.getAvgRating());
     }
 
 
@@ -37,6 +37,7 @@ public class DishView extends Activity {
         intent.putExtra("username", username);
         startActivity(intent);
     }
+    
     public void addToWish() {
         //Add dish to user wishlist
 

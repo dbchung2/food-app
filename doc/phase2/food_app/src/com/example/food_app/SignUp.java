@@ -48,13 +48,23 @@ MySQLiteHelper db = new MySQLiteHelper(this);
 	        		 Toast.makeText(getApplicationContext(),
 								"Username taken!",
 								Toast.LENGTH_SHORT).show();
-				} else {
-					db.addUser(uName, pWord, firstName, lastName);
-					//main.putExtra("username", username);
+				}else if (firstName.matches("") || lastName.matches("")) {
 	        		 Toast.makeText(getApplicationContext(),
+								"Please enter your name!",
+								Toast.LENGTH_SHORT).show();
+				} else {
+					if (pWord.length() >= 5 && pWord.matches(".*\\d+.*")) {
+						db.addUser(uName, pWord, firstName, lastName);
+						//main.putExtra("username", username);
+						Toast.makeText(getApplicationContext(),
 								"Registration successful! Please login.",
 								Toast.LENGTH_SHORT).show();
-	        		 finish();
+						finish();
+					} else {
+						Toast.makeText(getApplicationContext(),
+								"Password must be at least 5 characters and contain a number!",
+								Toast.LENGTH_SHORT).show();
+					}
 				}
 			
 			}	

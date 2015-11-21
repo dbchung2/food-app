@@ -45,12 +45,9 @@ public class Search extends Activity {
 		ArrayList<String> category_search = new ArrayList<String>();
 		
 		category_search.add("Restaurants");
-		category_search.add("Dishes");
-		category_search.add("whish lists");
 		category_search.add("Location");
 		category_search.add("Category");
 		category_search.add("Price");
-
 		
 
 		//Insert Array here
@@ -61,6 +58,38 @@ public class Search extends Activity {
 				
 				// Implement the search feature - currently search within the above list, change to the most relevant search result.
 				final EditText inputSearch = (EditText) findViewById(R.id.editText1);
+				
+				listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+				{
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3) { 
+							switch(position){
+								case 0: // Click on restaurant
+									Intent intent = new Intent(arg1.getContext(), RestaurantsAll.class);
+									intent.putExtra("username", username);
+									startActivity(intent);
+									break;
+									
+								case 1: // Click on location
+									Intent intent2 = new Intent(arg1.getContext(), RestaurantsAll.class); 
+									intent2.putExtra("username", username);
+									startActivity(intent2);
+									break;
+									
+								case 2: // Click on category
+									Intent intent3 = new Intent(arg1.getContext(), RestaurantsAll.class);
+									intent3.putExtra("username", username);
+									startActivity(intent3);
+									break;
+									
+								case 3: // Click on price
+									Intent intent4 = new Intent(arg1.getContext(), RestaurantsAll.class);
+									intent4.putExtra("username", username);
+									startActivity(intent4);
+									break;
+							}
+						}
+				});
 				
 				//get search text
 				inputSearch.addTextChangedListener(new TextWatcher() {
@@ -85,6 +114,7 @@ public class Search extends Activity {
 						}
 				});
 		}
+
 		listView.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View view,
 	           int position, long id) {
@@ -112,9 +142,11 @@ public class Search extends Activity {
 				    }
 		        }
 			
-		});
+		});;
 
 		
+
+
 }
 	
 	@Override

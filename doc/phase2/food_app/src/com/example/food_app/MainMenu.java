@@ -22,8 +22,9 @@ public class MainMenu extends Activity {
      Context context;    
      ArrayList foodName;    
      MySQLiteHelper db = new MySQLiteHelper(this);
-     public static String [] dishList={"Pancakes", "Big Mac"};
      
+     // Temporary values to test front end - will replace with back end values (currently can't do due to a bug).
+     public static String [] dishList={"Pancakes", "Big Mac"};
      public static String [] restList={"iHop", "McDonalds"};
      public static int [] foodImages={R.drawable.food1, R.drawable.food2};
     
@@ -35,13 +36,15 @@ public class MainMenu extends Activity {
 
 
 		username = getIntent().getStringExtra("username");
-		 GridView gridview = (GridView) findViewById(R.id.gridview);
-		 gridview.setAdapter(new ImageAdapter(this, dishList, foodImages, restList));
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		gridview.setAdapter(new ImageAdapter(this, dishList, foodImages, restList));
 
-		    gridview.setOnItemClickListener(new OnItemClickListener() {
+		gridview.setOnItemClickListener(new OnItemClickListener() {
 		        public void onItemClick(AdapterView<?> parent, View v,
 		                int position, long id) {
 		        	 Intent i = new Intent(getApplicationContext(), DishView.class);
+		        	 i.putExtra("username", username);
+		        	 i.putExtra("dishname", dishList[position]);
 		             startActivity(i);
 		        }
 		    });
