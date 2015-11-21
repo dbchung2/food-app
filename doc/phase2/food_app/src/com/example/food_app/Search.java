@@ -17,6 +17,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.content.Intent;
 
 public class Search extends Activity {
 	String username;
@@ -90,7 +91,8 @@ public class Search extends Activity {
 
 				    if(position == 0)
 				    {
-				    	setContentView(R.layout.activity_restaurant);
+				    	Intent intent = new Intent(Search.this, RestaurantsAll.class);
+				    	startActivity(intent);
 				    }
 	
 				    if(position == 1)
