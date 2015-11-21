@@ -28,16 +28,21 @@ public class AddReview extends Activity {
 		setContentView(R.layout.activity_adding_review);
 		username = getIntent().getStringExtra("username");
 		did = this.getIntent().getStringExtra("did");
+		final String rid = getIntent().getExtras().getString("rid");
 		//get all text fields
 		final EditText price = (EditText) findViewById(R.id.price);
 		final EditText rating = (EditText) findViewById(R.id.rating);
 		final EditText category = (EditText) findViewById(R.id.category);
 		final EditText description = (EditText) findViewById(R.id.description);
+		final EditText dish = (EditText) findViewById(R.id.dish_rev);
+		final EditText rest = (EditText) findViewById(R.id.rest);
 		Button sub = (Button)findViewById(R.id.submitReview);
+		
 		
 		sub.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick (View v) {
+				// Add to review table
 				db.addReview(username, did, description.getText().toString(),
 						rating.getText().toString(), category.getText().toString());
 
@@ -47,6 +52,11 @@ public class AddReview extends Activity {
 				Intent mainMenu = new Intent(AddReview.this, MainMenu.class);
 	        	startActivity(mainMenu);
 				
+	        	// Add to dish table
+	        	db.addDish(rid, dish.getText().toString());
+	        	
+	        	// Add to restaurant table
+	        	db.addRestaurant(rest.getText().toString(), "1234 abc street", "a1b2c3");
 			}
 		});
 	}

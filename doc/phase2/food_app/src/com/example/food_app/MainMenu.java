@@ -1,13 +1,32 @@
 package com.example.food_app;
 
 import android.os.Bundle;
+
+import java.util.ArrayList;
+
+import com.example.food_app.DatabaseClasses.MySQLiteHelper;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
+import android.widget.Toast;
 
 public class MainMenu extends Activity {
-	String username;
+	 String username;
+	 GridView gv;
+     Context context;    
+     ArrayList foodName;    
+     MySQLiteHelper db = new MySQLiteHelper(this);
+     public static String [] dishList={"Pancakes", "Big Mac"};
+     
+     public static String [] restList={"iHop", "McDonalds"};
+     public static int [] foodImages={R.drawable.food1, R.drawable.food2};
+    
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +35,16 @@ public class MainMenu extends Activity {
 
 
 		username = getIntent().getStringExtra("username");
-		//pass username to next views
-		
-		//next_action();
+		 GridView gridview = (GridView) findViewById(R.id.gridview);
+		 gridview.setAdapter(new ImageAdapter(this, dishList, foodImages, restList));
+
+		    gridview.setOnItemClickListener(new OnItemClickListener() {
+		        public void onItemClick(AdapterView<?> parent, View v,
+		                int position, long id) {
+		        	 Intent i = new Intent(getApplicationContext(), DishView.class);
+		             startActivity(i);
+		        }
+		    });
 	}
 
 	@Override
@@ -53,8 +79,8 @@ public class MainMenu extends Activity {
 		startActivity(intent);
 	}
 	
-	public void goToAddDishes(View view) {
-		Intent intent = new Intent(this, AddDish.class);
+	public void goToAddReview(View view) {
+		Intent intent = new Intent(this, AddReview.class);
 		intent.putExtra("username", username);
 		startActivity(intent);
 	}
