@@ -60,4 +60,14 @@
             android:layout_toRightOf="@+id/textView5"
             android:layout_toEndOf="@+id/textView5"
             android:layout_marginLeft="10dp" android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignLeft="@+id/reviewUsername"
+        android:text="TextView" />
+
 </RelativeLayout>

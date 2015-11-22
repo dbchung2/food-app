@@ -99,6 +99,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.food_app.WishlistAll" />
         </activity>
+        <activity android:name=".ReviewView"/>
     </application>
 
 </manifest>

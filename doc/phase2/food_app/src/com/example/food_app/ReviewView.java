@@ -21,11 +21,12 @@ public class ReviewView extends Activity {
         TextView dName =  (TextView) findViewById (R.id.reviewDishName);
         TextView dDesc =  (TextView) findViewById (R.id.reviewDesc);
         TextView dRating =  (TextView) findViewById (R.id.reviewRating);
-        TextView dUsername =  (TextView) findViewById (R.id.reviewUsername);
+        TextView dUsername =  (TextView) findViewById (R.id.textView6);
         dName.setText(dishName);
         dDesc.setText(review.getDesc());
         dRating.setText(review.getRating());
         dUsername.setText(review.getUsername());
+        //System.out.println(review.getUsername());
 
     }
 }

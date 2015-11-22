@@ -28,6 +28,7 @@ public class AddReview extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding_review);
 		username = getIntent().getStringExtra("username");
+		
 		did = this.getIntent().getStringExtra("did");
 		//get all text fields
 		final EditText price = (EditText) findViewById(R.id.price);
