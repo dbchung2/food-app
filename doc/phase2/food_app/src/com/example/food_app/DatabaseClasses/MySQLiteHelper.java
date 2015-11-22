@@ -43,7 +43,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
            "did INTEGER," +
                "desc TEXT," +
                "rating INTEGER," +
-                "category varchar(255)," +
                 "price varchar(255),"+
                "FOREIGN KEY(username) REFERENCES user(username),"+
                "FOREIGN KEY(did) REFERENCES user(did),"+
@@ -58,11 +57,22 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     		   "did INTEGER PRIMARY KEY, " +
     		   "rid INTEGER, " +
     		   "dishName varchar(255)," +
-    		   "avgRating INTEGER CHECK(avgRating <= 5))";
+           "category varchar(255)," +
+           "price DOUBLE," +
+           "avgRating INTEGER CHECK(avgRating <= 5))";
+       String CREATE_SPENT_TABLE = "CREATE TABLE spent ( " +
+           "username varchar(255), "+
+           "did INTEGER, "+
+           "datetime DATETIME , "+
+           "category varchar(255), " +
+           "FOREIGN KEY(username) REFERENCES user(username),"+
+           "FOREIGN KEY(did) REFERENCES user(did),"+
+           "PRIMARY KEY(datetime))";
 
 
 
-       
+
+       db.execSQL(CREATE_SPENT_TABLE);
        db.execSQL(CREATE_USER_TABLE);
        db.execSQL(CREATE_RESTO_TABLE);
        db.execSQL(CREATE_REVIEW_TABLE);
@@ -98,7 +108,21 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        database.close();
 	   
    }
+   public void addSpent (String username, String did, String datetime, String category){
+       //yyyy-MM-dd HH:mm:ss
+       SQLiteDatabase database = this.getWritableDatabase();
 
+       ContentValues values = new ContentValues();
+       values.put("username", username);
+       values.put("did", did);
+       values.put("datetime", datetime);
+       values.put("category", category);
+
+       database.insert("spent", // table
+           null, //nullColumnHack
+           values);
+       database.close();
+   }
    public User getUser(String username){
 	   String[] columns = {"username", "password", "firstname", "lastname"};
 	  
@@ -172,7 +196,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        database.insert("wishlist", // table
                null, //nullColumnHack
                values);
-       database.close();   
+       database.close();
    }
     
    public Float getAvgRating(String did){
@@ -184,7 +208,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        result = result/ratings.size();
        return result;
    }
+    /*
+   public ArrayList<String> getCategories(){
+       return rawQuery("select distinct category from review");
+   }
+   public HashMap<String, String> getSpent(String did){
+       ArrayList<String> categories = getCategories();
 
+   } */
    public ArrayList<String> getWishlistIds(String username){
 	   String[] columns = {"username", "did"};
 	   ArrayList<String> dishIDs = new ArrayList<String>();
@@ -237,13 +268,16 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         database.delete("wishlist", "username = ? AND did = ?", new String[]{username, did});
 
     }
-    public void addDish(String rid, String dishName){
+    public void addDish(String rid, String dishName, String category, Double price){
         SQLiteDatabase database = this.getWritableDatabase();
 
         
         ContentValues values = new ContentValues();
         values.put("rid", rid); 
         values.put("dishName", dishName);
+        values.put("category", category);
+        values.put("price", price);
+
         //Later on we will update the avg rating based on reviews instead of initializing it to 0
         values.put("avgRating", 0);
 
@@ -270,11 +304,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. if we got results get the first one
         if (cursor != null)
             cursor.moveToFirst();
-        Dish dish = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+        Dish dish = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(
+            4));
         return dish;
     }
 
-    public void addReview(String username, String did, String desc, String rating, String category, String price){
+    public void addReview(String username, String did, String desc, String rating, String price){
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -282,7 +317,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         values.put("did", did);
         values.put("desc", desc);
         values.put("rating", rating);
-        values.put("category", category);
         values.put("price", price);
         database.insert("review", // table
             null, //nullColumnHack
@@ -307,7 +341,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. if we got results get the first one
         if (cursor != null)
             cursor.moveToFirst();
-        Review review = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+        Review review = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
         return review;
         }
 
@@ -356,7 +390,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         int i=0;
         while(i < cursor.getCount()){
-            Dish temp = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            Dish temp = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(
+                4));
             restaurantDishes.add(temp);
             cursor.moveToNext();
             i++;
@@ -379,7 +414,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         int i=0;
         while(i < cursor.getCount()){
-            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
             restaurantDishes.add(temp);
             cursor.moveToNext();
             i++;
@@ -400,7 +435,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         int i=0;
         while(i < cursor.getCount()){
-            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
             allReviews.add(temp);
             cursor.moveToNext();
             i++;

@@ -36,7 +36,6 @@ public class AddReview extends Activity {
 		
 		final RatingBar rating = (RatingBar) findViewById(R.id.rating);
 		rating.setStepSize(1);
-		final EditText category = (EditText) findViewById(R.id.category);
 		final EditText description = (EditText) findViewById(R.id.description);
 		Button sub = (Button)findViewById(R.id.submitReview);
 		
@@ -45,7 +44,7 @@ public class AddReview extends Activity {
 			@Override
 			public void onClick (View v) {
 				db.addReview(username, did, description.getText().toString(),
-						String.valueOf(rating.getRating()), category.getText().toString(), "");
+						String.valueOf(rating.getRating()), "");
 
 				Toast.makeText(getApplicationContext(),
 											"Review added!",

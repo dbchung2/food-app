@@ -26,7 +26,7 @@
             android:ems="10"
             android:maxHeight="50dp"
             android:layout_margin="10dp"
-            android:hint="Price Paid" />
+            android:hint="Price Paid ($)" />
     </LinearLayout>
 
     <RatingBar
@@ -45,20 +45,11 @@
         android:background="#FFFFFF"
         android:layout_centerHorizontal="true"
         android:orientation="vertical" >
-        
-		<EditText
-            android:id="@+id/category"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:maxHeight="50dp"
-            android:layout_margin="10dp"
-            android:hint="@string/category" />	
-            
+
         <EditText
             android:id="@+id/description"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="130dp"
             android:minHeight="100dp"
             android:ems="10"
             android:hint="Review Text" />

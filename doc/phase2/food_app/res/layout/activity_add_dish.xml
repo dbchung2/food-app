@@ -19,16 +19,16 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
     <EditText
-        android:id="@+id/avgRating"
+        android:id="@+id/category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/menuname"
-        android:layout_below="@+id/menuname"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="37dp"
         android:ems="10"
-        android:hint="@string/rating"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:hint="Category"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/menuname"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     
     <Button
         android:id="@+id/submitToAddDish"
@@ -38,7 +38,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
         android:text="@string/addDish" />
-    
-    
-   
+    <EditText android:id="@+id/addDishPrice" android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:ems="10"
+              android:hint="Price ($)"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:layout_below="@+id/category"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentStart="true"
+              android:layout_marginTop="39dp"/>
+
+
 </RelativeLayout>

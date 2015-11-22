@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.example.food_app.DatabaseClasses.Dish;
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Matt on 2015-11-19.
  */
@@ -18,7 +21,7 @@ public class DishView extends Activity {
     String did;
     String username;
     MySQLiteHelper db = new MySQLiteHelper(this);
-
+    Dish thisDish;
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         username = this.getIntent().getStringExtra("username");
@@ -26,10 +29,14 @@ public class DishView extends Activity {
         
      // Commented out to test the flow of app
         
-        Dish thisDish = (Dish)this.getIntent().getSerializableExtra("dish");
+         thisDish = (Dish)this.getIntent().getSerializableExtra("dish");
         did = thisDish.getDid();
         TextView dName =  (TextView) findViewById (R.id.dishNameText);
         RatingBar ratingBar = (RatingBar) findViewById(R.id.dishViewRating);
+        TextView category = (TextView) findViewById(R.id.dishViewCategory);
+        TextView price = (TextView) findViewById(R.id.dishViewPrice);
+        price.setText(String.valueOf(thisDish.getPrice()));
+        category.setText(thisDish.getCategory());
 
         ratingBar.setRating(db.getAvgRating(thisDish.getDid()));
         dName.setText(thisDish.getDishName());
@@ -43,7 +50,14 @@ public class DishView extends Activity {
         intent.putExtra("username", username);
         startActivity(intent);
     }
-    
+    public void ateIt(View view){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        String now = dateFormat.format(date);
+        db.addSpent(username, thisDish.getDid(), now, thisDish.getCategory());
+        Button ateButton = (Button)findViewById(R.id.dishViewAteIt);
+        ateButton.setVisibility(View.GONE);
+    }
     public void addToWish(View view) {
         db.addWishlist(did, username);
         Button addButton = (Button) findViewById(R.id.addToWishlist);

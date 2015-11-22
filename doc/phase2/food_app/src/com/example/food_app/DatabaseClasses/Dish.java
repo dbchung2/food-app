@@ -10,14 +10,22 @@ public class Dish implements Serializable {
     String did;
     String dishName;
     String avgRating;
-    String image;
-    public Dish(String did, String rid, String dishName, String avgRating){
+    String category;
+    Double price;
+
+    public Dish(String did, String rid, String dishName, String category, Double price){
         this.rid = rid;
         this.did = did;
         this.dishName = dishName;
-        this.avgRating = avgRating;
+        this.category = category;
+        this.price = price;
     }
-
+    public String getCategory(){
+        return category;
+    }
+    public Double getPrice(){
+        return price;
+    }
     public String getRid() {
         return rid;
     }
