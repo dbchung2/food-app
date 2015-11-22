@@ -1,8 +1,11 @@
 package com.example.food_app;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.food_app.DatabaseClasses.Dish;
@@ -68,9 +72,15 @@ public class DishesAll extends Activity {
 				final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishNameArray);
 				listView.setAdapter(adapter);
 				
-				/*
+
 				//Implement the search feature
-				final EditText inputSearch = (EditText) findViewById(R.id.restaurant_name1);
+					if(dishNameArray!=null){
+				final ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishNameArray);
+				listView.setAdapter(adapter1);
+				
+
+				//Implement the search feature
+				final EditText inputSearch = (EditText) findViewById(R.id.dish_name1);
 				
 				//get search text
 				inputSearch.addTextChangedListener(new TextWatcher() {
@@ -79,7 +89,7 @@ public class DishesAll extends Activity {
 					public void afterTextChanged(Editable arg0) {
 						// TODO Auto-generated method stub
 						String text = inputSearch.getText().toString().toLowerCase(Locale.getDefault());
-						adapter.getFilter().filter(text.toString());
+						adapter1.getFilter().filter(text.toString());
 					}
 		 
 					@Override
@@ -93,7 +103,9 @@ public class DishesAll extends Activity {
 							int arg3) {
 						// TODO Auto-generated method stub
 					}
-				});*/
+				});
+		}
+
 		}
 }
 
