@@ -3,52 +3,81 @@ package com.example.food_app;
 import android.os.Bundle;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
+import com.example.food_app.DatabaseClasses.Restaurant;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainMenu extends Activity {
-	 String username;
-	 GridView gv;
-     Context context;    
-     ArrayList foodName;    
-     MySQLiteHelper db = new MySQLiteHelper(this);
-     
-     // Temporary values to test front end - will replace with back end values (currently can't do due to a bug).
-     public static String [] dishList={"Pancakes", "Big Mac"};
-     public static String [] restList={"iHop", "McDonalds"};
-     public static int [] foodImages={R.drawable.food1, R.drawable.food2};
-    
-	
+	ListView listView;
+	String username;
+	ArrayList<String> restArray = new ArrayList<String>();
+	MySQLiteHelper db = new MySQLiteHelper(this);
+	ArrayList<Restaurant> allRests = new ArrayList<Restaurant>();
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_menu);
+protected void onCreate(Bundle savedInstanceState) {
 
-
+		final Context context = this;
+	  allRests = db.getAllRestaurants();
+		restArray = db.getAttributeArray("restaurant", "rname");
+		//int i=0;
+		//int size = allRests.size();
+		//while(i<size){
+		//		restArray.add(allRests.get(i).getRname());
+		//}
 		username = getIntent().getStringExtra("username");
-		GridView gridview = (GridView) findViewById(R.id.gridview);
-		gridview.setAdapter(new ImageAdapter(this, dishList, foodImages, restList));
+		super.onCreate(savedInstanceState);
+	  populateList();
+}
 
-		gridview.setOnItemClickListener(new OnItemClickListener() {
-		        public void onItemClick(AdapterView<?> parent, View v,
-		                int position, long id) {
-		        	 Intent i = new Intent(getApplicationContext(), DishView.class);
-		        	 i.putExtra("username", username);
-		        	 i.putExtra("dishname", dishList[position]);
-		             startActivity(i);
-		        }
-		    });
+
+	protected void onRestart() {
+			super.onRestart();  // Always call the superclass method first
+		populateList();
+			// Activity being restarted from stopped state
 	}
+
+	public void populateList(){
+			setContentView(R.layout.activity_main_menu);
+			
+
+
+			listView = (ListView)findViewById(R.id.listView_restuarants);
+			listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+			{
+					@Override
+					public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+					{
+							Intent intent = new Intent(arg1.getContext(), RestaurantView.class);
+							intent.putExtra("username", username);
+							intent.putExtra("resto", allRests.get(position));
+							startActivity(intent);
+					}
+			});
+
+			//Insert Array here
+			if(restArray!=null){
+					final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, restArray);
+					listView.setAdapter(adapter);
+			}
+	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

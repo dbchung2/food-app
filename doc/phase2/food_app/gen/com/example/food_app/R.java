@@ -54,7 +54,6 @@ public final class R {
         public static final int editText1=0x7f090041;
         public static final int firstName=0x7f090043;
         public static final int food_name=0x7f09004e;
-        public static final int gridview=0x7f090028;
         public static final int header=0x7f090027;
         public static final int imageView1=0x7f09004f;
         public static final int lastName=0x7f090044;
@@ -67,6 +66,7 @@ public final class R {
         public static final int listView1=0x7f090040;
         public static final int listView_dish1=0x7f09001a;
         public static final int listView_restuarant1=0x7f09002c;
+        public static final int listView_restuarants=0x7f090028;
         public static final int login=0x7f090021;
         public static final int loginbar=0x7f09001d;
         public static final int menu=0x7f090022;
