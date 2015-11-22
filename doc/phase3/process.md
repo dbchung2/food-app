@@ -89,8 +89,14 @@ Date: November 22, 2015. Location: Bahen 3175 and Online (Slack). Time: 1:00pm-9
 Finalization of the app was done in this meeting. A restructure of what was needed in the application and what wasn't needed was re-evaluated. Certain parts of the original MVP application was scrapped and GUI/UX was re-adjusted to reflect the changes. Backend work was completed during this time and implemented to flow with the frontend. Testing and bug fixes were also done during this time. 
 
 ### Burndown Chart
+[Burndown Chart] ()
+
+The burndown chart was calculated by assigning a nurmerical value to each task/feature based on it's priority. Tasks/features with a higher priority was awarded more value and those with a lower priority was assigned lesser value. Once a task/feature was completed, the value of that action was subtracted from the overall work remaining value and added to the individual to had completed that assignment. The vertical axis represents the numerical work value and the horizontal axis is the days remaining in the sprint from the first meeting day.
 
 ### Diagrams
+[Structure Diagram] (https://drive.google.com/file/d/0B7Dzx4m62ax5X2FacXByUDlDQUU/view?usp=sharing)
+
+This diagram reflects the inital design of the application and doesn't reflect the changes made near the end of development.
 
 ## Rationale
 The rationale for most of our decisions came from time constraints and creating the most fucntional app possible. Features that weren't integral to the functionality of the application were scrapped to further develop other important features. For example, the time spent on trying to develop a function that would send the user an email for a forgotten password could be better spent on creating a function that would give any information in the database based on its parameters. In that sense the application would benefit overall from the latter function, than the first.
