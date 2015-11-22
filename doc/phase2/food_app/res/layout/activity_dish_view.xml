@@ -27,15 +27,7 @@
             android:layout_alignLeft="@+id/textView"
             android:layout_alignStart="@+id/textView"
             android:layout_marginTop="14dp"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/averageRatingText"
-            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2"/>
-    <Button
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reviews"
@@ -50,8 +42,16 @@
             android:layout_height="wrap_content"
             android:text="Add to Wishlist"
             android:id="@+id/addToWishlist" android:layout_alignBottom="@+id/reviewsButton"
-            android:layout_toRightOf="@+id/averageRatingText"
-            android:layout_toEndOf="@+id/averageRatingText"
-            android:onClick="addToWish"/>
+            android:onClick="addToWish"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2"/>
+        <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dishViewRating"
+                android:layout_below="@+id/textView2"
+                android:layout_alignLeft="@+id/textView2"
+                android:layout_alignStart="@+id/textView2"
+                android:isIndicator="true"/>
 
 </RelativeLayout>

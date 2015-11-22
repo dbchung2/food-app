@@ -174,7 +174,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                values);
        database.close();   
    }
-   
+    
+   public Float getAvgRating(String did){
+       ArrayList<String> ratings = rawQuery("select rating from review where did = "+did);
+       float result=0;
+       for(String rating: ratings){
+           result+= Float.parseFloat(rating);
+       }
+       result = result/ratings.size();
+       return result;
+   }
+
    public ArrayList<String> getWishlistIds(String username){
 	   String[] columns = {"username", "did"};
 	   ArrayList<String> dishIDs = new ArrayList<String>();
@@ -242,9 +252,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 values);
         database.close();
     }
-
     public Dish getDish(String rid, String did) {
-        String[] columns = {"rid", "did", "dishName", "avgRating"};
+        String[] columns = {"did", "rid", "dishName", "avgRating"};
         // 1. get reference to readable DB
         SQLiteDatabase db = this.getReadableDatabase();
 

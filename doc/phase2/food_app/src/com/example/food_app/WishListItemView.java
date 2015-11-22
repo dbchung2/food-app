@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
@@ -31,9 +32,14 @@ public class WishListItemView extends Activity {
 		//Set textview of Dish Name
 		username = getIntent().getStringExtra("username");
 		thisDish = (Dish) getIntent().getSerializableExtra("dish");
+
+		TextView restName = (TextView) findViewById(R.id.wishListRestName);
 		TextView foodField = (TextView) findViewById(R.id.wishListFoodName);
+		RatingBar ratingBar = (RatingBar) findViewById(R.id.wishlistRating);
+
+		ratingBar.setRating(db.getAvgRating(thisDish.getDid()));
 		foodField.setText(thisDish.getDishName());
-		
+		restName.setText(db.getRestaurant(thisDish.getRid()).getRname());
 		Button ateItButton = (Button) findViewById(R.id.removeFromWishlist);
 		ateItButton.setOnClickListener(new OnClickListener() {
 				

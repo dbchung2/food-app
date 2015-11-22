@@ -51,7 +51,7 @@ public final class R {
         public static final int description=0x7f090011;
         public static final int dishListButton=0x7f090038;
         public static final int dishNameText=0x7f090014;
-        public static final int dishRating=0x7f090044;
+        public static final int wishlistRating =0x7f090044;
         public static final int dish_name1=0x7f09001e;
         public static final int dish_rev=0x7f09000b;
         public static final int editText1=0x7f09003c;

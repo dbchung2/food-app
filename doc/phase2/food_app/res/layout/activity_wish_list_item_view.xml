@@ -9,18 +9,19 @@
     tools:context=".WishListItemView" >
 
     <RatingBar
-        android:id="@+id/dishRating"
+        android:id="@+id/wishlistRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:isIndicator="true"/>
 
     <TextView
         android:id="@+id/aboveRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/dishRating"
-        android:layout_alignLeft="@+id/dishRating"
+        android:layout_above="@+id/wishlistRating"
+        android:layout_alignLeft="@+id/wishlistRating"
         android:text="Average User Rating:"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -28,21 +29,11 @@
         android:id="@+id/removeFromWishlist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/dishRating"
+        android:layout_alignLeft="@+id/wishlistRating"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/dishRating"
+        android:layout_alignRight="@+id/wishlistRating"
         android:layout_marginBottom="68dp"
         android:text="Ate it?" />
-
-    <TextView
-        android:id="@+id/wishListPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/wishListRestName"
-        android:layout_alignBottom="@+id/wishListRestName"
-        android:layout_toRightOf="@+id/aboveRating"
-        android:text="Price"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/wishListRestName"

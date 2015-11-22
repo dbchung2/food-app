@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.food_app.DatabaseClasses.Dish;
@@ -28,9 +29,10 @@ public class DishView extends Activity {
         Dish thisDish = (Dish)this.getIntent().getSerializableExtra("dish");
         did = thisDish.getDid();
         TextView dName =  (TextView) findViewById (R.id.dishNameText);
-        TextView dAverageRating =  (TextView) findViewById (R.id.averageRatingText);
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.dishViewRating);
+
+        ratingBar.setRating(db.getAvgRating(thisDish.getDid()));
         dName.setText(thisDish.getDishName());
-        dAverageRating.setText(thisDish.getAvgRating());
     }
 
 
