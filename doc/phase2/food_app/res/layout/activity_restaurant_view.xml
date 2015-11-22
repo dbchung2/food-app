@@ -4,65 +4,74 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content">
 
-
     <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/relative"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rNameText"
-                android:layout_marginTop="27dp"
-                android:textSize="40dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="42dp"
-                android:layout_marginStart="42dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rCodeText"
-                android:layout_below="@+id/rAddressText"
-                android:layout_alignRight="@+id/dishListButton"
-                android:layout_alignEnd="@+id/dishListButton"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rAddressText"
-                android:layout_alignTop="@+id/textView7"
-                android:layout_alignRight="@+id/dishListButton"
-                android:layout_alignEnd="@+id/dishListButton"/>
+        android:id="@+id/relative"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" >
 
-        <Button android:id="@+id/dishListButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dish List"
-                android:onClick="goToDishView"
-                android:layout_marginBottom="71dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignLeft="@+id/textView6"
-                android:layout_alignStart="@+id/textView6"/>
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView7"
-                android:text="Address:"
-                android:layout_below="@+id/rNameText"
-                android:layout_alignLeft="@+id/textView6"
-                android:layout_alignStart="@+id/textView6"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Postal code:"
-                    android:id="@+id/textView6"
-                    android:layout_below="@+id/textView7"
-                    android:layout_alignLeft="@+id/rNameText"
-                    android:layout_alignStart="@+id/rNameText"/>
+            android:id="@+id/rNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="restName"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/dishListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:onClick="goToDishView"
+            android:text="dishlist" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/rNameText"
+            android:layout_below="@+id/rNameText"
+            android:layout_marginTop="20dp"
+            android:text="Address:" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/rNameText"
+            android:layout_below="@+id/rNameText"
+            android:layout_marginTop="40dp"
+            android:text="Postal code:" />
+
+        <TextView
+            android:id="@+id/rAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rNameText"
+        	android:layout_toRightOf="@+id/textView7"
+        	android:layout_marginTop="20dp"
+        	android:layout_marginLeft="30dp"
+            android:text="restaddr" />
+
+        <TextView
+            android:id="@+id/rCodeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rNameText"
+        	android:layout_toRightOf="@+id/textView6"
+        	android:layout_marginTop="40dp"
+        	android:layout_marginLeft="30dp"
+            android:text="postalcode" />
 
     </RelativeLayout>
+
 </RelativeLayout>
