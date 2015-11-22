@@ -45,9 +45,12 @@ public class ReviewsAll extends Activity {
     }
     
     public void populateList(){
-    	setContentView(R.layout.activity_reviews);
+    	  setContentView(R.layout.activity_reviews);
+        comment = (ListView)findViewById(R.id.comments);
+
         //To get all reviews
-        ArrayList<String> allrevs = db.rawQuery("select desc from review where did = "+did);
+        ArrayList<String> allrevs = new ArrayList<String>();
+        allrevs = db.rawQuery("select desc from review where did = "+did);
         ArrayList<Review> allReviews = db.getAllReviews();
 
         //parse to list of strings - test later
@@ -59,14 +62,13 @@ public class ReviewsAll extends Activity {
             dishnames.add(allrevs.get(i).getDid());
         }*/
         
-        //Find list location
-        comment = (ListView) findViewById(R.id.comments);
+        //Find list locationcomment = (ListView) findViewById(R.id.comments);
         
 		if(allrevs!=null){
+
 			final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allrevs);
-			
-        
-			comment.setAdapter(adapter); 
+			comment.setAdapter(adapter);
+
 		}
 	
 }

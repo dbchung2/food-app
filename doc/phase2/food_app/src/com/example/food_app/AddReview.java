@@ -28,13 +28,13 @@ public class AddReview extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adding_review);
 		username = getIntent().getStringExtra("username");
-		//did = this.getIntent().getStringExtra("did");
-		//final String rid = getIntent().getExtras().getString("rid");
+		did = this.getIntent().getStringExtra("did");
 		//get all text fields
 		final EditText price = (EditText) findViewById(R.id.price);
 		
 		
 		final RatingBar rating = (RatingBar) findViewById(R.id.rating);
+		rating.setStepSize(1);
 		final EditText category = (EditText) findViewById(R.id.category);
 		final EditText description = (EditText) findViewById(R.id.description);
 		final EditText dish = (EditText) findViewById(R.id.dish_rev);
@@ -45,21 +45,17 @@ public class AddReview extends Activity {
 		sub.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick (View v) {
-				// Add to review table
 				db.addReview(username, did, description.getText().toString(),
-						String.valueOf(rating.getRating()), category.getText().toString());
-				
-	        	// Add to dish table
-	        	db.addDish("113", dish.getText().toString());
-	        	
-	        	// Add to restaurant table - last two values to be replaced with location api.
-	        	db.addRestaurant(rest.getText().toString(), "1234 abc street", "a1b2c3");
-				
+						String.valueOf(rating.getRating()), category.getText().toString(), "");
+
 				Toast.makeText(getApplicationContext(),
-						"Review added!",
-						Toast.LENGTH_SHORT).show();
-				Intent mainMenu = new Intent(AddReview.this, MainMenu.class);
-				startActivity(mainMenu);
+											"Review added!",
+											Toast.LENGTH_SHORT).show();
+				Intent reviews = new Intent(AddReview.this, ReviewsAll.class);
+					reviews.putExtra("username", username);
+					reviews.putExtra("did", did);
+	        	startActivity(reviews);
+				
 			}
 		});
 	}

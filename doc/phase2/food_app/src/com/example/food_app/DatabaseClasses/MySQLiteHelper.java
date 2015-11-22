@@ -40,10 +40,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
        String CREATE_REVIEW_TABLE = "CREATE TABLE review ( " +
                "username varchar(255), " +
-    		   "did INTEGER," +
+           "did INTEGER," +
                "desc TEXT," +
-               "rating INTEGER CHECK(rating<=5)," +
+               "rating INTEGER," +
                 "category varchar(255)," +
+                "price varchar(255),"+
                "FOREIGN KEY(username) REFERENCES user(username),"+
                "FOREIGN KEY(did) REFERENCES user(did),"+
                "PRIMARY KEY(username, did))";
@@ -246,7 +247,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return dish;
     }
 
-    public void addReview(String username, String did, String desc, String rating, String category){
+    public void addReview(String username, String did, String desc, String rating, String category, String price){
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -255,7 +256,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         values.put("desc", desc);
         values.put("rating", rating);
         values.put("category", category);
-
+        values.put("price", price);
         database.insert("review", // table
             null, //nullColumnHack
             values);
@@ -279,7 +280,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. if we got results get the first one
         if (cursor != null)
             cursor.moveToFirst();
-        Review review = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+        Review review = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
         return review;
         }
 
@@ -351,7 +352,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         int i=0;
         while(i < cursor.getCount()){
-            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
             restaurantDishes.add(temp);
             cursor.moveToNext();
             i++;
@@ -372,7 +373,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         int i=0;
         while(i < cursor.getCount()){
-            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            Review temp = new Review(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
             allReviews.add(temp);
             cursor.moveToNext();
             i++;
