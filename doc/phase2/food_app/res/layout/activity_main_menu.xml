@@ -5,10 +5,11 @@
 
     <HorizontalScrollView
         android:id="@+id/menu"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#1a1a1a"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:scrollbars="horizontal" >
 
@@ -46,7 +47,7 @@
                 android:textColor="#FFFFFF"
                 android:padding="10dp"
                 android:background="@android:color/transparent"
-                android:onClick="goToSearch" />
+                android:onClick="goToRestaurant" />
 
             <Button
                 android:id="@+id/Spent"
@@ -77,6 +78,7 @@
             android:layout_marginTop="15dp"
             android:background="#1a1a1a"
             android:text="@string/plus"
+            android:onClick="goToAddRestaurant"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
