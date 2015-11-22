@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,7 +30,6 @@ public class RestaurantsAll extends Activity {
 		ArrayList<String> restArray = new ArrayList<String>();
 		MySQLiteHelper db = new MySQLiteHelper(this);
 		ArrayList<Restaurant> allRests = new ArrayList<Restaurant>();
-
 		@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -104,19 +104,35 @@ public class RestaurantsAll extends Activity {
 						});
 				}
 		}
+		@Override
+		public boolean onCreateOptionsMenu(Menu menu) {
+
+		  menu.add(Menu.NONE, R.id.menu_action, Menu.NONE, "Go to Main Menu");
+
+		  return super.onCreateOptionsMenu(menu);
+		}
 
 
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.restaurant, menu);
-		return true;
-	}
+		@Override
+		public boolean onOptionsItemSelected(MenuItem item) {
+		    switch (item.getItemId()) {
+		        case R.id.menu_action:
+		        	goToMenu();
+		            return true;
+		        default:
+		            return super.onOptionsItemSelected(item);
+		    }
+		}
 	
 	public void addRest(View view) {
 		Intent intent = new Intent(this, AddRestaurant.class);
 			intent.putExtra("username", username);
+		startActivity(intent);
+	}
+	
+	public void goToMenu() {
+		Intent intent = new Intent(this, MainMenu.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 }
