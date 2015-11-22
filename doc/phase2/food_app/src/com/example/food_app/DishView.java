@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.food_app.DatabaseClasses.Dish;
+import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
 /**
  * Created by Matt on 2015-11-19.
@@ -14,6 +16,8 @@ import com.example.food_app.DatabaseClasses.Dish;
 public class DishView extends Activity {
     String did;
     String username;
+    MySQLiteHelper db = new MySQLiteHelper(this);
+
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         username = this.getIntent().getStringExtra("username");
@@ -38,8 +42,9 @@ public class DishView extends Activity {
         startActivity(intent);
     }
     
-    public void addToWish() {
-        //Add dish to user wishlist
-
+    public void addToWish(View view) {
+        db.addWishlist(did, username);
+        Button addButton = (Button) findViewById(R.id.addToWishlist);
+        addButton.setVisibility(View.GONE);
     }
 }

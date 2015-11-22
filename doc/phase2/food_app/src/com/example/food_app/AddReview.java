@@ -37,8 +37,6 @@ public class AddReview extends Activity {
 		rating.setStepSize(1);
 		final EditText category = (EditText) findViewById(R.id.category);
 		final EditText description = (EditText) findViewById(R.id.description);
-		final EditText dish = (EditText) findViewById(R.id.dish_rev);
-		final EditText rest = (EditText) findViewById(R.id.rest);
 		Button sub = (Button)findViewById(R.id.submitReview);
 		
 		

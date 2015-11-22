@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -30,7 +31,7 @@ public class ReviewsAll extends Activity {
     
     ListView comment;
     String username;
-    
+    ArrayList<Review> allReviews;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +47,26 @@ public class ReviewsAll extends Activity {
     
     public void populateList(){
     	  setContentView(R.layout.activity_reviews);
-        comment = (ListView)findViewById(R.id.comments);
 
-        //To get all reviews
         ArrayList<String> allrevs = new ArrayList<String>();
         allrevs = db.rawQuery("select desc from review where did = "+did);
-        ArrayList<Review> allReviews = db.getAllReviews();
+        allReviews = db.getAllReviews();
+
+
+        comment = (ListView)findViewById(R.id.comments);
+        comment.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+            {
+                Intent intent = new Intent(arg1.getContext(), ReviewView.class);
+                intent.putExtra("username", username);
+                intent.putExtra("review", allReviews.get(position));
+                startActivity(intent);
+            }
+        });
+        //To get all reviews
+
 
         //parse to list of strings - test later
        /* ArrayList<String> allreviews = new ArrayList<String>();

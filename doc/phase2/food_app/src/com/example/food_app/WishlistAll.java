@@ -46,15 +46,18 @@ public class WishlistAll extends Activity {
 		// show their wish dish. Currently shows dishes though.
 		public void populateList(){
 				setContentView(R.layout.activity_wishlist);
-				if(db.getWishlist(username) != null){
-						dishIdArray = db.getWishlist(username);
-				}
+
+				dishIdArray = db.getWishlistIds(username);
+				dishArray = db.convertIdsToDish(dishIdArray);
+				ArrayList<String> wishlistNames = db.convertIdsToNames(dishIdArray);
+
+
 
 				listView = (ListView)findViewById(R.id.listView1);
 
 				//Insert Array here
 				if(dishIdArray!=null){
-						final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dishIdArray);
+						final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, wishlistNames);
 						listView.setAdapter(adapter);
 						
 						
@@ -90,8 +93,8 @@ public class WishlistAll extends Activity {
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 					switch(position) {
 					case 0: Intent newActivity = new Intent(WishlistAll.this, WishListItemView.class);
-					String dishname = listView.getItemAtPosition(position).toString();
-					newActivity.putExtra("Dish name", dishname);
+				  newActivity.putExtra("username", username);
+					newActivity.putExtra("dish", dishArray.get(position));
 					startActivity(newActivity);
 					}
 				}

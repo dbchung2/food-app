@@ -53,4 +53,5 @@
             android:layout_toRightOf="@+id/averageRatingText"
             android:layout_toEndOf="@+id/averageRatingText"
             android:onClick="addToWish"/>
+
 </RelativeLayout>

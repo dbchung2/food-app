@@ -122,7 +122,9 @@ public class Search extends Activity {
 				    if(position == 0)
 				    {
 				    	Intent intent = new Intent(Search.this, RestaurantsAll.class);
-				    	startActivity(intent);
+								intent.putExtra("username", username);
+
+								startActivity(intent);
 				    }
 	
 				    if(position == 1)

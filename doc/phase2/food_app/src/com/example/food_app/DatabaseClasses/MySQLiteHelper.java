@@ -175,7 +175,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        database.close();   
    }
    
-   public ArrayList<String> getWishlist(String username){
+   public ArrayList<String> getWishlistIds(String username){
 	   String[] columns = {"username", "did"};
 	   ArrayList<String> dishIDs = new ArrayList<String>();
 	   // 1. get reference to readable DB
@@ -208,7 +208,25 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	    }
 	    return dishIDs;
    }
+   public ArrayList<Dish> convertIdsToDish(ArrayList<String> dishIds){
+       ArrayList<Dish> allDishes = new ArrayList<Dish>();
+       for(String id : dishIds){
+           allDishes.add(getDish("", id));
+       }
+       return allDishes;
+   }
+    public ArrayList<String> convertIdsToNames(ArrayList<String> dishIds){
+        ArrayList<String> allDisheNames = new ArrayList<String>();
+        for(String id : dishIds){
+            allDisheNames.add(getDish("", id).getDishName());
+        }
+        return allDisheNames;
+    }
+    public void removeFromWishlist(String username, String did){
+        SQLiteDatabase database = this.getWritableDatabase();
+        database.delete("wishlist", "username = ? AND did = ?", new String[]{username, did});
 
+    }
     public void addDish(String rid, String dishName){
         SQLiteDatabase database = this.getWritableDatabase();
 
@@ -233,8 +251,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 2. build query
         Cursor cursor = db.query("dish", // a. table
             columns, // b. column names
-            " rid = ? AND did = ?", // c. selections
-            new String[] {rid, did}, // d. selections args
+            "did = ?", // c. selections
+            new String[] {did}, // d. selections args
             null, // e. group by
             null, // f. having
             null, // g. order by

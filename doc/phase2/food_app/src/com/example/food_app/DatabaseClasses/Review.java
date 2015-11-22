@@ -1,16 +1,18 @@
 package com.example.food_app.DatabaseClasses;
 
+import java.io.Serializable;
+
 /**
  * Created by Matt on 2015-11-01.
  */
-public class Review {
+public class Review implements Serializable{
     String username;
     String did;
     String desc;
     String rating;
     String category;
     String price;
-    public Review(String username, String did, String desc, String rating, String category, String price){
+    public Review(String username, String did, String desc, String rating, String category, String price) {
         this.username = username;
         this.did = did;
         this.desc = desc;

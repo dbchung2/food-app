@@ -12,11 +12,15 @@ import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
 import android.os.Build;
 
-public class WishListItemView extends Activity {
-	
-	String username;
-	String dishName;
+import com.example.food_app.DatabaseClasses.Dish;
+import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
+public class WishListItemView extends Activity {
+		MySQLiteHelper db = new MySQLiteHelper(this);
+
+		String username;
+	String dishName;
+		Dish thisDish;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,15 +30,15 @@ public class WishListItemView extends Activity {
 		
 		//Set textview of Dish Name
 		username = getIntent().getStringExtra("username");
-		dishName = getIntent().getStringExtra("Dish Name");
+		thisDish = (Dish) getIntent().getSerializableExtra("dish");
 		TextView foodField = (TextView) findViewById(R.id.wishListFoodName);
-		foodField.setText(dishName);
+		foodField.setText(thisDish.getDishName());
 		
 		Button ateItButton = (Button) findViewById(R.id.removeFromWishlist);
 		ateItButton.setOnClickListener(new OnClickListener() {
 				
 				public void onClick(View arg0) {
-					//Code to delete item from wishlist
+				  db.removeFromWishlist(username, thisDish.getDid());
 					finish();
 				}
 		});
