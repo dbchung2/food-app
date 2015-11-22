@@ -9,9 +9,9 @@ We compared the features that we finished in the second phase to the final produ
 #### Meeting #1
 Date: November 18, 2015. Location: Online - Slack. Time: 4:00pm-5:00pm. Minutes Taken: 60 mins. Members Present: All -  Daniel, Felicia, Jake, Josh, Matt, Simon.
 
-This meeting focused on filtering out the features of the app that was already accommplished in phase 2, and finding the features that needed to be implemented to reach the MVP. The features below are what needed to be implemeneted:
+This meeting focused on filtering out the features of the app that was already accomplished in phase 2, and finding the features that needed to be implemented to reach the MVP. The features below are what needed to be implemented:
 
-#####Front End
+#####Frontend
 ###### General Template
 - Navigation bar at the bottom
 - GUI - graphics
@@ -51,7 +51,7 @@ This meeting focused on filtering out the features of the app that was already a
 ######All Dishes
 - Display a list of all available dishes in one restaurant
 
-#####Back End
+#####Backend
 ######Dish table 
 - Table creation and insert dishes fix
 - Add picture value
@@ -76,5 +76,21 @@ This meeting focused on filtering out the features of the app that was already a
 ######Wishlist
 - Add picture value
 
-Fornt end desgin and overall functional
+Frontend design and backend to frontend functionality was prioritized as the highest, with backend bug fixes, spent feature and picture capabilities as medium priority and fluff features, such as the forgot password function and location services, as the lowest. Teammates assigned themselves to tasks they wanted to undertake.
+
+#### Meeting #2
+Date: November 20, 2015. Location: Online - Slack. Time: 2:00pm-3:00pm. Minutes Taken: 60 mins. Members Present: All -  Daniel, Felicia, Jake, Josh, Matt, Simon.
+
+Everyone updated the group on the progress each member has made on their choosen tasks. From there, the group was able to gauge where the application was at, in terms of how close it is to the MVP, and adjust accordingly. More emphasis was placed on the frontend GUI in order to have a functional app, and once the frontend was complete, backend adjustments and bug fixes were to be done. Progress on the application was more or less on track.
+
+#### Meeting #3
+Date: November 22, 2015. Location: Bahen 3175 and Online (Slack). Time: 1:00pm-9:00pm. Minutes Taken: 480 mins. Members Present: All - Daniel, Felicia, Jake, Josh, Matt, Simon.
+
+Finalization of the app was done in this meeting. A restructure of what was needed in the application and what wasn't needed was re-evaluated. Certain parts of the original MVP application was scrapped and GUI/UX was re-adjusted to reflect the changes. Backend work was completed during this time and implemented to flow with the frontend. Testing and bug fixes were also done during this time. 
+
+### Burndown Chart
+
+### Diagrams
+
 ## Rationale
+The rationale for most of our decisions came from time constraints and creating the most fucntional app possible. Features that weren't integral to the functionality of the application were scrapped to further develop other important features. For example, the time spent on trying to develop a function that would send the user an email for a forgotten password could be better spent on creating a function that would give any information in the database based on its parameters. In that sense the application would benefit overall from the latter function, than the first.
