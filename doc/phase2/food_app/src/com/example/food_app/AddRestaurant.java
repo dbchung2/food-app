@@ -33,8 +33,9 @@ public class AddRestaurant extends Activity {
 		        
 		        if (sname != null || saddress != null || spostal_code != null) {
 		        	db.addRestaurant(sname, saddress, spostal_code);
-		        	Intent mainMenu = new Intent(AddRestaurant.this, MainMenu.class);
-		        	startActivity(mainMenu);
+
+			    	Intent intent = new Intent(AddRestaurant.this, RestaurantsAll.class);
+			    	startActivity(intent);
 		        } else {
 		        	Intent restaurant = new Intent(AddRestaurant.this, AddRestaurant.class);
 		        	startActivity(restaurant);

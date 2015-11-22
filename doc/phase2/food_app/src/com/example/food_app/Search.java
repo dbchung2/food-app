@@ -13,9 +13,11 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.content.Intent;
 
 public class Search extends Activity {
 	String username;
@@ -112,6 +114,39 @@ public class Search extends Activity {
 						}
 				});
 		}
+
+		listView.setOnItemClickListener(new OnItemClickListener() {
+	        public void onItemClick(AdapterView<?> parent, View view,
+	           int position, long id) {
+
+				    if(position == 0)
+				    {
+				    	Intent intent = new Intent(Search.this, RestaurantsAll.class);
+				    	startActivity(intent);
+				    }
+	
+				    if(position == 1)
+				    {
+				    	setContentView(R.layout.activity_dish_view);
+				    }
+				    if(position == 2)
+				    {
+	
+				    	setContentView(R.layout.activity_wishlist);
+				    }
+	
+				    if(position == 3)
+				    {
+	
+				    	setContentView(R.layout.activity_restaurant);
+				    }
+		        }
+			
+		});;
+
+		
+
+
 }
 	
 	@Override
