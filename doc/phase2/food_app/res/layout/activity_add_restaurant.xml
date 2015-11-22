@@ -8,46 +8,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Restaurant" >
 
-    <EditText
-        android:id="@+id/postal_code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="38dp"
-        android:ems="10"
-        android:hint="@string/postal_code"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <Button
         android:id="@+id/addbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/postal_code"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
         android:text="@string/add_restaurant" />
-
+    
     <EditText
         android:id="@+id/restnames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/address"
-        android:layout_alignLeft="@+id/address"
-        android:layout_marginBottom="37dp"
-        android:ems="10"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+       	android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/restuarant_name"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+    
     <EditText
         android:id="@+id/address"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/postal_code"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp"
-        android:ems="10"
+       	android:layout_height="wrap_content"
+       	android:layout_alignLeft="@+id/restnames"
+       	android:layout_below="@+id/restnames"
+       	android:layout_marginTop="20dp"
         android:hint="@string/address"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <EditText
+        android:id="@+id/postal_code"
+        android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+       	android:layout_alignLeft="@+id/address"
+       	android:layout_below="@+id/address"
+       	android:layout_marginTop="20dp"
+        android:hint="@string/postal_code"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
