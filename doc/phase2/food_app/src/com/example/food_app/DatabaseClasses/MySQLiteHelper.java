@@ -142,7 +142,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
            cursor.moveToNext();
            i++;
        }
-
+        result = result;
        return result;
    }
    public User getUser(String username){

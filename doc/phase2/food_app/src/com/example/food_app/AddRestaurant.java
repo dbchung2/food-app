@@ -38,7 +38,9 @@ public class AddRestaurant extends Activity {
 		        	db.addRestaurant(sname, saddress, spostal_code);
 
 			    	Intent intent = new Intent(AddRestaurant.this, RestaurantsAll.class);
-			    	startActivity(intent);
+								intent.putExtra("username", username);
+
+								startActivity(intent);
 		        } else {
 		        	Intent restaurant = new Intent(AddRestaurant.this, AddRestaurant.class);
 							restaurant.putExtra("username", username);

@@ -46,7 +46,7 @@ public class DishesAll extends Activity {
 		public void addDish(View view) {
 				Intent intent = new Intent(this, AddDish.class);
 				intent.putExtra("rid", rid);
-
+				intent.putExtra("username", username);
 				startActivity(intent);
 		}
 	public void populateList(){

@@ -33,6 +33,7 @@ public class MainMenu extends Activity {
 
 	@Override
 protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
 		final Context context = this;
 	  allRests = db.getAllRestaurants();
@@ -43,7 +44,6 @@ protected void onCreate(Bundle savedInstanceState) {
 		//		restArray.add(allRests.get(i).getRname());
 		//}
 		username = getIntent().getStringExtra("username");
-		super.onCreate(savedInstanceState);
 	  populateList();
 }
 
