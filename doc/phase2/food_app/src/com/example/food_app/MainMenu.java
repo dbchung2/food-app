@@ -100,6 +100,7 @@ protected void onCreate(Bundle savedInstanceState) {
 			
 	public void goToMenu() {
 		Intent intent = new Intent(this, MainMenu.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 	
