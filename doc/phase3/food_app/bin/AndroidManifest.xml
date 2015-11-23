@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.food_app"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.food_app.AddReview"
+            android:label="@string/title_activity_add_review" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.LoginScreen"
+            android:label="@string/title_activity_login_screen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.food_app.MainMenu"
+            android:label="@string/title_activity_main_menu" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.ReviewsAll"
+            android:label="@string/title_activity_reviews" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.WishlistAll"
+            android:label="@string/title_activity_wishlist" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.UserProfile"
+            android:label="@string/title_activity_user_profile" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.CommentsAdapter"
+            android:label="@string/title_activity_comments_adapter" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.TestScreen"
+            android:label="@string/title_activity_test_screen" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.CommentAdapter"
+            android:label="@string/title_activity_comment_adapter" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.AddToWishlist"
+            android:label="@string/title_activity_add_to_wishlist"
+            android:parentActivityName=".WishlistAll" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WishlistAll" />
+        </activity>
+        <activity
+            android:name="com.example.food_app.RestaurantsAll"
+            android:label="@string/title_activity_restaurant" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.AddRestaurant"
+            android:label="@string/title_activity_add_restaurant" >
+        </activity>
+        <activity android:name="com.example.food_app.DishesAll" />
+        <activity android:name="com.example.food_app.AddDish" />
+        <activity android:name="com.example.food_app.RestaurantView" />
+        <activity android:name="com.example.food_app.RestaurantView" />
+        <activity
+            android:name="com.example.food_app.SignUp"
+            android:label="@string/title_activity_sign_up"
+            android:parentActivityName="com.example.food_app.LoginScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.food_app.LoginScreen" />
+        </activity>
+        <activity android:name="com.example.food_app.DishView" />
+        <activity
+            android:name="com.example.food_app.Search"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.Spent"
+            android:label="@string/title_activity_spent" >
+        </activity>
+        <activity
+            android:name="com.example.food_app.WishListItemView"
+            android:label="@string/title_activity_wish_list_item_view"
+            android:parentActivityName="com.example.food_app.WishlistAll" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.food_app.WishlistAll" />
+        </activity>
+        <activity android:name=".ReviewView"/>
+        <activity android:name=".SpentView"/>
+    </application>
+
+</manifest>

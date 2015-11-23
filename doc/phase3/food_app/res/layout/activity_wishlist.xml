@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".Wishlist" >
+    
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="#6082b6"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp" android:weightSum="1">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Wishlist"
+                    android:id="@+id/textView10" android:textSize="40dp"
+                    />
+        </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText1" >
+
+    </ListView>
+<!--  
+    <Button
+        android:id="@+id/wishlistSearch"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/listView1"
+        android:layout_alignTop="@+id/editText1"
+        android:text="@string/Search" 
+        android:onClick="searchWishlist" />
+        
+            <Button
+        android:id="@+id/addToWishlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/addToWishlist" 
+        android:onClick="submitDish" />
+-->
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enterItemToSearch"
+        android:layout_below="@+id/header" />
+
+</RelativeLayout>

@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    
+    tools:context=".Restuarant" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout_dish1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_dish2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="227dp"
+        android:layout_marginLeft="154dp"
+        android:layout_toRightOf="@+id/linearLayout_dish1"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_dish3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout_dish2"
+        android:layout_alignRight="@+id/linearLayout_dish2"
+        android:layout_below="@+id/linearLayout_dish1"
+        android:layout_toRightOf="@+id/linearLayout_dish1"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView_dish1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addDish"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/dish_name1" >
+
+    </ListView>
+
+    <EditText
+        android:id="@+id/dish_name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/linearLayout_dish1"
+        android:ems="10"
+        android:hint="Enter dish name" />
+
+    <Button
+        android:id="@+id/addDish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:onClick="addDish"
+        android:text="@string/addDish" />
+
+</RelativeLayout>
+
+
