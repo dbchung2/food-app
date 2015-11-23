@@ -10,13 +10,14 @@ import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 
 public class Spent extends Activity {
 		MySQLiteHelper db = new MySQLiteHelper(this);
+		String username;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_spent);
 			String username = getIntent().getStringExtra("username");
-
+			username = getIntent().getStringExtra("username");
 			db.getCategories(username);
 	}
 
@@ -40,6 +41,7 @@ public class Spent extends Activity {
 			
 	public void goToMenu() {
 		Intent intent = new Intent(this, MainMenu.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 
