@@ -3,6 +3,8 @@ package com.example.food_app;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
 import com.example.food_app.DatabaseClasses.Review;
@@ -48,10 +50,21 @@ public class ReviewsAll extends Activity {
     
     public void populateList(){
     	  setContentView(R.layout.activity_reviews);
-
-        ArrayList<String> allrevs = new ArrayList<String>();
-        allrevs = db.rawQuery("select desc from review where did = "+did);
+    	ArrayList<String> allrevs = new ArrayList<String>();
+        ArrayList<Review> reviews = new ArrayList<Review>();
+       // allrevs = db.rawQuery("select desc from review where did = "+did);
+        reviews = db.getAllReviews();
+        for(Review r : reviews){
+        	String user = r.getUsername();
+        	if  (user != null){
+	        	if (user.length() > 10){
+	        		user= user.substring(0, 10);
+	        	}
+        	}
+        	allrevs.add("User: " + user + "            " + "Rating: " + r.getRating());
+        }
         allReviews = db.getAllReviews();
+        
 
 
         comment = (ListView)findViewById(R.id.comments);
@@ -138,3 +151,4 @@ public class ReviewsAll extends Activity {
     
 
 }
+

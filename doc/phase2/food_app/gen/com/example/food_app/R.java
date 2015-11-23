@@ -137,12 +137,13 @@ public final class R {
         public static final int activity_search=0x7f03000c;
         public static final int activity_sign_up=0x7f03000d;
         public static final int activity_spent=0x7f03000e;
-        public static final int activity_test_screen=0x7f03000f;
-        public static final int activity_user_profile=0x7f030010;
-        public static final int activity_wish_list_item_view=0x7f030011;
-        public static final int activity_wishlist=0x7f030012;
-        public static final int comment_row=0x7f030013;
-        public static final int grid_item=0x7f030014;
+        public static final int activity_spent_view=0x7f03000f;
+        public static final int activity_test_screen=0x7f030010;
+        public static final int activity_user_profile=0x7f030011;
+        public static final int activity_wish_list_item_view=0x7f030012;
+        public static final int activity_wishlist=0x7f030013;
+        public static final int comment_row=0x7f030014;
+        public static final int grid_item=0x7f030015;
     }
     public static final class menu {
         public static final int add_restaurant=0x7f090000;
