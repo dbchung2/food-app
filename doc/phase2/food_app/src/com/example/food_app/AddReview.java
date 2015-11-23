@@ -79,6 +79,7 @@ public class AddReview extends Activity {
 			
 	public void goToMenu() {
 		Intent intent = new Intent(this, MainMenu.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 	

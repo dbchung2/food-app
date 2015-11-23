@@ -22,6 +22,7 @@ import android.view.View.OnClickListener;
 public class AddDish extends Activity {
 	String dishName, category, avg_rating;
 	Double price;
+	String username;
 	MySQLiteHelper db = new MySQLiteHelper(this);
 	
     @Override public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class AddDish extends Activity {
         setContentView(R.layout.activity_add_dish);
         
         final String rid = getIntent().getExtras().getString("rid");
-        
+        username = getIntent().getStringExtra("username");
         Button submit_add = (Button)findViewById(R.id.submitToAddDish);
 
 		
@@ -76,6 +77,7 @@ public class AddDish extends Activity {
 			
 	public void goToMenu() {
 		Intent intent = new Intent(this, MainMenu.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 }
