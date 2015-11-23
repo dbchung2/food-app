@@ -36,7 +36,7 @@ public class Spent extends Activity {
 
 				setContentView(R.layout.activity_spent);
 			  categories =   db.rawQuery(
-						"select DISTINCT category from spent where username = " + username);
+						"select DISTINCT category from spent where username = " + username+ " order by category");
 
 				cats = db.getSpentTitles(username);
 

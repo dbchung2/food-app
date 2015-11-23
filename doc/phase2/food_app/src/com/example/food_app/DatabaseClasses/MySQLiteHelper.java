@@ -128,7 +128,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        SQLiteDatabase database = this.getWritableDatabase();
        ArrayList<String> result = new ArrayList<String>();
 
-       Cursor cursor = database.rawQuery("select category, sum(price) from spent where username = "+username+" group by category", null);
+       Cursor cursor = database.rawQuery("select category, sum(price) from spent where username = "+username+" group by category order by category", null);
        if ((cursor != null) && (cursor.getCount() > 0)) {
            cursor.moveToFirst();
        }
@@ -137,7 +137,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        }
        int i=0;
        while(i < cursor.getCount()){
-           result.add("Category: "+cursor.getString(0)+"    Total spent: $"+cursor.getDouble(1));
+           result.add("Category: "+cursor.getString(0)+"    Total spent: $"+ String.format("%.2f", cursor.getDouble(1)));
            cursor.moveToNext();
            i++;
        }
@@ -147,18 +147,27 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
         ArrayList<String> result = new ArrayList<String>();
 
-        Cursor cursor = database.rawQuery("select did, sum(price) from spent where username = "+username+ " group by did", null);
+        Cursor cursor = database.rawQuery("select * from " +
+            "(select did, sum(price) from spent where username = " + username+ " group by did) s inner join " +
+           "(select * from dish where category = '"+cat+"') d "+
+            "on s.did = d.did", null);
 
+        //Cursor cursor = database.rawQuery("select * from dish where category = 'chicken'", null);
+
+         //Cursor cursor = database.rawQuery("select * from " +
+         //   "(select did, sum(price) from spent where username = " + username+ " group by did) s inner join dish d " +
+         //  "on s.did = d.did", null);
 
         if ((cursor != null) && (cursor.getCount() > 0)) {
             cursor.moveToFirst();
         }
+
         else if(cursor==null){
             return null;
         }
         int i=0;
         while(i < cursor.getCount()){
-            result.add("Category: "+cursor.getString(0)+"    Total spent: $"+cursor.getDouble(1));
+            result.add("Dish: "+cursor.getString(4)+"    Total spent: $"+String.format("%.2f", cursor.getDouble(1)));
             cursor.moveToNext();
             i++;
         }
