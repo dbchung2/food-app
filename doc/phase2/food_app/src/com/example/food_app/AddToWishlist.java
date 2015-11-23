@@ -12,6 +12,7 @@ import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 
 import com.example.food_app.DatabaseClasses.MySQLiteHelper;
@@ -59,26 +60,25 @@ public class AddToWishlist extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.add_to_wishlist, menu);
-		return true;
+		menu.add(Menu.NONE, R.id.menu_action, Menu.NONE, "Go to Main Menu");
+
+		return super.onCreateOptionsMenu(menu);
 	}
-	
+
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item) { 
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+			case R.id.menu_action:
+				goToMenu();
+					return true;
+				default:
+					return super.onOptionsItemSelected(item);
+		   }
+	}
+			
+	public void goToMenu() {
+		Intent intent = new Intent(this, MainMenu.class);
+		startActivity(intent);
 	}
 
 }

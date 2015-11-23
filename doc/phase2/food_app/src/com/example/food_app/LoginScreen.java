@@ -55,16 +55,5 @@ public class LoginScreen extends Activity {
 			}});
 	} 
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login_screen, menu);
-		return true;
-	}
-	
-	public void goToSignUp(View view) {
-		Intent intent = new Intent(this, SignUp.class);
-		startActivity(intent);
-	}
 
 }

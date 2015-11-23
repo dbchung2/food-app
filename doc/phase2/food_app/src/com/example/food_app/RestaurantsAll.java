@@ -106,22 +106,25 @@ public class RestaurantsAll extends Activity {
 		}
 		@Override
 		public boolean onCreateOptionsMenu(Menu menu) {
+			menu.add(Menu.NONE, R.id.menu_action, Menu.NONE, "Go to Main Menu");
 
-		  menu.add(Menu.NONE, R.id.menu_action, Menu.NONE, "Go to Main Menu");
-
-		  return super.onCreateOptionsMenu(menu);
+			return super.onCreateOptionsMenu(menu);
 		}
 
-
 		@Override
-		public boolean onOptionsItemSelected(MenuItem item) {
-		    switch (item.getItemId()) {
-		        case R.id.menu_action:
-		        	goToMenu();
-		            return true;
-		        default:
-		            return super.onOptionsItemSelected(item);
-		    }
+		public boolean onOptionsItemSelected(MenuItem item) { 
+			switch (item.getItemId()) {
+				case R.id.menu_action:
+					goToMenu();
+						return true;
+					default:
+						return super.onOptionsItemSelected(item);
+			   }
+		}
+				
+		public void goToMenu() {
+			Intent intent = new Intent(this, MainMenu.class);
+			startActivity(intent);
 		}
 	
 	public void addRest(View view) {
@@ -129,12 +132,7 @@ public class RestaurantsAll extends Activity {
 			intent.putExtra("username", username);
 		startActivity(intent);
 	}
-	
-	public void goToMenu() {
-		Intent intent = new Intent(this, MainMenu.class);
-		intent.putExtra("username", username);
-		startActivity(intent);
-	}
+
 }
 
 

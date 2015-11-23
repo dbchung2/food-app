@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -60,9 +61,25 @@ public class AddReview extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.add_review, menu);
-		return true;
+		menu.add(Menu.NONE, R.id.menu_action, Menu.NONE, "Go to Main Menu");
+
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { 
+		switch (item.getItemId()) {
+			case R.id.menu_action:
+				goToMenu();
+					return true;
+				default:
+					return super.onOptionsItemSelected(item);
+		   }
+	}
+			
+	public void goToMenu() {
+		Intent intent = new Intent(this, MainMenu.class);
+		startActivity(intent);
 	}
 	
 
