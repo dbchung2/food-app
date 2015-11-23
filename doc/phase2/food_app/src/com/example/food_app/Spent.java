@@ -1,17 +1,23 @@
 package com.example.food_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.food_app.DatabaseClasses.MySQLiteHelper;
+
 public class Spent extends Activity {
+		MySQLiteHelper db = new MySQLiteHelper(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_spent);
+			String username = getIntent().getStringExtra("username");
+
+			db.getCategories(username);
 	}
 
 	@Override
@@ -22,7 +28,7 @@ public class Spent extends Activity {
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) { 
+	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.menu_action:
 				goToMenu();

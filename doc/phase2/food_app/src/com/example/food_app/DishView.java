@@ -56,7 +56,7 @@ public class DishView extends Activity {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
         String now = dateFormat.format(date);
-        db.addSpent(username, thisDish.getDid(), now, thisDish.getCategory());
+        db.addSpent(username, thisDish.getDid(), now, thisDish.getCategory(), thisDish.getPrice());
         Button ateButton = (Button)findViewById(R.id.dishViewAteIt);
         ateButton.setVisibility(View.GONE);
     }

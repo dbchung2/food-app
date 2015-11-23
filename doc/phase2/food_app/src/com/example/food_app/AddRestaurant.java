@@ -14,8 +14,10 @@ import android.widget.EditText;
 
 public class AddRestaurant extends Activity {
 	MySQLiteHelper db = new MySQLiteHelper(this);
+		String username;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+			 username = this.getIntent().getStringExtra("username");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_restaurant);
 		
@@ -39,7 +41,8 @@ public class AddRestaurant extends Activity {
 			    	startActivity(intent);
 		        } else {
 		        	Intent restaurant = new Intent(AddRestaurant.this, AddRestaurant.class);
-		        	startActivity(restaurant);
+							restaurant.putExtra("username", username);
+								startActivity(restaurant);
 		        }
 		        
 			}					

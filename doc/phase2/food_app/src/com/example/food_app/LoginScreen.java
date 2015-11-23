@@ -53,7 +53,11 @@ public class LoginScreen extends Activity {
 				}
 
 			}});
-	} 
+	}
+		public void goToSignUp(View view) {
+				Intent intent = new Intent(this, SignUp.class);
+				startActivity(intent);
+		}
 
 
 }

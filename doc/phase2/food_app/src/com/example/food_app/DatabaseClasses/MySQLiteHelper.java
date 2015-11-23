@@ -65,6 +65,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
            "did INTEGER, "+
            "datetime DATETIME , "+
            "category varchar(255), " +
+           "price DOUBLE, " +
            "FOREIGN KEY(username) REFERENCES user(username),"+
            "FOREIGN KEY(did) REFERENCES user(did),"+
            "PRIMARY KEY(datetime))";
@@ -108,7 +109,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        database.close();
 	   
    }
-   public void addSpent (String username, String did, String datetime, String category){
+   public void addSpent (String username, String did, String datetime, String category, Double price){
        //yyyy-MM-dd HH:mm:ss
        SQLiteDatabase database = this.getWritableDatabase();
 
@@ -117,11 +118,32 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        values.put("did", did);
        values.put("datetime", datetime);
        values.put("category", category);
-
+       values.put("price", price);
        database.insert("spent", // table
            null, //nullColumnHack
            values);
        database.close();
+   }
+   public ArrayList<String> getCategories(String username){
+       SQLiteDatabase database = this.getWritableDatabase();
+       ArrayList<String> result = new ArrayList<String>();
+
+       ArrayList<String> uniqueCategories = rawQuery("select DISTINCT category from spent where username = "+username);
+       Cursor cursor = database.rawQuery("select category, sum(price) from spent where username = 111 group by category", null);
+       if ((cursor != null) && (cursor.getCount() > 0)) {
+           cursor.moveToFirst();
+       }
+       else if(cursor==null){
+           return null;
+       }
+       int i=0;
+       while(i < cursor.getCount()){
+           result.add(cursor.getString(0)+" Total spent: "+cursor.getDouble(1));
+           cursor.moveToNext();
+           i++;
+       }
+
+       return result;
    }
    public User getUser(String username){
 	   String[] columns = {"username", "password", "firstname", "lastname"};
