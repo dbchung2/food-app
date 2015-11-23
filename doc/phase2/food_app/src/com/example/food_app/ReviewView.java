@@ -15,11 +15,13 @@ import com.example.food_app.DatabaseClasses.Review;
  */
 public class ReviewView extends Activity {
     MySQLiteHelper db = new MySQLiteHelper(this);
+    String username;
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_view);
         Review review = (Review) this.getIntent().getSerializableExtra("review");
+        username = getIntent().getStringExtra("username");
         String dishName = db.rawQuery("select dishName from dish where did = "+review.getDid()).get(0);
         TextView dName =  (TextView) findViewById (R.id.reviewDishName);
         TextView dDesc =  (TextView) findViewById (R.id.reviewDesc);
@@ -53,6 +55,7 @@ public class ReviewView extends Activity {
 			
 	public void goToMenu() {
 		Intent intent = new Intent(this, MainMenu.class);
+		intent.putExtra("username", username);
 		startActivity(intent);
 	}
 }
