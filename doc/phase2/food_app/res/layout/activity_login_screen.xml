@@ -43,15 +43,6 @@
     </EditText>
 
         <Button
-            android:id="@+id/login"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:background="#1a1a1a"
-            android:textColor="#FFFFFF"
-            android:layout_margin="10dp"
-            android:text="@string/login" />
-
-        <Button
             android:id="@+id/register"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
@@ -59,6 +50,15 @@
             android:background="#1a1a1a"
             android:onClick="goToSignUp"
             android:text="@string/register"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#1a1a1a"
+            android:text="@string/login"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
