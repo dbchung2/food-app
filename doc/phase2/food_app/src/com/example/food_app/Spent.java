@@ -23,61 +23,39 @@ public class Spent extends Activity {
 		String username;
   ArrayList<String> cats;
 		ListView listView;
+		ArrayList<String> categories;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_spent);
 			username = getIntent().getStringExtra("username");
+			populateList();
 
 	}
 		public void populateList(){
 
 				setContentView(R.layout.activity_spent);
+			  categories =   db.rawQuery(
+						"select DISTINCT category from spent where username = " + username);
 
-				cats = db.getCategories(username);
+				cats = db.getSpentTitles(username);
 
 				listView = (ListView)findViewById(R.id.listView1);
-
+				listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+				{
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+						{
+								Intent intent = new Intent(arg1.getContext(), SpentView.class);
+								intent.putExtra("username", username);
+								intent.putExtra("cat", categories.get(position));
+								startActivity(intent);
+						}
+				});
 				//Insert Array here
 				if(cats!=null){
 						final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cats);
 						listView.setAdapter(adapter);
-
-
-						//Implement the search feature
-						if(cats!=null){
-								final ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cats);
-								listView.setAdapter(adapter1);
-
-
-								//Implement the search feature
-								final EditText inputSearch = (EditText) findViewById(R.id.dish_name1);
-
-								//get search text
-								inputSearch.addTextChangedListener(new TextWatcher() {
-
-										@Override
-										public void afterTextChanged(Editable arg0) {
-												// TODO Auto-generated method stub
-												String text = inputSearch.getText().toString().toLowerCase(
-														Locale.getDefault());
-												adapter1.getFilter().filter(text.toString());
-										}
-
-										@Override
-										public void beforeTextChanged(CharSequence arg0, int arg1,
-												int arg2, int arg3) {
-												// TODO Auto-generated method stub
-										}
-
-										@Override
-										public void onTextChanged(CharSequence arg0, int arg1, int arg2,
-												int arg3) {
-												// TODO Auto-generated method stub
-										}
-								});
-						}
-
 				}
 		}
 	@Override

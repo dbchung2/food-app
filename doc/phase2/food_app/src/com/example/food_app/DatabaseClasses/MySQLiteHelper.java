@@ -124,12 +124,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
            values);
        database.close();
    }
-   public ArrayList<String> getCategories(String username){
+   public ArrayList<String> getSpentTitles(String username){
        SQLiteDatabase database = this.getWritableDatabase();
        ArrayList<String> result = new ArrayList<String>();
 
-       ArrayList<String> uniqueCategories = rawQuery("select DISTINCT category from spent where username = "+username);
-       Cursor cursor = database.rawQuery("select category, sum(price) from spent where username = 111 group by category", null);
+       Cursor cursor = database.rawQuery("select category, sum(price) from spent where username = "+username+" group by category", null);
        if ((cursor != null) && (cursor.getCount() > 0)) {
            cursor.moveToFirst();
        }
@@ -138,13 +137,33 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        }
        int i=0;
        while(i < cursor.getCount()){
-           result.add(cursor.getString(0)+" Total spent: "+cursor.getDouble(1));
+           result.add("Category: "+cursor.getString(0)+"    Total spent: $"+cursor.getDouble(1));
            cursor.moveToNext();
            i++;
        }
-        result = result;
        return result;
    }
+    public ArrayList<String> getSpentByCategory(String username, String cat){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ArrayList<String> result = new ArrayList<String>();
+
+        Cursor cursor = database.rawQuery("select did, sum(price) from spent where username = "+username+ " group by did", null);
+
+
+        if ((cursor != null) && (cursor.getCount() > 0)) {
+            cursor.moveToFirst();
+        }
+        else if(cursor==null){
+            return null;
+        }
+        int i=0;
+        while(i < cursor.getCount()){
+            result.add("Category: "+cursor.getString(0)+"    Total spent: $"+cursor.getDouble(1));
+            cursor.moveToNext();
+            i++;
+        }
+        return result;
+    }
    public User getUser(String username){
 	   String[] columns = {"username", "password", "firstname", "lastname"};
 	  
@@ -230,14 +249,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        result = result/ratings.size();
        return result;
    }
-    /*
-   public ArrayList<String> getCategories(){
-       return rawQuery("select distinct category from review");
-   }
-   public HashMap<String, String> getSpent(String did){
-       ArrayList<String> categories = getCategories();
 
-   } */
    public ArrayList<String> getWishlistIds(String username){
 	   String[] columns = {"username", "did"};
 	   ArrayList<String> dishIDs = new ArrayList<String>();
