@@ -2,6 +2,7 @@ package com.example.food_app.DatabaseClasses;
 
 
  
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,6 +11,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
  
 public class MySQLiteHelper extends SQLiteOpenHelper {
@@ -59,6 +62,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     		   "dishName varchar(255)," +
            "category varchar(255)," +
            "price DOUBLE," +
+           "dishImage BLOB," +
            "avgRating INTEGER CHECK(avgRating <= 5))";
        String CREATE_SPENT_TABLE = "CREATE TABLE spent ( " +
            "username varchar(255), "+
@@ -109,6 +113,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
        database.close();
 	   
    }
+    public static byte[] getBitmapAsByteArray(Bitmap bitmap) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
+        return outputStream.toByteArray();
+    }
    public void addSpent (String username, String did, String datetime, String category, Double price){
        //yyyy-MM-dd HH:mm:ss
        SQLiteDatabase database = this.getWritableDatabase();
@@ -311,7 +320,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         database.delete("wishlist", "username = ? AND did = ?", new String[]{username, did});
 
     }
-    public void addDish(String rid, String dishName, String category, Double price){
+    public void addDish(String rid, String dishName, String category, Double price, Bitmap img){
         SQLiteDatabase database = this.getWritableDatabase();
 
         
@@ -320,6 +329,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         values.put("dishName", dishName);
         values.put("category", category);
         values.put("price", price);
+        values.put("dishImage", getBitmapAsByteArray(img));
 
         //Later on we will update the avg rating based on reviews instead of initializing it to 0
         values.put("avgRating", 0);
@@ -330,7 +340,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         database.close();
     }
     public Dish getDish(String rid, String did) {
-        String[] columns = {"did", "rid", "dishName", "avgRating"};
+        String[] columns = {"did", "rid", "dishName", "avgRating", "price",  "dishImage"};
         // 1. get reference to readable DB
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -347,8 +357,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // 3. if we got results get the first one
         if (cursor != null)
             cursor.moveToFirst();
+
         Dish dish = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(
-            4));
+            4), cursor.getBlob(5));
         return dish;
     }
 
@@ -434,7 +445,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         int i=0;
         while(i < cursor.getCount()){
             Dish temp = new Dish(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getDouble(
-                4));
+                4), cursor.getBlob(5));
             restaurantDishes.add(temp);
             cursor.moveToNext();
             i++;

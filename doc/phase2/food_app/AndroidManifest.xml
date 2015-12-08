@@ -102,5 +102,6 @@
         <activity android:name=".ReviewView"/>
         <activity android:name=".SpentView"/>
     </application>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

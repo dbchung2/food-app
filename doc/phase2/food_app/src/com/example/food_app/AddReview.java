@@ -32,8 +32,7 @@ public class AddReview extends Activity {
 		
 		did = this.getIntent().getStringExtra("did");
 		//get all text fields
-		final EditText price = (EditText) findViewById(R.id.price);
-		
+
 		
 		final RatingBar rating = (RatingBar) findViewById(R.id.rating);
 		rating.setStepSize(1);

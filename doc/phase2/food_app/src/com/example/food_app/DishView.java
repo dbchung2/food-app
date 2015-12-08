@@ -2,11 +2,13 @@ package com.example.food_app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -39,7 +41,9 @@ public class DishView extends Activity {
         TextView price = (TextView) findViewById(R.id.dishViewPrice);
         price.setText(String.valueOf(thisDish.getPrice()));
         category.setText(thisDish.getCategory());
-
+        ImageView img = (TouchImageView) findViewById(R.id.dishViewImage);
+        img.setImageBitmap(BitmapFactory
+            .decodeByteArray(thisDish.getImg(), 0, thisDish.getImg().length));
         ratingBar.setRating(db.getAvgRating(thisDish.getDid()));
         dName.setText(thisDish.getDishName());
     }

@@ -13,40 +13,61 @@
         android:id="@+id/menuname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:ems="10"
         android:hint="@string/dish_name"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_above="@+id/category"
+        android:layout_alignLeft="@+id/category"
+        android:layout_alignStart="@+id/category"
+        android:layout_marginBottom="62dp"/>
     
     <EditText
         android:id="@+id/category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
         android:ems="10"
         android:hint="Category"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/menuname"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_marginBottom="74dp"
+        android:layout_above="@+id/addDishPrice"
+        android:layout_alignLeft="@+id/addDishPrice"
+        android:layout_alignStart="@+id/addDishPrice"/>
     
     <Button
         android:id="@+id/submitToAddDish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
-        android:text="@string/addDish" />
+        android:text="@string/addDish" android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
     <EditText android:id="@+id/addDishPrice" android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:ems="10"
               android:hint="Price ($)"
               android:textAppearance="?android:attr/textAppearanceMedium"
-              android:layout_below="@+id/category"
-              android:layout_alignParentLeft="true"
-              android:layout_alignParentStart="true"
-              android:layout_marginTop="39dp"/>
+              android:layout_above="@+id/submitToAddDish"
+              android:layout_alignRight="@+id/submitToAddDish"
+              android:layout_alignEnd="@+id/submitToAddDish"
+              android:layout_marginBottom="58dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/menuname"
+            android:layout_alignStart="@+id/menuname"
+            android:layout_above="@+id/menuname"
+            android:layout_alignRight="@+id/menuname"
+            android:layout_alignEnd="@+id/menuname"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Image"
+            android:id="@+id/addImage"
+            android:layout_above="@+id/submitToAddDish"
+            android:layout_alignLeft="@+id/addDishPrice"
+            android:layout_alignStart="@+id/addDishPrice"
+            android:onClick="addImage"
+            />
 
 
 </RelativeLayout>

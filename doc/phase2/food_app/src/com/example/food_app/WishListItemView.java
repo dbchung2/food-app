@@ -1,5 +1,6 @@
 package com.example.food_app;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
@@ -37,7 +39,9 @@ public class WishListItemView extends Activity {
 		TextView restName = (TextView) findViewById(R.id.wishListRestName);
 		TextView foodField = (TextView) findViewById(R.id.wishListFoodName);
 		RatingBar ratingBar = (RatingBar) findViewById(R.id.wishlistRating);
-
+	  ImageView img = (ImageView) findViewById(R.id.wishImageView);
+			img.setImageBitmap(BitmapFactory
+					.decodeByteArray(thisDish.getImg(), 0, thisDish.getImg().length));
 		ratingBar.setRating(db.getAvgRating(thisDish.getDid()));
 		foodField.setText(thisDish.getDishName());
 		restName.setText(db.getRestaurant(thisDish.getRid()).getRname());

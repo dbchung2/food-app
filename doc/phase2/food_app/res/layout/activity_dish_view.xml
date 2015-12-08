@@ -17,48 +17,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Category: "
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="60dp"/>
+            android:layout_above="@+id/textView9"
+            android:layout_alignLeft="@+id/reviewsButton"
+            android:layout_alignStart="@+id/reviewsButton"
+            android:layout_marginBottom="29dp"/>
     
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dishViewCategory" 
             android:text="categorytext "
+            android:layout_alignTop="@+id/textView8"
             android:layout_toRightOf="@+id/textView8"
-            android:layout_marginTop="60dp"/>
+            android:layout_toEndOf="@+id/textView8"/>
     
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Price : "
             android:id="@+id/textView9"
-            android:layout_below="@+id/textView8"
+            android:layout_marginBottom="19dp"
+            android:layout_above="@+id/textView2"
             android:layout_alignLeft="@+id/textView8"
-            android:layout_alignStart="@+id/textView8"
-            android:layout_marginTop="20dp"/>
+            android:layout_alignStart="@+id/textView8"/>
     
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dishViewPrice"
             android:text="categorytext "
+            android:layout_alignTop="@+id/textView9"
             android:layout_toRightOf="@+id/textView9"
-            android:layout_below="@+id/textView8"
-            android:layout_marginTop="20dp"/>
+            android:layout_toEndOf="@+id/textView9"/>
     
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Average Rating:"
         android:id="@+id/textView2"
-        android:layout_below="@+id/textView9"
+        android:layout_above="@+id/dishViewRating"
         android:layout_alignLeft="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_alignStart="@+id/textView9"/>
     
     <Button
         android:layout_width="wrap_content"
@@ -90,18 +89,30 @@
             android:text="Ate it"
             android:id="@+id/dishViewAteIt"
             android:onClick="ateIt"
-            android:layout_below="@+id/dishViewRating"
-            android:layout_centerHorizontal="true"
-            />
+            android:layout_marginBottom="29dp"
+            android:layout_above="@+id/addToWishlist"
+            android:layout_toRightOf="@+id/dishViewPrice"
+            android:layout_toEndOf="@+id/dishViewPrice"/>
         
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dishViewRating"
         android:isIndicator="true"
-        android:layout_below="@+id/textView2"
+        android:layout_above="@+id/reviewsButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginBottom="125dp"/>
+    <com.example.food_app.TouchImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dishViewImage"
+            android:layout_above="@+id/dishViewCategory"
+            android:layout_alignLeft="@+id/textView8"
+            android:layout_alignStart="@+id/textView8"
+            android:layout_toStartOf="@+id/dishViewAteIt"
+            android:layout_below="@+id/dishNameText"
+            android:layout_alignRight="@+id/dishViewCategory"
+            android:layout_alignEnd="@+id/dishViewCategory"/>
 
 
 </RelativeLayout>
