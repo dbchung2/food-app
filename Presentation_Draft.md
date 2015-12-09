@@ -44,3 +44,10 @@ A dish reviewing app that rates specfic dishes over overall restuarant quality.
 #### User stats 
 - Useful to note what favourite places, categories are 
 - Foodies will want to know where they've put the most money
+
+###Challenges
+- General database connection
+- Attempted implementation of advanced features beyond our scope
+  - Webservers
+  - Location/GPS implementation
+  - Images (though now working)
