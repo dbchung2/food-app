@@ -8,6 +8,20 @@
   - Emphasize user stories, who could use the app
     - From Die-hard food lovers to casual restaurant-goer
 
+##Content & Presentation
+###what you built
+A dish reviewing app that rates specfic dishes over overall restuarant quality.
+
+###who you built it for
+Foodies...
+
+###why (i.e. the value to the user)
+- Yelp only does restuarant reviews not dishes
+- Leaves the user with wondering what to order
+- Potentially can be in a nice restaurant and get the worse dish
+- Alternatively can get the best dish in a bad resaurant
+- Gives a better dining experience than yelp
+
 ### Walkthrough
 
 #### Login screen
